@@ -1,0 +1,282 @@
+
+[24 Apr 2018 09:29:26.452](5) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[24 Apr 2018 09:34:28.040](14) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[24 Apr 2018 09:41:34.185](14) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[24 Apr 2018 09:42:52.617](14) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[24 Apr 2018 12:08:02.997](86) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:11:09.362](86) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:13:18.051](86) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:20:34.825](88) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:34:18.510](86) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:38:57.335](5) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:40:42.840](6) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:1323))
+
+[24 Apr 2018 12:41:23.310](6) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 12:41:25.525](6) DEBUG: RequestNumber for LegalEntity is: 40 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 12:41:25.526](6) DEBUG: Successfully send SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 12:41:25.528](6) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 12:41:25.534](6) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 12:41:25.535](6) DEBUG: Start sending SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 12:41:30.265](6) DEBUG: RequestNumber for LegalEntity is: 41 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 12:41:30.266](6) DEBUG: Successfully send SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 12:41:30.267](6) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 12:41:30.269](6) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 12:56:03.631](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:56:15.908](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 12:58:15.665](21) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:1323))
+
+[24 Apr 2018 12:58:33.075](21) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 12:58:35.013](21) DEBUG: RequestNumber for LegalEntity is: 42 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 12:58:35.017](21) DEBUG: Successfully send SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 12:58:35.020](21) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 12:58:35.023](21) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 12:58:35.025](21) DEBUG: Start sending SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 12:58:36.798](21) DEBUG: RequestNumber for LegalEntity is: 43 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 12:58:36.800](21) DEBUG: Successfully send SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 12:58:36.802](21) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 12:58:36.805](21) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:21:34.687](18) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 13:21:57.104](15) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[24 Apr 2018 13:26:27.825](13) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:1323))
+
+[24 Apr 2018 13:26:43.581](28) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:26:45.646](28) DEBUG: RequestNumber for LegalEntity is: 44 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:26:45.649](28) DEBUG: Successfully send SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:26:48.507](28) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:26:58.112](28) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:26:58.113](28) DEBUG: Start sending SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:26:59.838](28) DEBUG: RequestNumber for LegalEntity is: 45 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:26:59.839](28) DEBUG: Successfully send SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:26:59.839](28) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:26:59.841](28) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:26:59.842](28) DEBUG: Start sending SOAP message for i = 2 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:27:01.578](28) DEBUG: RequestNumber for LegalEntity is: 46 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:27:01.578](28) DEBUG: Successfully send SOAP message for i = 2 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:27:01.579](28) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:27:01.584](28) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:36:27.316](21) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 13:38:50.249](22) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:1323))
+
+[24 Apr 2018 13:39:13.009](22) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:39:15.061](22) DEBUG: RequestNumber for LegalEntity is: 47 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:39:15.063](22) DEBUG: Successfully send SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:39:15.064](22) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:39:15.067](22) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:39:15.069](22) DEBUG: Start sending SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:39:16.803](22) DEBUG: RequestNumber for LegalEntity is: 48 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:39:16.805](22) DEBUG: Successfully send SOAP message for i = 1 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:39:16.808](22) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:39:16.813](22) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 13:39:16.816](22) DEBUG: Start sending SOAP message for i = 2 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2469))
+
+[24 Apr 2018 13:39:18.711](22) DEBUG: RequestNumber for LegalEntity is: 49 (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2570))
+
+[24 Apr 2018 13:39:18.712](22) DEBUG: Successfully send SOAP message for i = 2 row. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2571))
+
+[24 Apr 2018 13:39:18.712](22) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2573))
+
+[24 Apr 2018 13:39:18.714](22) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:2586))
+
+[24 Apr 2018 14:06:56.503](22) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 14:18:19.342](43) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 14:22:37.376](39) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 14:29:53.845](30) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 14:31:13.593](38) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 14:32:35.357](38) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 14:33:15.957](38) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 14:35:27.480](27) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 14:36:21.061](27) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 14:36:21.101](27) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 14:36:24.802](38) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 14:36:24.812](38) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 14:36:38.080](38) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 14:37:29.305](43) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 14:37:29.315](43) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 14:38:41.392](38) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 14:39:24.778](38) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:06:12.710](48) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:07:51.823](48) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:08:00.449](51) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 15:08:00.462](51) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:08:13.615](48) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 15:08:13.624](48) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:09:20.252](48) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 15:11:48.490](48) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:13:32.975](48) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:15:55.511](54) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:15:58.892](47) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 15:15:58.932](47) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:16:10.709](48) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2348))
+
+[24 Apr 2018 15:17:27.570](48) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2640))
+
+[24 Apr 2018 15:20:26.872](48) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice.aspx.cs:99))
+
+[24 Apr 2018 15:21:35.125](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:23:07.780](6) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:23:13.237](9) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:23:13.276](9) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:23:23.923](6) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:23:52.296](6) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:23:58.935](7) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:24:01.696](7) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:24:06.556](6) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:25:27.814](6) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:25:34.173](7) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:25:42.799](7) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:25:46.439](6) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:26:09.580](6) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:26:13.827](7) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2346))
+
+[24 Apr 2018 15:26:34.306](7) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2636))
+
+[24 Apr 2018 15:35:43.435](10) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:36:23.179](10) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:37:53.956](10) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:37:59.510](10) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:40:09.628](10) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:40:13.478](10) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:41:17.614](10) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:41:24.149](5) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:47:10.080](5) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:49:04.710](5) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:49:57.892](28) ERROR: Greška prilikom dodavanja novog reda u GridView tabeli. DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'ImeDrzave'. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.AddNewRowToGrid(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:327))
+
+[24 Apr 2018 15:50:33.550](22) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:51:59.941](22) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:52:04.742](22) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:52:11.081](22) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:52:14.506](22) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:53:03.562](22) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2637))
+
+[24 Apr 2018 15:54:36.308](22) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:97))
+
+[24 Apr 2018 15:55:25.973](22) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:1098))
+
+[24 Apr 2018 15:55:29.962](22) DEBUG: Start sending SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2347))
+
+[24 Apr 2018 15:55:32.380](22) DEBUG: RequestNumber for LegalEntity is: 53 (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2445))
+
+[24 Apr 2018 15:55:32.381](22) DEBUG: Successfully send SOAP message for i = 0 row. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2446))
+
+[24 Apr 2018 15:55:32.382](22) DEBUG: Start creating PDF Files. (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2448))
+
+[24 Apr 2018 15:55:32.387](22) DEBUG: Successfully create PDF files! (zahtev_izdavanje_pravno_lice_stranac_bez_JMBG.btnEnterRequest_Click2(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-pravno-lice-stranac-bez-JMBG.aspx.cs:2461))

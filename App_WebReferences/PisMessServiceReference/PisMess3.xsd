@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://pis.rs/webservices/pismess" elementFormDefault="qualified" targetNamespace="https://pis.rs/webservices/pismess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendingMethod" type="tns:SendingMethodEnum" />
+        <xs:element minOccurs="0" name="MessageType" type="tns:MessageTypeEnum" />
+        <xs:element minOccurs="0" name="PrintDirectly" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:ArrayOfParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="SendingMethodEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SMS" />
+      <xs:enumeration value="email" />
+      <xs:enumeration value="PDF" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SendingMethodEnum" nillable="true" type="tns:SendingMethodEnum" />
+  <xs:simpleType name="MessageTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PUK" />
+      <xs:enumeration value="PIN" />
+      <xs:enumeration value="p10" />
+      <xs:enumeration value="p12" />
+      <xs:enumeration value="p12Password" />
+      <xs:enumeration value="statusChange" />
+      <xs:enumeration value="expiration" />
+      <xs:enumeration value="unblockTokenPIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageTypeEnum" nillable="true" type="tns:MessageTypeEnum" />
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="tns:Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameter" nillable="true" type="tns:ArrayOfParameter" />
+  <xs:complexType name="Parameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ParameterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParameterValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parameter" nillable="true" type="tns:Parameter" />
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendMessageResult" nillable="true" type="tns:MessageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MessageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageResponse" nillable="true" type="tns:MessageResponse" />
+  <xs:element name="SendSms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSmsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendSmsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="attachmentPath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isHtmlFormatted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendEmailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendIpGeolocationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ipAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendIpGeolocationRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendIpGeolocationRequestResult" nillable="true" type="tns:IpGeolocationData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IpGeolocationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AsNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Continent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Isp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IpGeolocationData" nillable="true" type="tns:IpGeolocationData" />
+  <xs:element name="CreateDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="templateDocumentType" type="tns:TemplateDocumentTypeSerbianPost" />
+        <xs:element minOccurs="0" name="documentParameters" nillable="true" type="tns:ArrayOfParameter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="TemplateDocumentTypeSerbianPost">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IssuingIndividual" />
+      <xs:enumeration value="PaymentOrder" />
+      <xs:enumeration value="GovernmentContract" />
+      <xs:enumeration value="LegalEntityContract" />
+      <xs:enumeration value="LegalEntityContractAttachment" />
+      <xs:enumeration value="UnblockingRequest" />
+      <xs:enumeration value="CertificateStatusChange" />
+      <xs:enumeration value="IndividualContract" />
+      <xs:enumeration value="ReceptionBook" />
+      <xs:enumeration value="EnvelopeAddress" />
+      <xs:enumeration value="ImportPostExpressNumbers" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TemplateDocumentTypeSerbianPost" nillable="true" type="tns:TemplateDocumentTypeSerbianPost" />
+  <xs:element name="CreateDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreateDocumentResult" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDocumentLegalEntityContractAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="documentParameters" nillable="true" type="tns:ArrayOfParameter" />
+        <xs:element minOccurs="0" name="certificatesAuthorizedUsers" nillable="true" type="tns:ArrayOfCertificatesAuthorizedUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCertificatesAuthorizedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CertificatesAuthorizedUser" nillable="true" type="tns:CertificatesAuthorizedUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCertificatesAuthorizedUser" nillable="true" type="tns:ArrayOfCertificatesAuthorizedUser" />
+  <xs:complexType name="CertificatesAuthorizedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expiry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HwMedium" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jmbg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CertificatesAuthorizedUser" nillable="true" type="tns:CertificatesAuthorizedUser" />
+  <xs:element name="CreateDocumentLegalEntityContractAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreateDocumentLegalEntityContractAttachmentResult" nillable="true" type="q2:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckRevocationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serialNumberString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="revocationMethod" type="tns:RevocationMethodEnum" />
+        <xs:element minOccurs="0" name="checkingUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="issuerCertificatePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="RevocationMethodEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CrlHttp" />
+      <xs:enumeration value="CrlLdap" />
+      <xs:enumeration value="Ocsp" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RevocationMethodEnum" nillable="true" type="tns:RevocationMethodEnum" />
+  <xs:element name="CheckRevocationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckRevocationStatusResult" nillable="true" type="tns:RevocationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RevocationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CertificateSerialNumberDecimal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificateSerialNumberHexaDecimal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CertificateStatus" type="tns:CertificateStatusEnum" />
+      <xs:element minOccurs="0" name="CheckingDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CompromiseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IssuerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextUpdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResponseSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RevocationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RevocationMethod" type="tns:RevocationMethodEnum" />
+      <xs:element minOccurs="0" name="RevocationReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerCertificate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThisUpdate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UrlForChecking" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RevocationResponse" nillable="true" type="tns:RevocationResponse" />
+  <xs:simpleType name="CertificateStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Good" />
+      <xs:enumeration value="Revoked" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CertificateStatusEnum" nillable="true" type="tns:CertificateStatusEnum" />
+  <xs:element name="TestConcurrecy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestConcurrecyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TestConcurrecyResult" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

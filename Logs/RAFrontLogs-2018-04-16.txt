@@ -1,0 +1,18 @@
+
+[16 Apr 2018 12:24:10.215](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:85))
+
+[16 Apr 2018 12:25:59.299](7) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:993))
+
+[16 Apr 2018 12:26:19.354](7) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:993))
+
+[16 Apr 2018 12:28:57.630](12) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1015))
+
+[16 Apr 2018 12:28:59.189](12) DEBUG: Successfully send SOAP message! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1059))
+
+[16 Apr 2018 12:28:59.189](12) DEBUG: Start creating PDF Files. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1061))
+
+[16 Apr 2018 12:28:59.340](12) ERROR: Response error in WordToPDFIssuingIndividual, response from PissMess. Object reference not set to an instance of an object. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.WordToPDFIssuingIndividual(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1212))
+
+[16 Apr 2018 12:29:00.474](12) ERROR: Response error in WordToPDFIssuingIndividualPaymentOrder, response from PissMess. Error creating documents. The remote procedure call failed. (Exception from HRESULT: 0x800706BE) (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.WordToPDFIssuingIndividualPaymentOrder(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1267))
+
+[16 Apr 2018 12:29:00.475](12) DEBUG: Successfully create PDF files! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1063))

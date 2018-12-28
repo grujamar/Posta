@@ -1,0 +1,62 @@
+
+[26 Apr 2018 09:55:53.396](6) DEBUG: Application Starting, successfully get all controls! (Zahtev_promena_statusa.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:69))
+
+[26 Apr 2018 10:33:15.327](24) DEBUG: Application Starting, successfully get all controls! (Zahtev_promena_statusa.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:69))
+
+[26 Apr 2018 10:43:08.974](24) DEBUG: Application Starting, successfully get all controls! (Zahtev_promena_statusa.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:69))
+
+[26 Apr 2018 10:43:59.917](24) DEBUG: Successfully get all GetUserAgentInformations! (Zahtev_promena_statusa.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:670))
+
+[26 Apr 2018 10:44:18.979](6) DEBUG: Start sending SOAP message. (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:696))
+
+[26 Apr 2018 10:44:18.987](6) DEBUG: RequestNumber is:  (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:750))
+
+[26 Apr 2018 10:44:18.988](6) DEBUG: Successfully send SOAP message! (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:751))
+
+[26 Apr 2018 10:44:18.989](6) DEBUG: Start creating PDF Files. (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:753))
+
+[26 Apr 2018 10:44:18.990](6) DEBUG: Successfully create PDF files! (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:755))
+
+[26 Apr 2018 11:29:35.127](34) DEBUG: Application Starting, successfully get all controls! (Zahtev_promena_statusa.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:69))
+
+[26 Apr 2018 11:30:28.888](37) DEBUG: Successfully get all GetUserAgentInformations! (Zahtev_promena_statusa.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:670))
+
+[26 Apr 2018 11:34:13.591](47) DEBUG: Successfully get all GetUserAgentInformations! (Zahtev_promena_statusa.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:670))
+
+[26 Apr 2018 11:41:54.176](47) DEBUG: Application Starting, successfully get all controls! (Zahtev_promena_statusa.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:69))
+
+[26 Apr 2018 11:42:31.154](47) DEBUG: Successfully get all GetUserAgentInformations! (Zahtev_promena_statusa.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:670))
+
+[26 Apr 2018 11:42:35.108](47) DEBUG: Start sending SOAP message. (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:699))
+
+[26 Apr 2018 11:43:12.405](47) DEBUG: RequestNumber for Unblock Status is: 60 (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:759))
+
+[26 Apr 2018 11:43:12.406](47) DEBUG: Successfully send SOAP message! (Zahtev_promena_statusa.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\Zahtev-promena-statusa.aspx.cs:760))
+
+[26 Apr 2018 13:01:59.155](13) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:84))
+
+[26 Apr 2018 13:02:45.154](31) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:888))
+
+[26 Apr 2018 13:02:56.510](9) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:912))
+
+[26 Apr 2018 13:02:59.118](9) DEBUG: RequestNumber is: 62 (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:961))
+
+[26 Apr 2018 13:02:59.119](9) DEBUG: Finished sending SOAP message! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:962))
+
+[26 Apr 2018 13:02:59.119](9) DEBUG: Start creating PDF Files. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:971))
+
+[26 Apr 2018 13:03:03.849](9) DEBUG: Finished creating PDF files! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1086))
+
+[26 Apr 2018 13:59:02.940](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[26 Apr 2018 13:59:15.654](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:84))
+
+[26 Apr 2018 13:59:26.154](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[26 Apr 2018 13:59:34.742](6) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:84))
+
+[26 Apr 2018 14:11:03.817](15) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[26 Apr 2018 14:18:52.569](10) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))
+
+[26 Apr 2018 14:19:18.385](14) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:91))

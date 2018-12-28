@@ -1,0 +1,142 @@
+
+[04 Apr 2018 08:44:48.005](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:84))
+
+[04 Apr 2018 08:52:42.086](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:84))
+
+[04 Apr 2018 10:32:15.203](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 10:32:18.996](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:19.011](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:19.022](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:19.032](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:38.459](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:38.469](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:32:38.479](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:33:33.079](121) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:38:31.735](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 10:38:46.898](29) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:38:46.917](29) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:38:46.934](29) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:38:54.697](29) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:39:33.429](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:39:33.433](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:39:33.435](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:39:33.436](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:42:00.827](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 10:42:14.074](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:42:14.079](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:42:14.082](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:42:14.085](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:44:37.084](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 10:44:39.200](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:44:39.211](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:44:39.222](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:44:39.231](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:45:01.955](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 10:45:33.803](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:02:02.422](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:02:02.453](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:02:02.454](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:02:02.459](74) ERROR: Error while getting IdItemDefault file. Failed to convert parameter value from a String to a Int32. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:07:51.583](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 11:07:59.370](29) ERROR: Error while getting IdItemDefault file. Index was outside the bounds of the array. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:09:57.148](29) ERROR: Error while getting IdItemDefault file. Index was outside the bounds of the array. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:09:57.163](29) ERROR: Error while getting IdItemDefault file. Index was outside the bounds of the array. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:09:57.182](29) ERROR: Error while getting IdItemDefault file. Index was outside the bounds of the array. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:09:57.191](29) ERROR: Error while getting IdItemDefault file. Index was outside the bounds of the array. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:10:30.699](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 11:10:42.706](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:10:42.720](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:10:42.731](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:10:42.741](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:12:38.723](29) ERROR: Error while getting IdItemDefault file. The connection was not closed. The connection's current state is open. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:12:38.730](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:12:38.733](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:12:38.735](29) ERROR: Error while getting IdItemDefault file. Incorrect syntax near ','. (Utility.getIdItemDefault(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:125))
+
+[04 Apr 2018 11:15:20.868](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:86))
+
+[04 Apr 2018 14:18:46.291](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 14:24:32.696](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:15:34.749](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:20:34.812](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:37:15.419](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:39:07.643](29) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:42:36.957](29) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:53:13.286](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:53:16.754](74) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:53:24.756](74) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:53:26.173](74) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:53:31.940](121) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:53:45.211](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:53:47.948](74) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:54:13.609](74) ERROR: Error while getting PTTVariables. Specified cast is not valid. (Utility.pronadjiPromenljivePTT(c:\Users\Marko\Desktop\Projekti SVI\Posta\App_Code\Utility.cs:74))
+
+[04 Apr 2018 15:56:24.856](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[04 Apr 2018 15:57:56.157](74) DEBUG: Successfully get GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1225))
+
+[04 Apr 2018 15:58:05.522](121) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1243))
+
+[04 Apr 2018 15:58:05.545](121) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1300))

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="https://pis.rs/webservices/pismess" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PisMess" targetNamespace="https://pis.rs/webservices/pismess" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IPisMessService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://pis.rs/webservices/pismess/Imports">
+      <xsd:import schemaLocation="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd0" namespace="https://pis.rs/webservices/pismess" />
+      <xsd:import schemaLocation="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPisMessService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendSms_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendSms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendIpGeolocationRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendIpGeolocationRequest" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_SendIpGeolocationRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendIpGeolocationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CreateDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocument" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CreateDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CreateDocumentLegalEntityContractAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentLegalEntityContractAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CreateDocumentLegalEntityContractAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDocumentLegalEntityContractAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CheckRevocationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRevocationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_CheckRevocationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRevocationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_TestConcurrecy_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestConcurrecy" />
+  </wsdl:message>
+  <wsdl:message name="IPisMessService_TestConcurrecy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestConcurrecyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPisMessService">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendMessage" message="tns:IPisMessService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendMessageResponse" message="tns:IPisMessService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendSms" message="tns:IPisMessService_SendSms_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendSmsResponse" message="tns:IPisMessService_SendSms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendEmail" message="tns:IPisMessService_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendEmailResponse" message="tns:IPisMessService_SendEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendIpGeolocationRequest">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendIpGeolocationRequest" message="tns:IPisMessService_SendIpGeolocationRequest_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendIpGeolocationRequestResponse" message="tns:IPisMessService_SendIpGeolocationRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CreateDocument" message="tns:IPisMessService_CreateDocument_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CreateDocumentResponse" message="tns:IPisMessService_CreateDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentLegalEntityContractAttachment">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CreateDocumentLegalEntityContractAttachment" message="tns:IPisMessService_CreateDocumentLegalEntityContractAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CreateDocumentLegalEntityContractAttachmentResponse" message="tns:IPisMessService_CreateDocumentLegalEntityContractAttachment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRevocationStatus">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatus" message="tns:IPisMessService_CheckRevocationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatusResponse" message="tns:IPisMessService_CheckRevocationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestConcurrecy">
+      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecy" message="tns:IPisMessService_TestConcurrecy_InputMessage" />
+      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecyResponse" message="tns:IPisMessService_TestConcurrecy_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPisMessService" type="tns:IPisMessService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IPisMessService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendIpGeolocationRequest">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendIpGeolocationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocument">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/CreateDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDocumentLegalEntityContractAttachment">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/CreateDocumentLegalEntityContractAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRevocationStatus">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestConcurrecy">
+      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PisMess">
+    <wsdl:port name="BasicHttpBinding_IPisMessService" binding="tns:BasicHttpBinding_IPisMessService">
+      <soap:address location="https://testpki.pis.rs/PisMess/PisMess.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

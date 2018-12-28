@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Posta(2)", ".", "{A8F75088-5EFC-4D05-A19F-57148F3F914B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49307"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\Posta\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49307\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49307"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\Posta\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49307\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49307"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8F75088-5EFC-4D05-A19F-57148F3F914B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F75088-5EFC-4D05-A19F-57148F3F914B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EED3671A-2CE4-4598-9BFB-07ABF9EA818E}
+	EndGlobalSection
+EndGlobal

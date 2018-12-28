@@ -1,0 +1,19 @@
+	.button {
+                background-color: #4480e2; /* Blue */
+                border: none;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;
+                margin: 4px 2px;
+                cursor: pointer;
+				width: 12%;
+                /*background:url(../Content/Images/save.png) left center no-repeat;*/
+            }    
+    .buttonborder {border: 7px solid #4275c9; font-size:100%}
+    .buttonborder1 {border: 7px solid #d8ad00; font-size:100%}
+    .buttonborder2 {border: 7px solid #358035; font-size:100%}
+    .buttonborder3 {border: 7px solid #00af34; font-size:100%}
+    

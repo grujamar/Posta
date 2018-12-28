@@ -1,0 +1,46 @@
+
+[05 Apr 2018 10:02:53.006](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:03:47.631](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:05:35.756](121) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:08:01.605](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:19:01.236](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:22:22.719](32) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:24:08.578](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:26:52.227](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 10:44:47.215](74) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 12:49:09.114](5) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 12:50:28.379](7) DEBUG: Successfully get GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1225))
+
+[05 Apr 2018 12:55:59.191](12) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1243))
+
+[05 Apr 2018 13:29:00.166](12) ERROR: Error while sending request. Object reference not set to an instance of an object. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1300))
+
+[05 Apr 2018 13:32:44.113](32) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:88))
+
+[05 Apr 2018 13:46:42.050](22) DEBUG: Successfully get GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1225))
+
+[05 Apr 2018 13:46:49.390](34) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1243))
+
+[05 Apr 2018 13:46:55.534](34) DEBUG: Successfully send SOAP message! (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1288))
+
+[05 Apr 2018 13:46:55.536](34) DEBUG: Start creating PDF Files. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1290))
+
+[05 Apr 2018 13:46:58.991](34) DEBUG: Successfully create PDF files! (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1292))
+
+[05 Apr 2018 13:46:59.053](34) ERROR: Error while sending request. Thread was being aborted. (zahtev_izdavanje_fizicko_lice.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:1299))
+
+[05 Apr 2018 13:47:05.087](34) ERROR: Error while downloading PDF file. Could not find a part of the path 'C:\Users\Marko\Desktop\Projekti SVI\Posta\192.168.10.218\c$\Git\PisMess\Templates\tempPdf2018-4-5-13-46-56-133.pdf'. (zahtev_izdavanje_fizicko_lice_podnet.btnPrintRequest_Click(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-podnet.aspx.cs:39))
+
+[05 Apr 2018 13:47:07.029](34) ERROR: Error while downloading PDF file Payment Order. Could not find a part of the path 'C:\Users\Marko\Desktop\Projekti SVI\Posta\192.168.10.218\c$\Git\PisMess\Templates\tempPdf2018-4-5-13-46-57-835.pdf'. (zahtev_izdavanje_fizicko_lice_podnet.btnPrintPaymentOrder_Click(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-podnet.aspx.cs:57))
+
+[05 Apr 2018 15:28:53.370](59) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:78))

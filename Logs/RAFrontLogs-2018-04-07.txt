@@ -1,0 +1,22 @@
+
+[07 Apr 2018 00:49:46.878](34) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:77))
+
+[07 Apr 2018 01:03:05.719](37) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:77))
+
+[07 Apr 2018 01:05:35.911](37) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice.aspx.cs:78))
+
+[07 Apr 2018 01:11:15.205](36) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:77))
+
+[07 Apr 2018 01:18:33.715](36) DEBUG: Application Starting, successfully get all controls! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.Page_Load(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:77))
+
+[07 Apr 2018 01:20:12.496](36) DEBUG: Successfully get all GetUserAgentInformations! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnSubmit_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:981))
+
+[07 Apr 2018 01:20:59.871](38) DEBUG: Start sending SOAP message. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:996))
+
+[07 Apr 2018 01:21:00.905](38) DEBUG: Successfully send SOAP message! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1039))
+
+[07 Apr 2018 01:21:00.910](38) DEBUG: Start creating PDF Files. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1041))
+
+[07 Apr 2018 01:21:11.679](38) DEBUG: Successfully create PDF files! (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1043))
+
+[07 Apr 2018 01:21:11.728](38) ERROR: Error while sending request. Thread was being aborted. (zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG.btnEnterRequest_Click1(c:\Users\Marko\Desktop\Projekti SVI\Posta\zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx.cs:1050))

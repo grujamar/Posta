@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bx="http://namespaces.bluex.com/bluex/bluexml">
+  <env:Header />
+  <env:Body>
+    <bx:BlueXMLRequestMessage xmlns:bx="http://namespaces.bluex.com/bluex/bluexml">
+      <bx:action>Register Token from Form</bx:action>
+      <bx:data>
+        <bx:value name="productionProfile" type="string">Qualified Electronic Certificate Foreigners</bx:value>
+        <bx:value name="media" type="string">USB_TOKEN</bx:value>
+        <bx:value name="validity" type="string">730</bx:value>
+        <bx:value name="givenName" type="string">Harisson</bx:value>
+        <bx:value name="lastName" type="string">Matthews</bx:value>
+        <bx:value name="identificationDocumentNumber" type="string">123</bx:value>
+        <bx:value name="identificationDocumentType" type="string">PASSPORT</bx:value>
+        <bx:value name="identificationDocumentValidUntil" type="string">31.05.2018</bx:value>
+        <bx:value name="identificationDocumentValidFrom" type="string">
+        </bx:value>
+        <bx:value name="identificationIssuer" type="string">971</bx:value>
+        <bx:value name="includeUniqueCitizensNumber" type="string">
+        </bx:value>
+        <bx:value name="uniqueCitizensNumber" type="string">
+        </bx:value>
+        <bx:value name="emailAddress" type="string">
+        </bx:value>
+        <bx:value name="phoneNumber" type="string">0641234567</bx:value>
+        <bx:value name="dateOfBirth" type="string">
+        </bx:value>
+        <bx:value name="distributionCity" type="string">Beograd</bx:value>
+        <bx:value name="distributionStreet" type="string">Katićeva</bx:value>
+        <bx:value name="distributionHouseNumber" type="string">14-18</bx:value>
+        <bx:value name="distributionPostalCode" type="string">11000</bx:value>
+        <bx:value name="distributionPAK" type="string">111515</bx:value>
+        <bx:value name="deliveryLocation" type="string">PTT</bx:value>
+        <bx:value name="paymentMethod" type="string">PAYMENT_REQUEST</bx:value>
+        <bx:value name="totalPrice" type="string">3.450,00</bx:value>
+        <bx:value name="legalEntityOrderNumber" type="string">
+        </bx:value>
+        <bx:value name="legalEntityName" type="string">
+        </bx:value>
+        <bx:value name="legalEntityGivenName" type="string">
+        </bx:value>
+        <bx:value name="legalEntityLastName" type="string">
+        </bx:value>
+        <bx:value name="businessRegistrationNumber" type="string">
+        </bx:value>
+        <bx:value name="taxNumber" type="string">
+        </bx:value>
+        <bx:value name="addedTax" type="string">
+        </bx:value>
+        <bx:value name="legalEntityActivityCode" type="string">
+        </bx:value>
+        <bx:value name="legalEntityCity" type="string">
+        </bx:value>
+        <bx:value name="legalEntityStreet" type="string">
+        </bx:value>
+        <bx:value name="legalEntityHouseNumber" type="string">
+        </bx:value>
+        <bx:value name="legalEntityPostalCode" type="string">
+        </bx:value>
+        <bx:value name="legalEntityPAK" type="string">
+        </bx:value>
+        <bx:value name="legalEntityPhoneNumber" type="string">
+        </bx:value>
+        <bx:value name="legalEntityEmail" type="string">
+        </bx:value>
+        <bx:value name="legalEntityURL" type="string">
+        </bx:value>
+        <bx:value name="legalEntityTotalPrice" type="string">
+        </bx:value>
+        <bx:value name="ipApplicant" type="string">79.175.126.113</bx:value>
+        <bx:value name="continentApplicant" type="string">
+        </bx:value>
+        <bx:value name="countryApplicant" type="string">Serbia</bx:value>
+        <bx:value name="countryCodeApplicant" type="string">RS</bx:value>
+        <bx:value name="cityApplicant" type="string">Belgrade</bx:value>
+        <bx:value name="osApplicant" type="string">Windows 10</bx:value>
+        <bx:value name="ispApplicant" type="string">Orion Telekom Tim d.o.o.Beograd</bx:value>
+        <bx:value name="browserApplicant" type="string">Chrome66</bx:value>
+        <bx:value name="userAgentStringApplicant" type="string">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36</bx:value>
+        <bx:value name="ipOperator" type="string">
+        </bx:value>
+      </bx:data>
+    </bx:BlueXMLRequestMessage>
+  </env:Body>
+</env:Envelope>
