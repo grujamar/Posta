@@ -131,9 +131,115 @@
                 box-sizing: border-box;
 				background-color:#F5F5F5;
 			}
+            .txtboxMultilineGray {
+                height: 100px;
+                width: 550px;
+                padding: 5px 10px;
+                margin: 0 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-color: #F5F5F5;
+            }
+            .txtbox4gray {
+                height: 30px;
+                width: 550px;
+                padding: 5px 10px;
+                margin: 0 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                background-color: #F5F5F5;
+            }
             .top5 { margin-top:5px; }
             .top7 { margin-top:7px; }
             .top10 { margin-top:10px; }
             .top15 { margin-top:15px; }
             .top20 { margin-top:20px; }
             .top30 { margin-top:30px; }
+
+.d-flex-forme {
+    display: flex;
+    -webkit-display: flex;
+    -ms-display: flexbox;
+}
+
+.flex-wrap-forme {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.justify-center-forme {
+    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+}
+
+.justify-start-forme {
+    justify-content: flex-start;
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: start;
+}
+
+.justify-end-forme {
+    justify-content: flex-end;
+    -webkit-box-pack: flex-end;
+    -ms-flex-pack: end;
+}
+
+.justify-between-forme {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.justify-around-forme {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
+}
+
+.align-items-start-forme {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+}
+
+.align-items-end-forme {
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+}
+
+.align-items-stretch-forme {
+    align-items: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: justify;
+}
+
+.align-items-baseline-forme {
+    align-items: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: justify;
+}
+
+.align-items-center-forme {
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+}
+
+.w-2-forme {
+    width:2%;
+    max-width: 2%;
+    flex-basis: 2%;
+}
+
+.w-98-forme {
+    width: 98%;
+    max-width: 98%;
+    flex-basis: 98%;
+}            

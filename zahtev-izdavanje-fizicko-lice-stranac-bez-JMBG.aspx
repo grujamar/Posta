@@ -149,13 +149,13 @@
                <div class="navbar-header pull-left">
                     <asp:Image ID="logo" imageurl="~/Content/Images/Posta.gif" runat="server" style="height:35px; margin-top: 4px;"/>
                 </div>
-                         <a class="navbar-brand">
-                            <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue">
-                                <span style="color:darkblue">                                
+                <a class="navbar-brand">
+                    <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue">
+                        <span style="color:darkblue">                                
                                                                     
-                                </span>
-                            </asp:Label>
-                        </a>          
+                        </span>
+                    </asp:Label>
+                </a>          
             </div>
         </div>
         <div class="container-fluid">
@@ -166,17 +166,17 @@
                 <asp:HyperLink id="pdfhyperlink1" runat="server" NavigateUrl="~/dokumentacija/Uputstvo-izdavanje-fizicko-lice-stranac-bez-JMBG.pdf" target="_blank" style="vertical-align:bottom" TabIndex="-1"><asp:Label id="lblkorisniskouputstvo" runat="server" style="font-size:15px;"></asp:Label></asp:HyperLink>
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
         <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
         <div class="container-fluid" id="myDiv8" runat="server" style="margin-left: 10px">
             <div class="row top10">
-                        <div class="col-sm-2">
-                            <asp:Label id="lbldatumzahteva" runat="server" style="font-weight:bold;font-size:13px;"></asp:Label>
-                        </div>
-                        <div class="col-sm-10">
-                             <asp:TextBox ID="txtdatumzahteva" runat="server" class="txtbox1" style="font-size:13px; background-color: #e2e2e2;" ReadOnly="true"></asp:TextBox>
-                        </div>
+                <div class="col-sm-2">
+                    <asp:Label id="lbldatumzahteva" runat="server" style="font-weight:bold;font-size:13px;"></asp:Label>
+                </div>
+                <div class="col-sm-10">
+                        <asp:TextBox ID="txtdatumzahteva" runat="server" class="txtbox1" style="font-size:13px; background-color: #e2e2e2;" ReadOnly="true"></asp:TextBox>
+                </div>
             </div>  
         </div>
         <!---------------------------------------------------------------------------------------------------------->
@@ -187,44 +187,64 @@
                <ContentTemplate>
                    <fieldset>
                         <div class="row top10">                                 
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spanname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txtime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="1"></asp:TextBox>
-                                        <asp:Label id="ImePrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"> </asp:Label>
-                                        <asp:CustomValidator runat="server" id="cvime" controltovalidate="txtime" errormessage="" OnServerValidate="cvime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spanname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lblime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="1"></asp:TextBox>
+                                <asp:Label id="ImePrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"> </asp:Label>
+                                <asp:CustomValidator runat="server" id="cvime" controltovalidate="txtime" errormessage="" OnServerValidate="cvime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                         <div class="row top10">                                 
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spansurname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblprezime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txtprezime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="0"></asp:TextBox>
-                                        <asp:Label id="PrezimePrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"></asp:Label>
-                                        <asp:CustomValidator runat="server" id="cvprezime" controltovalidate="txtprezime" errormessage="" OnServerValidate="cvprezime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spansurname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lblprezime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtprezime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="0"></asp:TextBox>
+                                <asp:Label id="PrezimePrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvprezime" controltovalidate="txtprezime" errormessage="" OnServerValidate="cvprezime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                         <div class="row top10">
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spandatumrodjenja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatumrodjenja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txtdatumrodjenja" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>
-                                        <asp:Label id="DatumPrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"></asp:Label>
-                                        <asp:CustomValidator runat="server" id="cvdatumrodjenja" controltovalidate="txtdatumrodjenja" errormessage="" OnServerValidate="cvdatumrodjenja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spandatumrodjenja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbldatumrodjenja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtdatumrodjenja" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>
+                                <asp:Label id="DatumPrimer" runat="server" style="font-weight:bold; font-size: 13px; margin-right: 10px;"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvdatumrodjenja" controltovalidate="txtdatumrodjenja" errormessage="" OnServerValidate="cvdatumrodjenja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                         <div class="row top10">
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spanadresaeposte" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbladresaeposte" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txtadresaeposte" runat="server" class="txtbox3" style="font-size:13px;" maxlength="50" ontextchanged="txtadresaeposte_TextChanged" OnClientClick="return CheckIfChannelHasChanged2();" AutoPostBack="true" onkeydown="keydownFunctionMail(); return true;" TabIndex="0"></asp:TextBox>
-                                        <asp:Label ID="errLabelMail" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
-                                        <asp:CustomValidator runat="server" id="cvadresaeposte" controltovalidate="txtadresaeposte" OnServerValidate="cvadresaeposte_ServerValidate" errormessage="" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spanadresaeposte" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbladresaeposte" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>   
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtadresaeposte" runat="server" class="txtbox3" style="font-size:13px;" maxlength="50" ontextchanged="txtadresaeposte_TextChanged" OnClientClick="return CheckIfChannelHasChanged2();" AutoPostBack="true" onkeydown="keydownFunctionMail(); return true;" TabIndex="0"></asp:TextBox>
+                                <asp:Label ID="errLabelMail" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvadresaeposte" controltovalidate="txtadresaeposte" OnServerValidate="cvadresaeposte_ServerValidate" errormessage="" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                      </fieldset>
                 </ContentTemplate>
@@ -235,72 +255,97 @@
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spantelefon" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbltelefon" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txttelefon" runat="server" class="txtbox" style="font-size:13px;" maxlength="12" ontextchanged="txttelefon_TextChanged" OnClientClick="return CheckIfChannelHasChanged1();" AutoPostBack="true" onkeydown="keydownFunctionTelefon(); return true;" TabIndex="0"></asp:TextBox>
-                                        <asp:Label id="TelefonPrimer" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
-                                        <asp:Label ID="errLabelNumber" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
-                                        <asp:CustomValidator runat="server" id="cvtelefon" controltovalidate="txttelefon" errormessage="" OnServerValidate="cvtelefon_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                        <br><p class="notification" style="margin-right: 10px; margin-bottom: 3px;"><asp:Label id="lblnotification" runat="server"></asp:Label></p>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spantelefon" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbltelefon" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txttelefon" runat="server" class="txtbox" style="font-size:13px;" maxlength="12" ontextchanged="txttelefon_TextChanged" OnClientClick="return CheckIfChannelHasChanged1();" AutoPostBack="true" onkeydown="keydownFunctionTelefon(); return true;" TabIndex="0"></asp:TextBox>
+                                <asp:Label id="TelefonPrimer" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
+                                <asp:Label ID="errLabelNumber" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvtelefon" controltovalidate="txttelefon" errormessage="" OnServerValidate="cvtelefon_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                                <br><p class="notification" style="margin-right: 10px; margin-bottom: 3px;"><asp:Label id="lblnotification" runat="server"></asp:Label></p>
+                            </div>
                         </div>
                     </fieldset>
                 </ContentTemplate>
             </asp:UpdatePanel>
-                        <div class="row top10">                                 
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spanbrojpasosa" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblbrojpasosa" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:TextBox ID="txtbrojpasosa" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="0"></asp:TextBox>
-                                        <label for="PasosPrimer" style="font-size: 13px; margin-right: 10px;"></label>
-                                        <asp:CustomValidator runat="server" id="cvbrojpasosa" controltovalidate="txtbrojpasosa" errormessage="" OnServerValidate="cvbrojpasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
-                        </div>
+            <div class="row top10">                                 
+                <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spanbrojpasosa" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                    </div>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lblbrojpasosa" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                    </div>
+                </div>
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:TextBox ID="txtbrojpasosa" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="0"></asp:TextBox>
+                    <label for="PasosPrimer" style="font-size: 13px; margin-right: 10px;"></label>
+                    <asp:CustomValidator runat="server" id="cvbrojpasosa" controltovalidate="txtbrojpasosa" errormessage="" OnServerValidate="cvbrojpasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                </div>
+            </div>
             <asp:UpdatePanel id="UpdatePanel2" runat="server">
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spanimedrzave" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblimedrzave" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                        <asp:DropDownList ID="ddlimedrzave" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox" DataSourceID="odsDrzavaIme" DataValueField="IDItem" DataTextField="ItemText" OnSelectedIndexChanged="ddlimedrzave_SelectedIndexChanged" TabIndex="0">
-                                        </asp:DropDownList>
-                                        <asp:ObjectDataSource ID="odsDrzavaIme" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlimedrzave" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                        &nbsp&nbsp
-                                        <asp:CustomValidator runat="server" id="cvimederzave" controltovalidate="ddlimedrzave" errormessage="" OnServerValidate="cvimederzave_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spanimedrzave" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lblimedrzave" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:DropDownList ID="ddlimedrzave" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox" DataSourceID="odsDrzavaIme" DataValueField="IDItem" DataTextField="ItemText" OnSelectedIndexChanged="ddlimedrzave_SelectedIndexChanged" TabIndex="0">
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="odsDrzavaIme" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
+                                    <asp:Parameter DefaultValue="ddlimedrzave" Name="controlid" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                                &nbsp&nbsp
+                                <asp:CustomValidator runat="server" id="cvimederzave" controltovalidate="ddlimedrzave" errormessage="" OnServerValidate="cvimederzave_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                     </fieldset>
                 </ContentTemplate>
             </asp:UpdatePanel>
                         <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spandatumizdavanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatumizdavanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spandatumizdavanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
                                 </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtdatumizdavanjapasosa" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>
-                                    <asp:Label id="DatumPasosPrimer" runat="server" style="font-weight:bold; font-size:13px;"></asp:Label>
-                                    <asp:CustomValidator runat="server" id="cvdatumizdavanjapasosa" controltovalidate="txtdatumizdavanjapasosa" errormessage="" OnServerValidate="cvdatumizdavanjapasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbldatumizdavanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
                                 </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtdatumizdavanjapasosa" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>
+                                <asp:Label id="DatumPasosPrimer" runat="server" style="font-weight:bold; font-size:13px;"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvdatumizdavanjapasosa" controltovalidate="txtdatumizdavanjapasosa" errormessage="" OnServerValidate="cvdatumizdavanjapasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                         <div class="row top10">                
-                                    <div class="col-sm-2" style="background-color:white;">
-                                        <asp:Label id="spandatumisteka" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatumisteka" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                    </div>
-                                    <div class="col-sm-10" style="background-color:white;">
-                                            <asp:TextBox ID="txtdatumistekapasosa" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>                                                                                                         
-                                            <asp:Label id="DatumPasosIstekaoPrimer" runat="server" style="font-weight:bold; font-size:13px;"></asp:Label>
-                                            <asp:CustomValidator runat="server" id="cvdatumistekapasosa" controltovalidate="txtdatumistekapasosa" errormessage="" OnServerValidate="cvdatumistekapasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>         
-                                    </div>
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spandatumisteka" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbldatumisteka" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>      
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:TextBox ID="txtdatumistekapasosa" runat="server" class="txtbox2" style="font-size:13px;" maxlength="10" TabIndex="0"></asp:TextBox>                                                                                                         
+                                <asp:Label id="DatumPasosIstekaoPrimer" runat="server" style="font-weight:bold; font-size:13px;"></asp:Label>
+                                <asp:CustomValidator runat="server" id="cvdatumistekapasosa" controltovalidate="txtdatumistekapasosa" errormessage="" OnServerValidate="cvdatumistekapasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>         
+                            </div>
                         </div>
             <asp:UpdatePanel id="UpdatePanel4" runat="server">
             <ContentTemplate>
@@ -333,39 +378,54 @@
                 </cc1:AutoCompleteExtender>
                 <fieldset>
                     <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanadresasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbladresasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:DropDownList ID="ddlsertadresa" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox4" DataSourceID="odsSertAdresa" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlsertadresa_SelectedIndexChanged" TabIndex="0">
-                                    </asp:DropDownList>
-                                    <asp:ObjectDataSource ID="odsSertAdresa" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlsertadresa" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                    <asp:CustomValidator runat="server" id="cvsertadresa" controltovalidate="ddlsertadresa" errormessage="" OnServerValidate="cvsertadresa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    <br><p class="notification"><asp:Label id="lblnotification1" runat="server"></asp:Label></p>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanadresasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbladresasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:DropDownList ID="ddlsertadresa" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox4" DataSourceID="odsSertAdresa" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlsertadresa_SelectedIndexChanged" TabIndex="0">
+                            </asp:DropDownList>
+                            <asp:ObjectDataSource ID="odsSertAdresa" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
+                                    <asp:Parameter DefaultValue="ddlsertadresa" Name="controlid" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                            <asp:CustomValidator runat="server" id="cvsertadresa" controltovalidate="ddlsertadresa" errormessage="" OnServerValidate="cvsertadresa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            <br><p class="notification"><asp:Label id="lblnotification1" runat="server"></asp:Label></p>
+                        </div>
                     </div>
                     <div class="row top10">                                 
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanmesto" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblmesto" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtmesto" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="30"></asp:TextBox>
-                                    <asp:CustomValidator runat="server" id="cvmesto" controltovalidate="txtmesto" errormessage="" OnServerValidate="cvmesto_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanmesto" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblmesto" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtmesto" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="30"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvmesto" controltovalidate="txtmesto" errormessage="" OnServerValidate="cvmesto_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                     <div class="row top15">                                 
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanulica" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblulica" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>  
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtulica" runat="server" readonly="true" class="txtboxgrey5" style="font-size:13px;" maxlength="50"></asp:TextBox>
-                                    <asp:CustomValidator runat="server" id="cvulica" controltovalidate="txtulica" errormessage="" OnServerValidate="cvulica_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanulica" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblulica" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div> 
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtulica" runat="server" readonly="true" class="txtboxgrey5" style="font-size:13px;" maxlength="50"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvulica" controltovalidate="txtulica" errormessage="" OnServerValidate="cvulica_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                  </fieldset>
             </ContentTemplate>
@@ -374,14 +434,19 @@
             <ContentTemplate>
                 <fieldset>
                     <div class="row top10">                                 
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanbroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblbroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtbroj" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="20" ontextchanged="txtbroj_TextChanged" OnClientClick="return CheckIfChannelHasChanged9();" AutoPostBack="true"></asp:TextBox>
-                                    <asp:Label ID="errLabelBroj" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
-                                    <asp:CustomValidator runat="server" id="cvbroj" controltovalidate="txtbroj" errormessage="" OnServerValidate="cvbroj_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/> 
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanbroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblbroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtbroj" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="20" ontextchanged="txtbroj_TextChanged" OnClientClick="return CheckIfChannelHasChanged9();" AutoPostBack="true"></asp:TextBox>
+                            <asp:Label ID="errLabelBroj" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
+                            <asp:CustomValidator runat="server" id="cvbroj" controltovalidate="txtbroj" errormessage="" OnServerValidate="cvbroj_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/> 
+                        </div>
                     </div>
                 </fieldset>
             </ContentTemplate>
@@ -390,22 +455,32 @@
               <ContentTemplate>
                   <fieldset>
                     <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanpostanskibroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblpostanskibroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtpostanskibroj" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="5"></asp:TextBox>
-                                    <asp:CustomValidator runat="server" id="cvpostanskibroj" controltovalidate="txtpostanskibroj" OnServerValidate="cvpostanskibroj_ServerValidate" errormessage="" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanpostanskibroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                 <asp:Label id="lblpostanskibroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtpostanskibroj" runat="server" readonly="true" class="txtboxgrey" style="font-size:13px;" maxlength="5"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvpostanskibroj" controltovalidate="txtpostanskibroj" OnServerValidate="cvpostanskibroj_ServerValidate" errormessage="" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                     <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanpak" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblpak" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtpak" runat="server" readonly="true" class="txtboxgrey9" style="font-size:13px;" maxlength="6"></asp:TextBox>
-                                    <asp:CustomValidator runat="server" id="cvpak" controltovalidate="txtpak" errormessage="" OnServerValidate="cvpak_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                 <asp:Label id="spanpak" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                 <asp:Label id="lblpak" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtpak" runat="server" readonly="true" class="txtboxgrey9" style="font-size:13px;" maxlength="6"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvpak" controltovalidate="txtpak" errormessage="" OnServerValidate="cvpak_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                 </fieldset>
             </ContentTemplate>
@@ -416,21 +491,26 @@
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                     <asp:Label id="spanrokkoriscenja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblrokkoriscenjasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                   <asp:Label id="spanrokkoriscenja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
                                 </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:DropDownList ID="ddlrokkoriscenjasert" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlrokkoriscenjasert_SelectedIndexChanged" DataSourceID="odsRokKoriscenjaSert" TabIndex="0">
-                                    </asp:DropDownList>
-                                    <asp:ObjectDataSource ID="odsRokKoriscenjaSert" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlrokkoriscenjasert" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                    <asp:CustomValidator runat="server" id="cvrokkoriscenjasert" controltovalidate="ddlrokkoriscenjasert" errormessage="" OnServerValidate="cvrokkoriscenjasert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                                <div class="w-98-forme w-92-forme-md">
+                                   <asp:Label id="lblrokkoriscenjasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
                                 </div>
-                    </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:DropDownList ID="ddlrokkoriscenjasert" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlrokkoriscenjasert_SelectedIndexChanged" DataSourceID="odsRokKoriscenjaSert" TabIndex="0">
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="odsRokKoriscenjaSert" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
+                                        <asp:Parameter DefaultValue="ddlrokkoriscenjasert" Name="controlid" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                                <asp:CustomValidator runat="server" id="cvrokkoriscenjasert" controltovalidate="ddlrokkoriscenjasert" errormessage="" OnServerValidate="cvrokkoriscenjasert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
+                        </div>
                     </fieldset>
             </ContentTemplate>
         </asp:UpdatePanel>
@@ -438,20 +518,25 @@
             <ContentTemplate>
                 <fieldset>
                     <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spanmedijsert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblmedijsert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:DropDownList ID="ddlmedijsert" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlmedijsert_SelectedIndexChanged" DataSourceID="odsMedijSert" TabIndex="0">
-                                    </asp:DropDownList>
-                                    <asp:ObjectDataSource ID="odsMedijSert" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlmedijsert" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                    <asp:CustomValidator runat="server" id="cvmedijsert" controltovalidate="ddlmedijsert" errormessage="" OnServerValidate="cvmedijsert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                               <asp:Label id="spanmedijsert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblmedijsert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div> 
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:DropDownList ID="ddlmedijsert" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlmedijsert_SelectedIndexChanged" DataSourceID="odsMedijSert" TabIndex="0">
+                            </asp:DropDownList>
+                            <asp:ObjectDataSource ID="odsMedijSert" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
+                                    <asp:Parameter DefaultValue="ddlmedijsert" Name="controlid" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                            <asp:CustomValidator runat="server" id="cvmedijsert" controltovalidate="ddlmedijsert" errormessage="" OnServerValidate="cvmedijsert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                 </fieldset>
             </ContentTemplate>
@@ -460,26 +545,31 @@
             <ContentTemplate>
                 <fieldset>
                     <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spannacinplacanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblnacinplacanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:DropDownList ID="ddlnacinplacanja" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlnacinplacanja_SelectedIndexChanged" DataSourceID="odsNacinPlacanja" TabIndex="0">
-                                    </asp:DropDownList>
-                                    <asp:ObjectDataSource ID="odsNacinPlacanja" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlnacinplacanja" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                    <asp:CustomValidator runat="server" id="cvnacinplacanja" controltovalidate="ddlnacinplacanja" errormessage="" OnServerValidate="cvnacinplacanja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                    <br />
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                               <asp:Label id="spannacinplacanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblnacinplacanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:DropDownList ID="ddlnacinplacanja" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlnacinplacanja_SelectedIndexChanged" DataSourceID="odsNacinPlacanja" TabIndex="0">
+                            </asp:DropDownList>
+                            <asp:ObjectDataSource ID="odsNacinPlacanja" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG.aspx" Name="filename" Type="String" />
+                                    <asp:Parameter DefaultValue="ddlnacinplacanja" Name="controlid" Type="String" />
+                                </SelectParameters>
+                            </asp:ObjectDataSource>
+                            <asp:CustomValidator runat="server" id="cvnacinplacanja" controltovalidate="ddlnacinplacanja" errormessage="" OnServerValidate="cvnacinplacanja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            <br />
                             <p class="notification">
                                 <asp:Label id="lblnotification2" runat="server" style="font-size:13px;">
                                     
                                 </asp:Label>
                             </p>
-                                </div>
+                        </div>
                     </div>
                 </fieldset>
             </ContentTemplate>
@@ -488,63 +578,68 @@
             <ContentTemplate>
                 <fieldset>
                     <div class="row top10">                                 
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spancenasaporezom" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblcenasaporezom" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>  
-                                </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:TextBox ID="txtcenasaporezom" runat="server" class="txtbox1" style="border:solid grey 1px; padding: 3px; text-align: right; height: 26px; width: !important;" TabIndex="-1"></asp:TextBox>
-                                    <asp:Label id="lbldinara" runat="server" style="font-weight:bold;font-size:13px;"><span style="COLOR: white; font-size:17px;">&nbsp;</span> </asp:Label> 
-                                </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                               <asp:Label id="spancenasaporezom" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblcenasaporezom" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtcenasaporezom" runat="server" class="txtbox1" style="border:solid grey 1px; padding: 3px; text-align: right; height: 26px; width: !important;" TabIndex="-1"></asp:TextBox>
+                            <asp:Label id="lbldinara" runat="server" style="font-weight:bold;font-size:13px;"><span style="COLOR: white; font-size:17px;">&nbsp;</span> </asp:Label> 
+                        </div>
                     </div>
                </fieldset>
            </ContentTemplate>
         </asp:UpdatePanel>     
         <div class="row">
-                <br />
+            <br />
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
     </div>
         <!---------------------------------------------------------------------------------------------------------->
         <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
         <div class="container-fluid" id="myDiv6" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
-                        <div class="col-sm-2">
-                            <asp:Label id="lbldugme" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
-                        </div>
-                        <div class="col-sm-8">
-                            <asp:Button ID="btnEnterRequest" runat="server" class="btn btn-primary save" Text="" style="margin-right: 8px;" OnClick="btnEnterRequest_Click1" onclientclick="unhook()" ValidationGroup="EnabledValidation"/>
-                            <asp:Button ID="btnReEnterRequest" runat="server" class="btn btn-warning edit" Text="" style="margin-right: 8px;" OnClick="btnReEnterRequest_Click1" onclientclick="unhook()" ValidationGroup="EnabledValidation"/>
-                        </div>
-                        <div class="col-sm-2">
-                            <asp:Label id="lbldugme1" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
-                        </div>
+                <div class="col-sm-2">
+                    <asp:Label id="lbldugme" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
+                </div>
+                <div class="col-sm-8">
+                    <asp:Button ID="btnEnterRequest" runat="server" class="btn btn-primary save" Text="" style="margin-right: 8px;" OnClick="btnEnterRequest_Click1" onclientclick="unhook()" ValidationGroup="EnabledValidation"/>
+                    <asp:Button ID="btnReEnterRequest" runat="server" class="btn btn-warning edit" Text="" style="margin-right: 8px;" OnClick="btnReEnterRequest_Click1" onclientclick="unhook()" ValidationGroup="EnabledValidation"/>
+                </div>
+                <div class="col-sm-2">
+                    <asp:Label id="lbldugme1" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
+                </div>
             </div>
         </div>  
 
         <!---------------------------------------------------------------------------------------------------------->
     <div class="container-fluid" id="myDiv5" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
-                        <div class="col-sm-2">
-                            <asp:Label id="lbldugme2" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
-                        </div>
-                        <div class="col-sm-8">
-                            <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary save" Text="" onclick="btnSubmit_Click1" onclientclick="unhook()" TabIndex="0"/>                            
-                        </div>
-                        <div class="col-sm-2">
-                            <asp:Label id="lbldugme3" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label>
-                        </div>
+                <div class="col-sm-2">
+                    <asp:Label id="lbldugme2" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label> 
+                </div>
+                <div class="col-sm-8">
+                    <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary save" Text="" onclick="btnSubmit_Click1" onclientclick="unhook()" TabIndex="0"/>                            
+                </div>
+                <div class="col-sm-2">
+                    <asp:Label id="lbldugme3" runat="server" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </asp:Label>
+                </div>
             </div>  
         </div>
         <div class="container-fluid" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row">
-                    <br />
+                <br />
             </div>
         </div>  
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
         <div id="throbber" style="display:none;">
             <p style="font-size:20px; font-weight: bold;"><b>Molimo sačekajte...</b></p>

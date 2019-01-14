@@ -484,6 +484,7 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
                     log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
+
         }
         ddlimeizdavaoca.Enabled = Convert.ToBoolean(Session["provera-opozvanosti-sertifikata-ddlimeizdavaoca"]);
     }
@@ -1623,7 +1624,7 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
             response.AddHeader("Content-Disposition", FileName); //forse save as dialog in Mozzila an Explorer but no in Chrome
             //response.TransmitFile(Server.MapPath(@"~\Dokumentacija\CertificateUpload\" + FileName + ""));
             response.TransmitFile(FilePath);
-            response.Flush();           
+            response.Flush();
         }
         catch (Exception ex)
         {

@@ -155,8 +155,13 @@
         </div>
         <div class="container-fluid" id="Div1" runat="server" style="margin-left: 10px">
             <div class="row top10">                                 
-                <div class="col-sm-2" style="background-color:white;">
-                    <asp:Label id="spanime" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spanime" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                    </div>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lblime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                    </div>
                 </div>
                 <div class="col-sm-10" style="background-color:white;">
                     <asp:TextBox ID="txtime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="1"></asp:TextBox>
@@ -165,8 +170,13 @@
                 </div>
             </div>
             <div class="row top10">                                 
-                <div class="col-sm-2" style="background-color:white;">
-                    <asp:Label id="spanprezime" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblprezime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spanprezime" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                    </div>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lblprezime" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                    </div>
                 </div>
                 <div class="col-sm-10" style="background-color:white;">
                     <asp:TextBox ID="txtprezime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="2"></asp:TextBox>
@@ -179,16 +189,21 @@
             <asp:UpdatePanel id="UpdatePanel1" runat="server">
               <ContentTemplate>
                  <fieldset>
-                        <div class="row top10">                                 
-                            <div class="col-sm-2" style="background-color:white;">
-                                <asp:Label id="spanjmbgibrojpasosa" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbljmbgibrojpasosa" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                    <div class="row top10">                                 
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanjmbgibrojpasosa" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
                             </div>
-                            <div class="col-sm-10" style="background-color:white;">
-                                <asp:TextBox ID="txtjmbgibrojpasosa" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="3"></asp:TextBox>
-                                <asp:CustomValidator runat="server" id="cvjmbgibrojpasosa" controltovalidate="txtjmbgibrojpasosa" errormessage="" OnServerValidate="cvjmbgibrojpasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                                <br><p class="notification"><asp:Label id="lblnotification1" runat="server" style="font-size:13px;"></asp:Label></p>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbljmbgibrojpasosa" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
                             </div>
                         </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtjmbgibrojpasosa" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" TabIndex="3"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvjmbgibrojpasosa" controltovalidate="txtjmbgibrojpasosa" errormessage="" OnServerValidate="cvjmbgibrojpasosa_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            <br><p class="notification"><asp:Label id="lblnotification1" runat="server" style="font-size:13px;"></asp:Label></p>
+                        </div>
+                    </div>
                  </fieldset>
               </ContentTemplate>
             </asp:UpdatePanel>
@@ -196,8 +211,13 @@
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                            <div class="col-sm-2" style="background-color:white;">
-                                <asp:Label id="spantelefon" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbltelefon" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spantelefon" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbltelefon" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
                             </div>
                             <div class="col-sm-10" style="background-color:white;">
                                 <asp:TextBox ID="txttelefon" runat="server" class="txtbox" style="font-size:13px;" maxlength="11" ontextchanged="txttelefon_TextChanged" OnClientClick="return CheckIfChannelHasChanged1();" AutoPostBack="true" onkeydown="keydownFunctionTelefon(); return true;" TabIndex="4"></asp:TextBox>
@@ -213,8 +233,13 @@
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                            <div class="col-sm-2" style="background-color:white;">
-                                <asp:Label id="spanadresaeposte" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbladresaeposte" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spanadresaeposte" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                                </div>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lbladresaeposte" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                                </div>
                             </div>
                             <div class="col-sm-10" style="background-color:white;">
                                 <asp:TextBox ID="txtadresaeposte" runat="server" class="txtbox3" style="font-size:13px;" maxlength="50" ontextchanged="txtadresaeposte_TextChanged" OnClientClick="return CheckIfChannelHasChanged();" AutoPostBack="true" onkeydown="keydownFunctionAddress(); return true;" TabIndex="5"></asp:TextBox>
@@ -229,8 +254,13 @@
               <ContentTemplate>
                 <fieldset>
                     <div class="row top10">
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spannacinplacanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblnacinplacanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spannacinplacanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblnacinplacanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:DropDownList ID="ddlnacinplacanja" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox1" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlnacinplacanja_SelectedIndexChanged" DataSourceID="odsNacinPlacanja" TabIndex="6">
@@ -290,8 +320,13 @@
                 <fieldset>
                 <div class="container-fluid" id="Container00" runat="server" style="margin-left: 10px">
                     <div class="row top10">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanjik" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbljik" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanjik" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbljik" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtjik" runat="server" class="txtbox1" style="font-size:13px;" maxlength="9" ontextchanged="txtjik_TextChanged" OnClientClick="return CheckIfChannelHasChanged2()" AutoPostBack="true" TabIndex="7" ></asp:TextBox>
@@ -302,11 +337,16 @@
                     </div>
                     <!--////////////////////////////////////////////////////////////////-->
                     <div class="row top10">
-                        <div class="col-sm-2">
-                        <asp:Label id="spannacindeblokade" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblnacindeblokade" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>  
+                        <div class="col-sm-2 d-flex-forme">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spannacindeblokade" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblnacindeblokade" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>  
+                            </div>
                         </div>
                         <div class="col-sm-10">
-                        <asp:RadioButton ID="rbIsAttached" runat="server" Text="" OnCheckedChanged="rbIsAttached_CheckedChanged" onclick="unhook()" AutoPostBack="True" GroupName="btnGrp" TabIndex="8"/>
+                            <asp:RadioButton ID="rbIsAttached" runat="server" Text="" OnCheckedChanged="rbIsAttached_CheckedChanged" onclick="unhook()" AutoPostBack="True" GroupName="btnGrp" TabIndex="8"/>
                         </div>                            
                     </div>
                     <div class="row top10">
@@ -324,8 +364,13 @@
                         <br/><p class="notification" style="margin-left: 20px"><asp:Label id="lblnotification2" runat="server" style="font-size:13px;"></asp:Label> </p>
                     </div>
                     <div class="row top10">
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanadresasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbladresasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanadresasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbladresasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:DropDownList ID="ddlsertadresa" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox4" DataSourceID="odsSertAdresa" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlsertadresa_SelectedIndexChanged" TabIndex="10">
@@ -340,8 +385,13 @@
                         </div>
                     </div>
                     <div class="row top15">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanmesto" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblmesto" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanmesto" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblmesto" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtmesto" runat="server" class="txtbox" style="font-size:13px;" maxlength="30"></asp:TextBox>
@@ -349,8 +399,13 @@
                         </div>
                     </div>
                     <div class="row top10">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanulica" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblulica" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanulica" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblulica" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>   
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtulica" runat="server" class="txtbox3" style="font-size:13px;" maxlength="50"></asp:TextBox>
@@ -358,8 +413,13 @@
                         </div>
                     </div>
                     <div class="row top10">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanbroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblbroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanbroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblbroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtbroj" runat="server" class="txtbox" style="font-size:13px;" maxlength="20" ontextchanged="txtbroj_TextChanged" OnClientClick="return CheckIfChannelHasChanged9();" AutoPostBack="true"></asp:TextBox>
@@ -368,8 +428,13 @@
                         </div>
                     </div>
                     <div class="row top10">
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanpostanskibroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblpostanskibroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                             <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanpostanskibroj" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblpostanskibroj" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtpostanskibroj" runat="server" class="txtbox" style="font-size:13px;" maxlength="5"></asp:TextBox>
@@ -377,8 +442,13 @@
                         </div>
                     </div>
                     <div class="row top10">
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spanpak" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblpak" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanpak" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblpak" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div> 
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtpak" runat="server" class="txtbox" style="font-size:13px;" maxlength="6"></asp:TextBox>
@@ -391,8 +461,13 @@
                         <br/><p class="notification" style="margin-left: 20px"><asp:Label id="lblnotification3" runat="server" style="font-size:13px;"></asp:Label> </p>
                     </div>
                     <div class="row top10">
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spankarticatoken" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblkarticatoken" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                 <asp:Label id="spankarticatoken" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblkarticatoken" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtkarticatoken" runat="server" class="txtbox3" style="font-size:13px;"></asp:TextBox>
@@ -415,8 +490,13 @@
             <ContentTemplate>
                 <fieldset>
                     <div class="row top10">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spancenasaporezom" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblcenasaporezom" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                 <asp:Label id="spancenasaporezom" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                               <asp:Label id="lblcenasaporezom" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            </div>
                         </div>
                         <div class="col-sm-10" style="background-color:white;">
                             <asp:TextBox ID="txtcenasaporezom" runat="server" class="txtbox1" style="border:solid grey 1px; padding: 3px; text-align: right; height: 26px; width: !important;" TabIndex="-1"></asp:TextBox>
@@ -427,10 +507,10 @@
            </ContentTemplate>
         </asp:UpdatePanel>     
         <div class="row">
-                <br />
+            <br />
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
       </div>
         <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>

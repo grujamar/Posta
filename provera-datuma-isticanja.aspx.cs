@@ -87,6 +87,9 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                         txtjik.Text = jik;
                         txtjik.BackColor = ColorTranslator.FromHtml(SetLightGray);
                         txtjik.ReadOnly = true;
+                        txtserijskibroj02.Text = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateCN"].ToString();
+                        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+                        txtserijskibroj02.ReadOnly = true;
                         txtime.Text = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateFirstName"].ToString();
                         txtprezime.Text = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateLastName"].ToString();
                         FieldToDisplay();
@@ -127,6 +130,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     Session["zahtev-provera-datuma-isticanja-sertifikata-event_controle-RadioButton"] = rbManualJik;
                 }
                 txtime.TabIndex = -1;
+                txtserijskibroj02.TabIndex = -1;
                 txtprezime.TabIndex = -1;
                 txtdatumizdavanja.TabIndex = -1;
                 txtdatumsiteka.TabIndex = -1;
@@ -198,6 +202,10 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     if (par.Key.Equals("jik", StringComparison.InvariantCultureIgnoreCase))
                     {
                         Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateJIK"] = par.Value;
+                    }
+                    else if (par.Key.Equals("cn", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateCN"] = par.Value;
                     }
                     else if (par.Key.Equals("firstName", StringComparison.InvariantCultureIgnoreCase))
                     {
@@ -271,6 +279,8 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
 
     protected void FieldToDisplay()
     {
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.ReadOnly = true;
         txtime.BackColor = ColorTranslator.FromHtml(SetLightGray);
         txtime.ReadOnly = true;
         txtprezime.BackColor = ColorTranslator.FromHtml(SetLightGray);
@@ -292,6 +302,8 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         txtjik.BackColor = ColorTranslator.FromHtml(SetLightGray);
         txtjik.ReadOnly = true;
         txtjik.Text = string.Empty;
+        txtserijskibroj02.ReadOnly = true;
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
         txtime.Text = string.Empty;
         txtprezime.Text = string.Empty;
         txtdatumizdavanja.Text= string.Empty;
@@ -301,6 +313,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         Session["zahtev-provera-datuma-isticanja-sertifikata-event_controle-RadioButton"] = rbAutomatikJik;
         txtjik.TabIndex = -1;
         txtime.TabIndex = -1;
+        txtserijskibroj02.TabIndex = -1;
         txtprezime.TabIndex = -1;
         txtdatumizdavanja.TabIndex = -1;
         txtdatumsiteka.TabIndex = -1;
@@ -325,7 +338,10 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         txtprezime.Text = string.Empty;
         txtdatumizdavanja.Text = string.Empty;
         txtdatumsiteka.Text = string.Empty;
-       
+        txtserijskibroj02.ReadOnly = true;
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.Text = string.Empty;
+
         txtjik.BackColor = ColorTranslator.FromHtml(SetWhite);
         txtjik.ReadOnly = false;
         cvjik.Enabled = true;
@@ -333,6 +349,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         Session["zahtev-provera-datuma-isticanja-sertifikata-event_controle-RadioButton"] = rbManualJik;
         txtjik.TabIndex = 0;
         txtime.TabIndex = -1;
+        txtserijskibroj02.TabIndex = -1;
         txtprezime.TabIndex = -1;
         txtdatumizdavanja.TabIndex = -1;
         txtdatumsiteka.TabIndex = -1;
@@ -518,6 +535,10 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
             {
                 Session["zahtev-provera-datuma-isticanja-sertifikata-txtjikIsRequired"] = control.IsRequired;
             }
+            else if (control.Id == txtserijskibroj02.ClientID)
+            {
+                Session["zahtev-provera-datuma-isticanja-sertifikata-txtserijskibroj02IsRequired"] = control.IsRequired;
+            }
             else if (control.Id == txtime.ClientID)
             {
                 Session["zahtev-provera-datuma-isticanja-sertifikata-txtimeIsRequired"] = control.IsRequired;
@@ -588,6 +609,22 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         catch (Exception)
         {
             cvime.ErrorMessage = string.Empty;
+            args.IsValid = false;
+        }
+    }
+
+    protected void cvserijskibroj02_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        try
+        {
+            string ErrorMessage1 = string.Empty;
+            string nameformat = string.Empty;
+            args.IsValid = UtilsValidation.ValidateReadOnlyFields(txtserijskibroj02.Text, Convert.ToBoolean(Session["zahtev-provera-datuma-isticanja-sertifikata-txtserijskibroj02IsRequired"]), out ErrorMessage1);
+            cvserijskibroj02.ErrorMessage = ErrorMessage1;
+        }
+        catch (Exception)
+        {
+            cvserijskibroj02.ErrorMessage = string.Empty;
             args.IsValid = false;
         }
     }

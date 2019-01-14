@@ -131,50 +131,50 @@
                <div class="navbar-header pull-left">
                     <asp:Image ID="logo" imageurl="~/Content/Images/Posta.gif" runat="server" style="height:35px; margin-top: 4px;"/>
                 </div>
-                        <a class="navbar-brand">
-                            <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue"> <span style="color:darkblue"></span></asp:Label>
-                        </a>             
+                    <a class="navbar-brand">
+                        <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue"> <span style="color:darkblue"></span></asp:Label>
+                    </a>             
             </div>
         </div>
         <div class="container-fluid">
             <h4><b style="color:#6b6b6b;"><asp:Label id="lblstranicanaziv" runat="server" style="font-size:18px;"></asp:Label></b></h4>
         </div>
         <div class="container-fluid top10">
-                <asp:Image ID="pdfdocument" imageurl="~/Content/Images/pdf_icon.png" runat="server" style="width:20px;" />
-                <asp:HyperLink id="pdfhyperlink1" runat="server" NavigateUrl="~/dokumentacija/Uputstvo-provera-datuma-isticanja.pdf" target="_blank" style="vertical-align:bottom"><asp:Label id="lblkorisniskouputstvo" runat="server" style="font-size:15px;"></asp:Label></asp:HyperLink>
+            <asp:Image ID="pdfdocument" imageurl="~/Content/Images/pdf_icon.png" runat="server" style="width:20px;" />
+            <asp:HyperLink id="pdfhyperlink1" runat="server" NavigateUrl="~/dokumentacija/Uputstvo-provera-datuma-isticanja.pdf" target="_blank" style="vertical-align:bottom"><asp:Label id="lblkorisniskouputstvo" runat="server" style="font-size:15px;"></asp:Label></asp:HyperLink>
         </div>
         <!--AJAX ToolkitScriptManager-->
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
             <div class="row">
-                    <br />
+                <br />
             </div>
         <div class="row top10" style="margin-left: 10px">
-                        <div class="col-sm-12">
-                            <br/><p class="notification"><asp:Label id="lblnotification" runat="server" style="font-size:13px;"></asp:Label></p>
-                        </div>
-                </div> 
+            <div class="col-sm-12">
+                <br/><p class="notification"><asp:Label id="lblnotification" runat="server" style="font-size:13px;"></asp:Label></p>
+            </div>
+        </div> 
         <div class="container-fluid" id="Container1" runat="server" style="margin-left: 10px">
             <asp:UpdatePanel id="UpdatePanel1" runat="server">
               <ContentTemplate>
                  <fieldset>
-                        <div class="row top10">
-                                <div class="col-sm-12">
-                                <asp:RadioButton ID="rbManualJik" runat="server" Text="" OnCheckedChanged="rbManualJik_CheckedChanged" AutoPostBack="True" onclick="unhook()" GroupName="btnGrp"/>
-                                </div>                            
-                        </div>
+                    <div class="row top10">
+                        <div class="col-sm-12">
+                            <asp:RadioButton ID="rbManualJik" runat="server" Text="" OnCheckedChanged="rbManualJik_CheckedChanged" AutoPostBack="True" onclick="unhook()" GroupName="btnGrp"/>
+                        </div>                            
+                    </div>
                 </fieldset>
               </ContentTemplate>
             </asp:UpdatePanel>
             <asp:UpdatePanel id="UpdatePanel2" runat="server">
               <ContentTemplate>
                  <fieldset>
-                        <div class="row top10">
-                                <div class="col-sm-12">
-                                    <asp:RadioButton ID="rbAutomatikJik" runat="server" Text="" OnCheckedChanged="rbAutomatikJik_CheckedChanged" AutoPostBack="True" onclick="unhook()" GroupName="btnGrp" TabIndex="0"/>
-                                    &nbsp;&nbsp;
-                                    <asp:Button ID="btnReadCardInfo" runat="server" class="btn btn-warning btn-sm submit" Text="" style="border: 4px solid #FFA500;" OnClick="btnReadCardInfo_Click" OnClientClick="unhook();ExplorerLogout();ChromeLogout();" TabIndex="0"/>                               
-                                </div>
-                          </div>
+                    <div class="row top10">
+                        <div class="col-sm-12">
+                            <asp:RadioButton ID="rbAutomatikJik" runat="server" Text="" OnCheckedChanged="rbAutomatikJik_CheckedChanged" AutoPostBack="True" onclick="unhook()" GroupName="btnGrp" TabIndex="0"/>
+                            &nbsp;&nbsp;
+                            <asp:Button ID="btnReadCardInfo" runat="server" class="btn btn-warning btn-sm submit" Text="" style="border: 4px solid #FFA500;" OnClick="btnReadCardInfo_Click" OnClientClick="unhook();ExplorerLogout();ChromeLogout();" TabIndex="0"/>                               
+                        </div>
+                    </div>
                  </fieldset>
               </ContentTemplate>
             </asp:UpdatePanel>
@@ -185,15 +185,20 @@
             </div>   
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
         <div class="container-fluid" style="margin-left: 10px">
             <asp:UpdatePanel id="UpdatePanel3" runat="server">
               <ContentTemplate>
                  <fieldset>
                     <div class="row top10">                                 
-                         <div class="col-sm-2" style="background-color:white;">
-                             <asp:Label id="spanjik" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbljik" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
+                         <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                             <div class="w-2-forme w-8-forme-md">
+                                 <asp:Label id="spanjik" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                             </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbljik" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
+                            </div> 
                          </div>
                          <div class="col-sm-10" style="background-color:white;">
                              <asp:TextBox ID="txtjik" runat="server" class="txtbox1" style="font-size:13px;" maxlength="9" AutoPostBack="true" ontextchanged="txtjik_TextChanged" OnClientClick="return CheckIfChannelHasChanged();" onkeydown="keydownFunction(); return true;" TabIndex="0"></asp:TextBox>
@@ -209,31 +214,60 @@
             <asp:UpdatePanel id="UpdatePanel4" runat="server">
               <ContentTemplate>
                  <fieldset>
+                     <div class="row top10">
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanserijskibroj02" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblserijskibroj02" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                            </div>     
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtserijskibroj02" runat="server" class="txtbox" style="font-size:13px;" maxlength="30"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvserijskibroj02" controltovalidate="txtserijskibroj02" errormessage="" OnServerValidate="cvserijskibroj02_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
+                    </div>
                     <div class="row top10">                                 
-                         <div class="col-sm-2" style="background-color:white;">
-                             <asp:Label id="spanname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblime" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>  
-                         </div>
-                         <div class="col-sm-10" style="background-color:white;">
-                             <asp:TextBox ID="txtime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" AutoPostBack="true"></asp:TextBox>
-                             <asp:CustomValidator runat="server" id="cvime" controltovalidate="txtime" errormessage="" OnServerValidate="cvime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                          </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spanname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblime" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
+                            </div>     
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" AutoPostBack="true"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvime" controltovalidate="txtime" errormessage="" OnServerValidate="cvime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                     <div class="row">
                     </div>
                     <div class="row top10">                                 
-                         <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spansurname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblprezime" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
-                         </div>
-                         <div class="col-sm-10" style="background-color:white;">
-                             <asp:TextBox ID="txtprezime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" AutoPostBack="true"></asp:TextBox>
-                             <asp:CustomValidator runat="server" id="cvprezime" controltovalidate="txtprezime" errormessage="" OnServerValidate="cvprezime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                          </div>
+                        <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spansurname" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lblprezime" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10" style="background-color:white;">
+                            <asp:TextBox ID="txtprezime" runat="server" class="txtbox" style="font-size:13px;" maxlength="30" AutoPostBack="true"></asp:TextBox>
+                            <asp:CustomValidator runat="server" id="cvprezime" controltovalidate="txtprezime" errormessage="" OnServerValidate="cvprezime_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                        </div>
                     </div>
                     <div class="row">
                     </div>
                     <div class="row top10">                                 
-                         <div class="col-sm-2" style="background-color:white;">
-                             <asp:Label id="spandatumizdavanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatumizdavanja" runat="server" style="font-weight:bold;font-size:13px;" Visible="True"> </asp:Label> 
+                         <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                             <div class="w-2-forme w-8-forme-md">
+                                 <asp:Label id="spandatumizdavanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                             </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbldatumizdavanja" runat="server" style="font-weight:bold;font-size:13px;" Visible="True"> </asp:Label>
+                            </div>  
                          </div>
                          <div class="col-sm-10" style="background-color:white;">
                              <asp:TextBox ID="txtdatumizdavanja" runat="server" class="txtbox" style="font-size:13px;" maxlength="15" AutoPostBack="true"></asp:TextBox>
@@ -243,8 +277,13 @@
                     <div class="row">
                     </div>
                     <div class="row top10">                                 
-                         <div class="col-sm-2" style="background-color:white;">
-                             <asp:Label id="spandatumisteka" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatumisteka" runat="server" style="font-weight:bold;font-size:13px;" Visible="True"> </asp:Label>
+                         <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                            <div class="w-2-forme w-8-forme-md">
+                                <asp:Label id="spandatumisteka" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                            </div>
+                            <div class="w-98-forme w-92-forme-md">
+                                <asp:Label id="lbldatumisteka" runat="server" style="font-weight:bold;font-size:13px;" Visible="True"> </asp:Label>
+                            </div>
                          </div>
                          <div class="col-sm-10" style="background-color:white;">
                              <asp:TextBox ID="txtdatumsiteka" runat="server" class="txtbox" style="font-size:13px;" maxlength="10" AutoPostBack="true"></asp:TextBox>
@@ -258,34 +297,34 @@
         <!---------------------------------------------------------------------------------------------------------->
         <!---------------------------------------------------------------------------------------------------------->
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
         <div class="container-fluid" id="myDiv5" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
-                        <div class="col-sm-2">
-                            <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
-                        <div class="col-sm-8">
-                            <asp:Button ID="btnSubmit" runat="server" class="btn-lg btn-primary buttonborder" Text="" onclick="btnSubmit_Click1" onclientclick="unhook()"/>                           
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
+                <div class="col-sm-8">
+                    <asp:Button ID="btnSubmit" runat="server" class="btn-lg btn-primary buttonborder" Text="" onclick="btnSubmit_Click1" onclientclick="unhook()"/>                           
+                </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
             </div>  
         </div>
         <div class="container-fluid" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row">
-                    <br />
+                <br />
             </div>
         </div>  
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
         <div id="throbber" style="display:none;">
             <p style="font-size:20px; font-weight: bold;"><b>Molimo sačekajte...</b></p>

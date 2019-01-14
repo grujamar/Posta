@@ -185,6 +185,7 @@ public class Constants
     public const string CONTROL_TYPE_RADIOBUTTON = "RadioButton";
     public const string CONTROL_TYPE_CHECKBOX = "CheckBox";
     public const string CONTROL_TYPE_HYPERLINK = "HyperLink";
+    public const string CONTROL_TYPE_LINK_BUTTON = "LinkButton";
 
     public const string GLOBAL_VALIDATION = "VALIDATION";
     public const string GLOBAL_GEOLOCATIONS = "GEOLOCATIONS";

@@ -13,8 +13,9 @@
 <link href="Content/Css/textbox.css" rel="stylesheet" type="text/css" />
 <link href="Content/Css/calendar.css" rel="stylesheet" type="text/css" />
 <link href="Content/Css/textcolor.css" rel="stylesheet" type="text/css" />
+<link href="Content/Css/responsive.css" rel="stylesheet" type="text/css" />
+<link href="Content/Css/font-awesome.min.css" rel="stylesheet" type="text/css" />
  <!--datepicker-->
-<link rel="stylesheet" href="/resources/demos/style.css"/>
 <link href="Content/Css/jquery-ui.css" rel="stylesheet" type="text/css" />	
 <script src="Content/Js/jquery-1.12.4.js"></script>
 <script src="Content/Js/jquery-ui.js"></script>

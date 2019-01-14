@@ -141,25 +141,35 @@
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
         <div class="container-fluid" style="margin-left: 10px">
             <div class="row top10">
-                        <div class="col-sm-2">
-                            <asp:Label id="spanbrojzahteva" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblbrojzahteva" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
-                        </div>
-                        <div class="col-sm-10">
-                             <asp:TextBox ID="txtbrojzahteva" runat="server" class="txtbox" style="font-size:13px;" maxlength="8" TabIndex="1"></asp:TextBox>
-                             <asp:CustomValidator runat="server" id="cvbrojzahteva" controltovalidate="txtbrojzahteva" errormessage="" OnServerValidate="cvbrojzahteva_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                        </div>
+                <div class="col-sm-2 d-flex-forme">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spanbrojzahteva" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                    </div>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lblbrojzahteva" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                    </div>  
+                </div>
+                <div class="col-sm-10">
+                    <asp:TextBox ID="txtbrojzahteva" runat="server" class="txtbox" style="font-size:13px;" maxlength="8" TabIndex="1"></asp:TextBox>
+                    <asp:CustomValidator runat="server" id="cvbrojzahteva" controltovalidate="txtbrojzahteva" errormessage="" OnServerValidate="cvbrojzahteva_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                </div>
             </div>
         </div>
         <div class="container-fluid" style="margin-left: 10px">
             <div class="row top10">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="spankodovizapreuzimanje" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblkodovizapreuzimanje" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
-                        </div>
-                        <div class="col-sm-10" style="background-color:white;">
-                            <asp:TextBox ID="txtkodovipreuzimanje" runat="server" class="txtbox5" style="font-size:13px;" maxlength="14" TabIndex="0"></asp:TextBox>
-                            <asp:Label ID="errLabel" runat="server" ForeColor="Red" style="font-size:13px;"></asp:Label>
-                            <asp:CustomValidator runat="server" id="cvkodovipreuzimanje" controltovalidate="txtkodovipreuzimanje" errormessage="" OnServerValidate="cvkodovipreuzimanje_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                        </div>
+                <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spankodovizapreuzimanje" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
+                    </div>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lblkodovizapreuzimanje" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
+                    </div>
+                </div>
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:TextBox ID="txtkodovipreuzimanje" runat="server" class="txtbox5" style="font-size:13px;" maxlength="14" TabIndex="0"></asp:TextBox>
+                    <asp:Label ID="errLabel" runat="server" ForeColor="Red" style="font-size:13px;"></asp:Label>
+                    <asp:CustomValidator runat="server" id="cvkodovipreuzimanje" controltovalidate="txtkodovipreuzimanje" errormessage="" OnServerValidate="cvkodovipreuzimanje_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                </div>
             </div>
         </div>
         <div class="container-fluid" style="margin-left: 10px">
@@ -167,20 +177,25 @@
                 <ContentTemplate>
                     <fieldset>
                         <div class="row top10">
-                                <div class="col-sm-2" style="background-color:white;">
-                                    <asp:Label id="spannacinslanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lblnacinslanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                            <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                                <div class="w-2-forme w-8-forme-md">
+                                    <asp:Label id="spannacinslanja" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
                                 </div>
-                                <div class="col-sm-10" style="background-color:white;">
-                                    <asp:DropDownList ID="ddlnacinslanja" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox4" DataSourceID="odsNacinSlanja" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlnacinslanja_SelectedIndexChanged" TabIndex="0">
-                                    </asp:DropDownList>
-                                    <asp:ObjectDataSource ID="odsNacinSlanja" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
-                                        <SelectParameters>
-                                            <asp:Parameter DefaultValue="preuzimanje-sertifikata-pkcs12.aspx" Name="filename" Type="String" />
-                                            <asp:Parameter DefaultValue="ddlnacinslanja" Name="controlid" Type="String" />
-                                        </SelectParameters>
-                                    </asp:ObjectDataSource>
-                                    <asp:CustomValidator runat="server" id="cvnacinslanja" controltovalidate="ddlnacinslanja" errormessage="" OnServerValidate="cvnacinslanja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                                <div class="w-98-forme w-92-forme-md">
+                                    <asp:Label id="lblnacinslanja" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
                                 </div>
+                            </div>
+                            <div class="col-sm-10" style="background-color:white;">
+                                <asp:DropDownList ID="ddlnacinslanja" runat="server" AppendDataBoundItems="True" AutoPostBack="True" class="txtbox4" DataSourceID="odsNacinSlanja" DataTextField="ItemText" DataValueField="IDItem" OnSelectedIndexChanged="ddlnacinslanja_SelectedIndexChanged" TabIndex="0">
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="odsNacinSlanja" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemByPageAndControl" TypeName="RABackTableAdapters.ItemTableAdapter">
+                                    <SelectParameters>
+                                        <asp:Parameter DefaultValue="preuzimanje-sertifikata-pkcs12.aspx" Name="filename" Type="String" />
+                                        <asp:Parameter DefaultValue="ddlnacinslanja" Name="controlid" Type="String" />
+                                    </SelectParameters>
+                                </asp:ObjectDataSource>
+                                <asp:CustomValidator runat="server" id="cvnacinslanja" controltovalidate="ddlnacinslanja" errormessage="" OnServerValidate="cvnacinslanja_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                            </div>
                         </div>
                    </fieldset>
                 </ContentTemplate>
@@ -189,59 +204,64 @@
         <!---------------------------------------------------------------------------------------------------------->
         <!---------------------------------------------------------------------------------------------------------->
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
         <div class="container-fluid" id="myDiv5" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
-                        <div class="col-sm-2">
-                            <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
-                        <div class="col-sm-8">
-                            <asp:Button ID="btnSubmit" runat="server" class="btn-lg btn-primary buttonborder" Text="" onclick="btnSubmit_Click1" OnClientClick="countupTimeStart();unhook()" TabIndex="0"/>                           
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
+                <div class="col-sm-8">
+                    <asp:Button ID="btnSubmit" runat="server" class="btn-lg btn-primary buttonborder" Text="" onclick="btnSubmit_Click1" OnClientClick="countupTimeStart();unhook()" TabIndex="0"/>                           
+                </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
             </div>  
         </div>
         <div class="container-fluid" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row">
-                    <br />
+                <br />
             </div>
         </div>
         <div class="row">
-                    <br />
+            <br />
         </div>
         <div class="container-fluid" style="margin-left: 10px;">
             <div class="row top10">
-                    <div class="col-sm-2" style="background-color:white;">
-                        <asp:Label id="spandatotekasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;<asp:Label id="lbldatotekasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label> 
+                <div class="col-sm-2 d-flex-forme" style="background-color:white;">
+                    <div class="w-2-forme w-8-forme-md">
+                        <asp:Label id="spandatotekasert" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;
                     </div>
-                    <div class="col-sm-10">
-                        <asp:TextBox ID="txtdatotekasert" runat="server" ReadOnly="true" class="txtbox4" style="font-size:13px; background-color: #e2e2e2;" maxlength="50" TabIndex="-1"></asp:TextBox>
-                        <asp:CustomValidator runat="server" id="cvdatotekasert" controltovalidate="txtdatotekasert" errormessage="" OnServerValidate="cvdatotekasert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
-                        <asp:Button ID="btnDownloadPKCS12Certificate" runat="server" class="btn btn-warning btn-sm submit" Text="" style="border: 4px solid #FFA500;" OnClick="btnDownloadPKCS12Certificate_Click" OnClientClick="unhook()" TabIndex="0"/>
+                    <div class="w-98-forme w-92-forme-md">
+                        <asp:Label id="lbldatotekasert" runat="server" style="font-weight:bold;font-size:13px;"> </asp:Label>
                     </div>
+                </div>
+                <div class="col-sm-10">
+                    <asp:TextBox ID="txtdatotekasert" runat="server" ReadOnly="true" class="txtbox4" style="font-size:13px; background-color: #e2e2e2; margin-bottom: 5px;" maxlength="50" TabIndex="-1"></asp:TextBox>
+                    <asp:CustomValidator runat="server" id="cvdatotekasert" controltovalidate="txtdatotekasert" errormessage="" OnServerValidate="cvdatotekasert_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                    <asp:Button ID="btnDownloadPKCS12Certificate" runat="server" class="btn btn-warning btn-sm submit" Text="" style="border: 4px solid #FFA500;" OnClick="btnDownloadPKCS12Certificate_Click" OnClientClick="unhook()" TabIndex="0"/>
+                </div>
             </div>
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
         <div class="col-sm-10" style="background-color:white;">                                      
             <p class="notification" style="margin-bottom: 3px;"><asp:Label id="lblnotification" runat="server" style="font-size:13px;"></asp:Label></p>
         </div>
         <br />
             <div id="throbber" style="display:none;">
-                    <p style="font-size:20px; font-weight: bold;"><b>Kreiranje sertifikata je u toku. Molimo sačekajte. Proteklo vreme je:                                 
-                            <span id="seconds" style="font-size:20px;margin-right:2px;font-weight:bold;">00</span>
-                        sekunde.</b></p>
-                    <asp:Image ID="imgThrobber" imageurl="~/Content/Gif/throbber.gif" runat="server" style="width:35px;height:35px;"/>                               
+                <p style="font-size:20px; font-weight: bold;"><b>Kreiranje sertifikata je u toku. Molimo sačekajte. Proteklo vreme je:                                 
+                        <span id="seconds" style="font-size:20px;margin-right:2px;font-weight:bold;">00</span>
+                    sekunde.</b></p>
+                <asp:Image ID="imgThrobber" imageurl="~/Content/Gif/throbber.gif" runat="server" style="width:35px;height:35px;"/>                               
             </div>
         <br />
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>

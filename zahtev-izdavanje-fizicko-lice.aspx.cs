@@ -1956,6 +1956,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
             log.Error("Problem with setting focus on control. Error: " + inEx);
         }
     }
+
 }
 
 
