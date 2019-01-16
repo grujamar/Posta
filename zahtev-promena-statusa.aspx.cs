@@ -113,6 +113,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                         txtjik01.ReadOnly = true;
                         txtime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateFirstName"].ToString();
                         txtprezime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateLastName"].ToString();
+                        txtserijskibroj02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateCN"].ToString();
                         FieldsToDisplay();
                         ScriptManager.RegisterStartupScript(this, GetType(), "EnableButton", "EnableButton();", true);
                         ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCkeckAutomatik", "RadioButtonCkeckAutomatik();", true);
@@ -158,6 +159,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 SetFocusOnRadioButton();
                 txtjik01.TabIndex = 0;
                 txtime02.TabIndex = -1;
+                txtserijskibroj02.TabIndex = -1;
                 txtprezime02.TabIndex = -1;               
                 //------------------------------
                 //Get Control on all page
@@ -231,6 +233,8 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         Container04.Visible = true;
         txtime02.ReadOnly = true;
         txtime02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.ReadOnly = true;
         txtprezime02.ReadOnly = true;
         txtprezime02.BackColor = ColorTranslator.FromHtml(SetLightGray);        
         myDiv1.Visible = false;
@@ -284,6 +288,10 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                     if (par.Key.Equals("jik", StringComparison.InvariantCultureIgnoreCase))
                     {
                         Session["zahtev-promena-statusa-sertifikata-CertificateJIK"] = par.Value;
+                    }
+                    else if (par.Key.Equals("cn", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        Session["zahtev-promena-statusa-sertifikata-CertificateCN"] = par.Value;
                     }
                     else if (par.Key.Equals("firstName", StringComparison.InvariantCultureIgnoreCase))
                     {
@@ -661,6 +669,10 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             {
                 Session["zahtev-promena-statusa-sertifikata-txtjik01IsRequired"] = control.IsRequired;
             }
+            else if (control.Id == txtserijskibroj02.ClientID)
+            {
+                Session["zahtev-promena-statusa-sertifikata-txtserijskibroj02IsRequired"] = control.IsRequired;
+            }
             else if (control.Id == txtime02.ClientID)
             {
                 Session["zahtev-promena-statusa-sertifikata-txtime02IsRequired"] = control.IsRequired;
@@ -1016,9 +1028,13 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         txtjik01.ReadOnly = true;
         txtjik01.Text = string.Empty;
         txtime02.Text = string.Empty;
+        txtserijskibroj02.Text = string.Empty;
         txtprezime02.Text = string.Empty;
         errLabel01.Text = string.Empty;
 
+
+        txtserijskibroj02.ReadOnly = true;
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
         Container01.Visible = true;
         txtime02.ReadOnly = true;
         txtime02.BackColor = ColorTranslator.FromHtml(SetLightGray);
@@ -1035,6 +1051,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         Session["zahtev-promena-statusa-sertifikata-event_controle-RadioButton"] = rbAutomatikJik;
         txtjik01.TabIndex = -1;
         txtime02.TabIndex = -1;
+        txtserijskibroj02.TabIndex = -1;
         txtprezime02.TabIndex = -1;
         SetFocusOnRadioButton();
     }
@@ -1065,6 +1082,9 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         }
         txtime02.ReadOnly = true;   
         txtime02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.ReadOnly = true;
+        txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
+        txtserijskibroj02.Text = string.Empty;
         txtprezime02.ReadOnly = true;        
         //errLabel01.Text = string.Empty;
         Container01.Visible = true;
@@ -1079,6 +1099,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         Session["zahtev-promena-statusa-sertifikata-event_controle-RadioButton"] = rbManualJik;
         txtjik01.TabIndex = 0;
         txtime02.TabIndex = -1;
+        txtserijskibroj02.TabIndex = -1;
         txtprezime02.TabIndex = -1;
         SetFocusOnRadioButton();
     }
@@ -1552,6 +1573,22 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         catch (Exception)
         {
             cvime.ErrorMessage = string.Empty;
+            args.IsValid = false;
+        }
+    }
+
+    protected void cvserijskibroj02_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        try
+        {
+            string ErrorMessage1 = string.Empty;
+            string nameformat = string.Empty;
+            args.IsValid = UtilsValidation.ValidateReadOnlyFields(txtserijskibroj02.Text, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtserijskibroj02IsRequired"]), out ErrorMessage1);
+            cvserijskibroj02.ErrorMessage = ErrorMessage1;
+        }
+        catch (Exception)
+        {
+            cvserijskibroj02.ErrorMessage = string.Empty;
             args.IsValid = false;
         }
     }
