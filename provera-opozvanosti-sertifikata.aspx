@@ -136,15 +136,22 @@
     </script>
     <style type="text/css">
         .submit {
+            display: inline-block;
             border-radius: 5px;
             color: white;
             padding: 5px 30px 5px 45px;
             background: url(Content/Images/certificate.gif) left 3px top 2px no-repeat #FFA500;
-            border: 4px solid #FFA500; 
-            margin-bottom: 20px;
+            border: 4px solid #FFA500;
             font-size:13px;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         .crl {
+            display: inline-block;
             border: 1px solid #FFA500;
             border-radius: 5px;
             color: white;
@@ -152,6 +159,12 @@
             background: url(Content/Images/crl.jpg) left 3px top -3px no-repeat #FFA500;
             border: 4px solid #FFA500;
             font-size:13px;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
     </style>
 </head>
@@ -504,8 +517,8 @@
                     </div>
                 </div>
                 <div class="col-sm-9" style="background-color:white;">
-                    <asp:TextBox ID="txtimeservera" runat="server" class="txtboxMultilineGray" style="font-size:13px; margin-bottom: 5px;" AutoPostBack="true" TextMode="MultiLine" Rows="5"></asp:TextBox>
-                    <asp:Button ID="btnGetRevocationCertificate" runat="server" CssClass="submit" Text="" onclick="btnGetRevocationCertificate_Click" onclientclick="unhook()"/>
+                    <asp:TextBox ID="txtimeservera" runat="server" class="txtboxMultilineGray" style="font-size:13px;" AutoPostBack="true" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                    <asp:Button ID="btnGetRevocationCertificate" runat="server" class="submit" Text="" style="border: 4px solid #FFA500; margin-bottom: 35px" onclick="btnGetRevocationCertificate_Click" onclientclick="unhook()"/>
                 </div>
             </div>           
             <div class="row top10">                                 
@@ -518,7 +531,7 @@
                     </div>
                 </div>
                 <div class="col-sm-9" style="background-color:white;">
-                    <asp:TextBox ID="txtnacinprovere" runat="server" class="txtbox4" style="font-size:13px; margin-bottom: 5px;" maxlength="9" AutoPostBack="true"></asp:TextBox>
+                    <asp:TextBox ID="txtnacinprovere" runat="server" class="txtbox4" style="font-size:13px; margin-bottom: 5px;" AutoPostBack="true"></asp:TextBox>
                     <asp:Button ID="btnGetRevocationOCSP" runat="server" CssClass="crl" Text="" onclick="btnGetRevocationOCSP_Click" onclientclick="unhook()"/>
                 </div>
             </div>

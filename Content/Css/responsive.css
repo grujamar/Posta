@@ -10,6 +10,8 @@
 
 @media(min-width:768px){
 
+
+
     /*Za col-sm-2 d-flex-forme*/
     .w-8-forme-md {
         width: 7%;
@@ -36,12 +38,12 @@
         flex-basis:88%;
     }
 
+    
 }
 
 
 @media(min-width:992px){
-    
-    
+
     
 }
 
