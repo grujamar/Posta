@@ -179,9 +179,9 @@
               </ContentTemplate>
             </asp:UpdatePanel>
             <div class="row">
-                        <div class="col-sm-12">
-                            <br/><p class="notification"><asp:Label id="lblnotification1" runat="server" style="font-size:13px;"></asp:Label></p>
-                        </div>
+                <div class="col-sm-12">
+                    
+                </div>
             </div>   
         </div>
         <div class="row">
@@ -204,6 +204,7 @@
                              <asp:TextBox ID="txtjik" runat="server" class="txtbox1" style="font-size:13px;" maxlength="9" AutoPostBack="true" ontextchanged="txtjik_TextChanged" OnClientClick="return CheckIfChannelHasChanged();" onkeydown="keydownFunction(); return true;" TabIndex="0"></asp:TextBox>
                              <asp:Label ID="errLabel" runat="server" ForeColor="Red" style="font-size:13px;"></asp:Label>
                              <asp:CustomValidator runat="server" id="cvjik" controltovalidate="txtjik" errormessage="" OnServerValidate="cvjik_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
+                             <br/><p class="notification"><asp:Label id="lblnotification1" runat="server" style="font-size:13px;"></asp:Label></p>
                           </div>
                     </div>
                   </fieldset>

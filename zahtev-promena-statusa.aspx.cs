@@ -95,6 +95,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 Session["zahtev-promena-statusa-sertifikata-CertificateJIK"] = string.Empty;
                 Session["zahtev-promena-statusa-sertifikata-CertificateFirstName"] = string.Empty;
                 Session["zahtev-promena-statusa-sertifikata-CertificateLastName"] = string.Empty;
+                Session["zahtev-promena-statusa-sertifikata-CertificateCN"] = string.Empty;
             }
             AvoidCashing();
             ShowDatepicker();
@@ -114,6 +115,8 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                         txtime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateFirstName"].ToString();
                         txtprezime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateLastName"].ToString();
                         txtserijskibroj02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateCN"].ToString();
+                        Container01.Visible = true;
+                        Container04.Visible = false;
                         FieldsToDisplay();
                         ScriptManager.RegisterStartupScript(this, GetType(), "EnableButton", "EnableButton();", true);
                         ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCkeckAutomatik", "RadioButtonCkeckAutomatik();", true);
@@ -126,14 +129,18 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                             ScriptManager.RegisterStartupScript(this, GetType(), "ErrorNotification", "ErrorNotification();", true);
                             log.Error("error is not null. error: " + error);
                         }
+                        Container01.Visible = false;
+                        Container04.Visible = true;
                         FieldsToDisplay();
-                        ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCheck1", "RadioButtonCheck1();", true);
-                        ScriptManager.RegisterStartupScript(this, GetType(), "DisableButton", "DisableButton();", true);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonUnknown", "RadioButtonUnknown();", true);
                         ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCheck2", "RadioButtonCheck2();", true);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "DisableButton", "DisableButton();", true);
                     }
                 }
                 else
                 {
+                    Container01.Visible = false;
+                    Container04.Visible = true;
                     FieldsToDisplay();
                     ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCheck1", "RadioButtonCheck1();", true);
                     ScriptManager.RegisterStartupScript(this, GetType(), "DisableButton", "DisableButton();", true);
@@ -229,8 +236,6 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
 
     protected void FieldsToDisplay()
     {
-        Container01.Visible = false;
-        Container04.Visible = true;
         txtime02.ReadOnly = true;
         txtime02.BackColor = ColorTranslator.FromHtml(SetLightGray);
         txtserijskibroj02.BackColor = ColorTranslator.FromHtml(SetLightGray);
@@ -1152,6 +1157,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 txtjik01.Text = Session["zahtev-promena-statusa-sertifikata-CertificateJIK"].ToString();
                 txtime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateFirstName"].ToString();
                 txtprezime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateLastName"].ToString();
+                txtserijskibroj02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateCN"].ToString();
             }
         }
         rbIndividual.Checked = true;
@@ -1180,6 +1186,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 txtjik01.Text = Session["zahtev-promena-statusa-sertifikata-CertificateJIK"].ToString();
                 txtime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateFirstName"].ToString();
                 txtprezime02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateLastName"].ToString();
+                txtserijskibroj02.Text = Session["zahtev-promena-statusa-sertifikata-CertificateCN"].ToString();
             }
         }
         rbLegal.Checked =true;

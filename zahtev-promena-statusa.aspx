@@ -88,11 +88,13 @@
             if (jikposta.value.length == 0)
                 document.getElementById('errLabel01').style.display = 'none';
         }
+        function RadioButtonUnknown() {
+            document.getElementById("rbUnknownJik").checked = true;
+        }
         function RadioButtonCheck1() {
             document.getElementById("rbUnknownJik").checked = true;
-            document.getElementById("rbIndividual").checked = true;
+            document.getElementById("rbAutomatikJik").checked = false;
             document.getElementById("rbManualJik").checked = false;
-            document.getElementById("rbAutomatikJik").checked = false;          
         }
         function RadioButtonCkeckAutomatik() {
             document.getElementById("rbAutomatikJik").checked = true;
