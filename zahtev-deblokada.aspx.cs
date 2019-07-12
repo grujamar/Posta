@@ -1188,7 +1188,8 @@ public partial class zahtev_deblokada : System.Web.UI.Page
 
             pisMess = new PisMessServiceReference.PisMessServiceClient();
             List<PisMessServiceReference.Parameter> documentParameters = new List<PisMessServiceReference.Parameter>();
-
+            List<PisMessServiceReference.Parameter> documentParametersPayment = new List<PisMessServiceReference.Parameter>();
+            
             BxSoapEnvelope envelope = createSoapEnvelope(utility, Mesto, Ulica, Broj, PostanskiBroj, PAK, requestChallengeResponse, SerialNumber);
 
             //envelope.createBxSoapEnvelope();   //create SOAP.xml 
@@ -1200,7 +1201,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             {
                 throw new Exception("ResponseStatus is not success!");
             }
-
+           
             Session["Zahtev-promena-statusa-brojzahteva"] = BrojZahteva;
 
             log.Debug("Successfully send SOAP message! RequestNumber for Unblock Status is: " + BrojZahteva);
@@ -1209,9 +1210,9 @@ public partial class zahtev_deblokada : System.Web.UI.Page
 
             documentParameters = getDocumentParametersList(utility, requestChallengeResponse);
             var CreateDocumentUnblockingRequestTask = Task.Run(() => CreateDocumentUnblockingRequest(utility, pisMess, documentParameters));
-       
-            documentParameters = getDocumentParametersListPaymentOrder(utility);
-            var CreateDocumentUnblockingRequestPaymentOrderTask = Task.Run(() => CreateDocumentUnblockingRequestPaymentOrder(utility, pisMess, documentParameters));
+
+            documentParametersPayment = getDocumentParametersListPaymentOrder(utility);
+            var CreateDocumentUnblockingRequestPaymentOrderTask = Task.Run(() => CreateDocumentUnblockingRequestPaymentOrder(utility, pisMess, documentParametersPayment));
 
             Task.WaitAll(new[] { CreateDocumentUnblockingRequestTask, CreateDocumentUnblockingRequestPaymentOrderTask });
 
