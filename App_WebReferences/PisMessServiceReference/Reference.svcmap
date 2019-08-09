@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f155305a-0aa3-4da5-bac0-520e8c2e842b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b8049db0-3445-470a-820a-46144d3c6d02" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="https://testpki.pis.rs/PisMess/PisMess.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PisMess.xsd" MetadataType="Schema" ID="df7dc34b-82ba-4e91-9c93-989f4530770d" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd2" />
-    <MetadataFile FileName="PisMess2.xsd" MetadataType="Schema" ID="e869ed93-e268-4606-aba4-dadff10769f6" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd1" />
-    <MetadataFile FileName="PisMess.disco" MetadataType="Disco" ID="9fbead85-541a-4022-bc54-c18935ee687a" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?disco" />
-    <MetadataFile FileName="PisMess.wsdl" MetadataType="Wsdl" ID="65a727ae-2302-40ed-a9a2-8765c240b667" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?wsdl" />
-    <MetadataFile FileName="PisMess3.xsd" MetadataType="Schema" ID="a385f357-3aae-4e31-925c-0c083afd3709" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd0" />
+    <MetadataFile FileName="PisMess.xsd" MetadataType="Schema" ID="a5875805-f88d-4d8f-a4be-6d7b512e3e7c" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd2" />
+    <MetadataFile FileName="PisMess1.xsd" MetadataType="Schema" ID="69098685-cdcc-4445-93c9-fd2978ce1a52" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd1" />
+    <MetadataFile FileName="PisMess.disco" MetadataType="Disco" ID="0572808e-c34a-4f6f-b49b-c07159d72440" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?disco" />
+    <MetadataFile FileName="PisMess.wsdl" MetadataType="Wsdl" ID="6e1039ca-d190-4890-9899-70bc1d7486ba" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?wsdl" />
+    <MetadataFile FileName="PisMess2.xsd" MetadataType="Schema" ID="b4ce5c76-e82f-49b0-b3b1-98cc1e4d8ab8" SourceId="1" SourceUrl="https://testpki.pis.rs/PisMess/PisMess.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

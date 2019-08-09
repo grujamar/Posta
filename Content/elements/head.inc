@@ -1,6 +1,6 @@
 <link rel="shortcut icon" href="Content/Images/favicon.ico"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<meta http-equiv="refresh" content="900">
+<meta http-equiv="refresh" content="1200">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link href="Content/Css/bootstrap.min.css" rel="stylesheet" type="text/css" />

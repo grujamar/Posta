@@ -1863,7 +1863,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 log.Debug("datumgubitka je: " + datumgubitka);
                 string ErrorMessage1 = string.Empty;
 
-                args.IsValid = UtilsValidation.ValidateDateOfBirth(datumgubitka, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumgubitkaIsRequired"]), out ErrorMessage1);
+                args.IsValid = UtilsValidation.ValidateIssuingDate(datumgubitka, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumgubitkaIsRequired"]), true, out ErrorMessage1);
                 cvdatumgubitka.ErrorMessage = ErrorMessage1;
             }
             else
@@ -1905,7 +1905,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 log.Debug("datumcompromise je: " + datumcompromise);
                 string ErrorMessage1 = string.Empty;
 
-                args.IsValid = UtilsValidation.ValidateDateOfBirth(datumcompromise, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumcompromiseIsRequired"]), out ErrorMessage1);
+                args.IsValid = UtilsValidation.ValidateIssuingDate(datumcompromise, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumcompromiseIsRequired"]), true, out ErrorMessage1);
                 cvdatumcompromise.ErrorMessage = ErrorMessage1;
             }
             else

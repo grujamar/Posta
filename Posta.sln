@@ -3,24 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Posta(2)", ".", "{A8F75088-5EFC-4D05-A19F-57148F3F914B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Posta(3)", ".", "{7CD9CE0B-0C7B-4EF5-A1EA-2953ECC2D820}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_49307"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\Posta\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49307\"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51149"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51149\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_49307"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\Posta\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49307\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51149"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\GitHub\Posta\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51149\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49307"
+		VWDPort = "51149"
 	EndProjectSection
 EndProject
 Global
@@ -28,13 +28,13 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A8F75088-5EFC-4D05-A19F-57148F3F914B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8F75088-5EFC-4D05-A19F-57148F3F914B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD9CE0B-0C7B-4EF5-A1EA-2953ECC2D820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD9CE0B-0C7B-4EF5-A1EA-2953ECC2D820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C73FD471-157B-4336-AF98-6326C0211AD5}
+		SolutionGuid = {9F8DBC75-2DBF-443B-B53E-D774A46D78D7}
 	EndGlobalSection
 EndGlobal

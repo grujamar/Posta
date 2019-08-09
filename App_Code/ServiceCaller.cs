@@ -11,10 +11,9 @@ public class ServiceCaller
 {
     private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-    public static string CallService()
+    public static void CallService()
     {
         PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
-        return client.TestConcurrecy()[0];
     }
 
     public static string[] CallServiceCreateDoc(PisMessServiceReference.TemplateDocumentTypeSerbianPost documentType, PisMessServiceReference.Parameter[] parameters)

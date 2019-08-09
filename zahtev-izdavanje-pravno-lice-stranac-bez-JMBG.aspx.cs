@@ -3093,7 +3093,8 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
         envelope.BxData.setValue(@"ispApplicant", Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-userAgentISP"].ToString());
         envelope.BxData.setValue(@"browserApplicant", Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-userAgentBrowser"].ToString());
         envelope.BxData.setValue(@"ipOperator", string.Empty);
-
+        
+        /*
         certificatesAuthorizedUsers.Add(new PisMessServiceReference.CertificatesAuthorizedUser
         {
             Name = Ime,
@@ -3102,8 +3103,10 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             Email = AdresaEPoste1,
             PhoneNumber = Telefon,
             HwMedium = utility.getEnglishTextItemText(Medij),
-            Expiry = utility.getEnglishTextItemText(Rok)
+            Expiry = utility.getEnglishTextItemText(Rok),
+            RequestNumber = ""
         });
+        */
 
         return envelope;
     }
@@ -3387,6 +3390,8 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                     throw new Exception("RequestNumber is empty!");
                 }
 
+                addRequestNumberToCertificatesAuthorizedUsers(utility, i, certificatesAuthorizedUsers, BrojZahteva);
+
                 log.Debug("Finished sending SOAP message for i = " + i + " row. Response from BlueX: First RequestNumber for IssuingIndividual is: " + BrojZahteva + ". Second RequestNumber for IssuingIndividual is: " + BrojZahtevaPravnoLice);
             }
 
@@ -3462,6 +3467,44 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             ScriptManager.RegisterStartupScript(this, GetType(), "Disable", "DisableCalendar();", true);
             ScriptManager.RegisterStartupScript(this, GetType(), "erroralertSendSOAP", "erroralertSendSOAP();", true);
         }       
+    }
+
+    protected void addRequestNumberToCertificatesAuthorizedUsers(Utility utility, int i, List<PisMessServiceReference.CertificatesAuthorizedUser> certificatesAuthorizedUsers, string requestNumber)
+    {
+        string Ime = string.Empty;
+        string Prezime = string.Empty;
+        string AdresaEPoste = string.Empty;
+        string AdresaEPoste1 = string.Empty;
+        string Telefon = string.Empty;
+        string Medij = string.Empty;
+        string Rok = string.Empty;
+
+        Ime = GridView1.Rows[i].Cells[1].Text;
+        Prezime = GridView1.Rows[i].Cells[2].Text;
+        AdresaEPoste = GridView1.Rows[i].Cells[3].Text;
+        if (AdresaEPoste == "&nbsp;" || AdresaEPoste == string.Empty)
+        {
+            AdresaEPoste1 = string.Empty;
+        }
+        else
+        {
+            AdresaEPoste1 = AdresaEPoste;
+        }
+        Telefon = GridView1.Rows[i].Cells[4].Text;
+        Rok = GridView1.Rows[i].Cells[5].Text;
+        Medij = GridView1.Rows[i].Cells[6].Text;
+
+        certificatesAuthorizedUsers.Add(new PisMessServiceReference.CertificatesAuthorizedUser
+        {
+            Name = Ime,
+            LastName = Prezime,
+            Jmbg = Constants.withoutJMBG,
+            Email = AdresaEPoste1,
+            PhoneNumber = Telefon,
+            HwMedium = utility.getEnglishTextItemText(Medij),
+            Expiry = utility.getEnglishTextItemText(Rok),
+            RequestNumber = requestNumber
+        });
     }
 
     //------------------------------------------------------------------------------------------------

@@ -627,37 +627,37 @@
                                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" 
                                 Width="100%" BackColor="#F4F7F6" BorderColor="#146B93" BorderStyle="None" BorderWidth="10px" CellPadding="3" Font-Size="13px" CssClass="table table-bordered" DataKeyNames="Jmbg,SertJmbg,VrstaDokumenta,BrojIDDokumenta,ImeInstitucije,DatumIzdavanja,DatumIsteka,SertAdresa,Mesto,Ulica,Broj,PostanskiBroj,CenaSaPorezom,PAK" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" TabIndex="0" PageSize="20">
                         <Columns>
-                            <asp:TemplateField HeaderText="RedniBroj"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                                <HeaderStyle HorizontalAlign="Center" />
-                                <ItemStyle HorizontalAlign="Center" />
+                            <asp:TemplateField HeaderText="R. br."><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Left" />
+                                <ItemStyle HorizontalAlign="Left" />
                             </asp:TemplateField>
                             <asp:BoundField DataField="Ime" HeaderText="Ime" SortExpression="Ime" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Prezime" HeaderText="Prezime" SortExpression="Prezime" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="Jmbg" HeaderText="Jmbg" SortExpression="Jmbg" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <asp:BoundField DataField="Jmbg" HeaderText="JMBG" SortExpression="Jmbg" >
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:BoundField DataField="AdresaEPoste" HeaderText="Adresa E-Pošte" SortExpression="Adresa E-Pošte" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Telefon" HeaderText="Telefon" SortExpression="Telefon" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Medij" HeaderText="Medij" SortExpression="Medij" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Rok" HeaderText="Rok" SortExpression="Rok" >
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
+                            <HeaderStyle HorizontalAlign="Left" />
+                            <ItemStyle HorizontalAlign="Left" />
                             </asp:BoundField>
                             <asp:TemplateField>
                                 <ItemTemplate >

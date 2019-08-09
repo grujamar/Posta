@@ -38,18 +38,6 @@
   <wsdl:message name="IPisMessService_SendMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendMessageResponse" />
   </wsdl:message>
-  <wsdl:message name="IPisMessService_SendSms_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendSms" />
-  </wsdl:message>
-  <wsdl:message name="IPisMessService_SendSms_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPisMessService_SendEmail_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendEmail" />
-  </wsdl:message>
-  <wsdl:message name="IPisMessService_SendEmail_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
-  </wsdl:message>
   <wsdl:message name="IPisMessService_SendIpGeolocationRequest_InputMessage">
     <wsdl:part name="parameters" element="tns:SendIpGeolocationRequest" />
   </wsdl:message>
@@ -74,24 +62,10 @@
   <wsdl:message name="IPisMessService_CheckRevocationStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckRevocationStatusResponse" />
   </wsdl:message>
-  <wsdl:message name="IPisMessService_TestConcurrecy_InputMessage">
-    <wsdl:part name="parameters" element="tns:TestConcurrecy" />
-  </wsdl:message>
-  <wsdl:message name="IPisMessService_TestConcurrecy_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TestConcurrecyResponse" />
-  </wsdl:message>
   <wsdl:portType name="IPisMessService">
     <wsdl:operation name="SendMessage">
       <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendMessage" message="tns:IPisMessService_SendMessage_InputMessage" />
       <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendMessageResponse" message="tns:IPisMessService_SendMessage_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SendSms">
-      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendSms" message="tns:IPisMessService_SendSms_InputMessage" />
-      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendSmsResponse" message="tns:IPisMessService_SendSms_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SendEmail">
-      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendEmail" message="tns:IPisMessService_SendEmail_InputMessage" />
-      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendEmailResponse" message="tns:IPisMessService_SendEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SendIpGeolocationRequest">
       <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/SendIpGeolocationRequest" message="tns:IPisMessService_SendIpGeolocationRequest_InputMessage" />
@@ -109,34 +83,12 @@
       <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatus" message="tns:IPisMessService_CheckRevocationStatus_InputMessage" />
       <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatusResponse" message="tns:IPisMessService_CheckRevocationStatus_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TestConcurrecy">
-      <wsdl:input wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecy" message="tns:IPisMessService_TestConcurrecy_InputMessage" />
-      <wsdl:output wsaw:Action="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecyResponse" message="tns:IPisMessService_TestConcurrecy_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPisMessService" type="tns:IPisMessService">
     <wsp:PolicyReference URI="#BasicHttpBinding_IPisMessService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="SendMessage">
       <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendMessage" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendSms">
-      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendSms" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendEmail">
-      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/SendEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -173,15 +125,6 @@
     </wsdl:operation>
     <wsdl:operation name="CheckRevocationStatus">
       <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/CheckRevocationStatus" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TestConcurrecy">
-      <soap:operation soapAction="https://pis.rs/webservices/pismess/IPisMessService/TestConcurrecy" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
