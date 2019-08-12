@@ -405,9 +405,11 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
 
     public string USI = string.Empty;
     public string pkcs12 = string.Empty;
+    public string errorPKCS12 = string.Empty;
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
+        Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"] = string.Empty;
         Utility utility = new Utility();
 
         if (Page.IsValid)
@@ -417,19 +419,26 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 log.Debug("Start sending SOAP message.");
 
                 BxSoapEnvelope envelope = createSoapEnvelope(utility);
-               
+
                 //envelope.createBxSoapEnvelope();   //create SOAP.xml 
                 string SOAPresponse = BxSoap.SOAPManual(envelope.createBxSoapEnvelope());
-
+                //string SOAPresponse = "<env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns:bx='http://namespaces.bluex.com/bluex/bluexml'><env:Header/><env:Body><bx:BlueXMLRequestMessage><bx:data><error>[19664F7D] Error: the request is not in a required state[Component_ElementaryAction_Assert_AssertString::DoAction()]</error><error>Authorization Code does not match</error></bx:data></bx:BlueXMLRequestMessage></env:Body></env:Envelope>";
                 /*
                 if (Convert.ToBoolean(Session["Preuzimanje-softverskog-sertifikata-expiredtime"]))
                 {
                     throw new Exception("Time is expired! ");
                 }
                 */
+                log.Debug("Response SOAP message from BlueX for pkcs12 is: " + SOAPresponse);
+                Utils.ParseSoapEnvelopePKCS12(SOAPresponse, out USI, out pkcs12, out errorPKCS12);
 
-                Utils.ParseSoapEnvelopePKCS12(SOAPresponse, out USI, out pkcs12);
-
+                if (errorPKCS12 != string.Empty)
+                {
+                    string parseErrorPKCS12 = Utils.Between(errorPKCS12, Constants.rightBrackets, Constants.leftBrackets);
+                    Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"] = parseErrorPKCS12;
+                    log.Debug("parseErrorPKCS12: " + parseErrorPKCS12);
+                }
+                
                 if (pkcs12 == string.Empty)
                 {
                     throw new Exception("pkcs12 is empty! ");
@@ -450,7 +459,26 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
             {
                 log.Error("Error while sending request. " + ex.Message);
                 //errLabel.Text = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3374);
-                ScriptManager.RegisterStartupScript(this, GetType(), "erroralert", "erroralert();", true);
+                if (Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"].ToString().Equals(Constants.AuthorizationCodeDoesNotMatch))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "errorGettingAuthorizationCodePKCS12", "errorGettingAuthorizationCodePKCS12();", true);
+                }
+                else if (Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"].ToString().Equals(Constants.ErrorGettingRequestNumber))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "errorGettingRequestNumberPKCS12", "errorGettingRequestNumberPKCS12();", true);
+                }
+                else if (Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"].ToString().Equals(Constants.TransferServiceFailed))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "errorTransferServiceFailedPKCS12", "errorTransferServiceFailedPKCS12();", true);
+                }
+                else if (Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"].ToString().Equals(Constants.RrequestIsNotInRequiredState))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "errorRrequestIsNotInRequiredStatePKCS12", "errorRrequestIsNotInRequiredStatePKCS12();", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "erroralert", "erroralert();", true);
+                }
                 ScriptManager.RegisterStartupScript(this, GetType(), "DisableButton", "DisableButton();", true);
             }
         }

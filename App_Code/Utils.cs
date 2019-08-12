@@ -857,12 +857,39 @@ public static class Utils
         }
     }
 
-    public static void ParseSoapEnvelopePKCS12(string soapresponse, out string USI, out string pkcs12)
+
+    /// <summary>
+    /// Get string value between [first] a and [last] b.
+    /// </summary>
+    public static string Between(this string value, string a, string b)
+    {
+        int posA = value.IndexOf(a);
+        int posB = value.LastIndexOf(b);
+        if (posA == -1)
+        {
+            return "";
+        }
+        if (posB == -1)
+        {
+            return "";
+        }
+        int adjustedPosA = posA + a.Length;
+        if (adjustedPosA >= posB)
+        {
+            return "";
+        }
+        return value.Substring(adjustedPosA, posB - adjustedPosA);
+    }
+
+
+    public static void ParseSoapEnvelopePKCS12(string soapresponse, out string USI, out string pkcs12, out string error)
     {
         USI = string.Empty;
         pkcs12 = string.Empty;
+        error = string.Empty;
         string USIPrepared = string.Empty;
         string pkcs12Prepared = string.Empty;
+        string errorPrepared = string.Empty;
 
         try
         {
@@ -889,24 +916,33 @@ public static class Utils
                         if (navigator.HasChildren)
                         {
                             navigator.MoveToFirstChild();//certificate
-                            do
-                            {
-                                if (navigator.HasChildren)
-                                {
-                                    navigator.MoveToFirstChild(); //bx:value name="requestNumber">
-                                    USIPrepared = navigator.Value;
-                                    navigator.MoveToFollowing(XPathNodeType.Element);
-                                    pkcs12Prepared = navigator.Value;
 
-                                    navigator.MoveToParent();
-                                }
-                            } while (navigator.MoveToNext());
+                            if (navigator.Name == "error")
+                            {
+                                errorPrepared = navigator.Value;
+                            }
+                            else
+                            { 
+                                do
+                                {
+                                    if (navigator.HasChildren)
+                                    {
+                                        navigator.MoveToFirstChild(); //bx:value name="requestNumber">
+                                        USIPrepared = navigator.Value;
+                                        navigator.MoveToFollowing(XPathNodeType.Element);
+                                        pkcs12Prepared = navigator.Value;
+
+                                        navigator.MoveToParent();
+                                    }
+                                } while (navigator.MoveToNext());
+                            }
                         }
                     }
                 }
             }
             USI = USIPrepared;
             pkcs12 = pkcs12Prepared;
+            error = errorPrepared;
         }
         catch (Exception ex)
         {

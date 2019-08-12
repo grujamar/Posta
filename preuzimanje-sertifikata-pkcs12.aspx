@@ -93,6 +93,34 @@
                 type: 'OK'
             });
         }
+        function errorGettingRequestNumberPKCS12() {
+            swal({
+                title: 'Greška.',
+                text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je broj zahteva neispravan.',
+                type: 'OK'
+            });
+        }
+        function errorGettingAuthorizationCodePKCS12() {
+            swal({
+                title: 'Greška.',
+                text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je autorizacioni kod neispravan.',
+                type: 'OK'
+            });
+        }
+        function errorTransferServiceFailedPKCS12() {
+            swal({
+                title: 'Greška.',
+                text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što postoji problem u komunikaciji sa serverom za izdavanje sertifikata. Pokušajte ponovo kasnije.',
+                type: 'OK'
+            });
+        }
+        function errorRrequestIsNotInRequiredStatePKCS12() {
+            swal({
+                title: 'Greška.',
+                text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je sertifikat već preuzet.',
+                type: 'OK'
+            });
+        }
         function DisableButton() {
             document.getElementById('btnDownloadPKCS12Certificate').disabled = true;
         }

@@ -207,4 +207,15 @@ public class Constants
     public static readonly byte[] AuthKey = new byte[] { 0x43, 0x9A, 0x93, 0x29, 0x2, 0x8, 0x43, 0x25, 0x43, 0x9, 0x75, 0x24, 0x41, 0x7, 0x93, 0x87, 0x68, 0x84, 0xA6, 0xE0, 0x80, 0xBC, 0x90, 0xB5, 0xE2, 0x4B, 0x92, 0xC9, 0xF3, 0x2F, 0x3, 0x1C };
 
     public const string PTT_CEPP = "PTT-CePP";
+
+
+    /////////////////////////////////////
+    public const string rightBrackets = "]";
+    public const string leftBrackets = "[";
+
+    public const string ErrorGettingRequestNumber = " Error getting REQID/UID";
+    public const string AuthorizationCodeDoesNotMatch = " Authorization Code does not match";
+    public const string TransferServiceFailed = " Transfer Service failed";
+    public const string RrequestIsNotInRequiredState = " Error: the request is not in a required state";
+    /////////////////////////////////////
 }
