@@ -864,7 +864,8 @@ public static class Utils
     public static string Between(this string value, string a, string b)
     {
         int posA = value.IndexOf(a);
-        int posB = value.LastIndexOf(b);
+        //second index of b
+        int posB = value.IndexOf(b, value.IndexOf(b) + 1);
         if (posA == -1)
         {
             return "";

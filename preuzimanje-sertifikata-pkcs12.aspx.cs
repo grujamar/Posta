@@ -422,7 +422,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
 
                 //envelope.createBxSoapEnvelope();   //create SOAP.xml 
                 string SOAPresponse = BxSoap.SOAPManual(envelope.createBxSoapEnvelope());
-                //string SOAPresponse = "<env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns:bx='http://namespaces.bluex.com/bluex/bluexml'><env:Header/><env:Body><bx:BlueXMLRequestMessage><bx:data><error>[19664F7D] Error: the request is not in a required state[Component_ElementaryAction_Assert_AssertString::DoAction()]</error><error>Authorization Code does not match</error></bx:data></bx:BlueXMLRequestMessage></env:Body></env:Envelope>";
+                //string SOAPresponse = "<?xml version='1.0' encoding='UTF-8'?><env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns:bx='http://namespaces.bluex.com/bluex/bluexml'><env:Header/><env:Body><bx:BlueXMLRequestMessage xmlns:bx='http://namespaces.bluex.com/bluex/bluexml'><bx:data><error>[10DB032A] Error getting REQID/UID [Component_ElementaryAction_Workflow_SetUID::DoAction()]</error><error>Authorization Code does not match</error></bx:data></bx:BlueXMLRequestMessage></env:Body></env:Envelope>";
                 /*
                 if (Convert.ToBoolean(Session["Preuzimanje-softverskog-sertifikata-expiredtime"]))
                 {

@@ -213,9 +213,9 @@ public class Constants
     public const string rightBrackets = "]";
     public const string leftBrackets = "[";
 
-    public const string ErrorGettingRequestNumber = " Error getting REQID/UID";
-    public const string AuthorizationCodeDoesNotMatch = " Authorization Code does not match";
-    public const string TransferServiceFailed = " Transfer Service failed";
-    public const string RrequestIsNotInRequiredState = " Error: the request is not in a required state";
+    public const string ErrorGettingRequestNumber = " Error getting REQID/UID ";
+    public const string AuthorizationCodeDoesNotMatch = " Authorization Code does not match ";
+    public const string TransferServiceFailed = " Transfer Service failed ";
+    public const string RrequestIsNotInRequiredState = " Error: the request is not in a required state (tokenIssuing) ";
     /////////////////////////////////////
 }

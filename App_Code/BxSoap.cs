@@ -88,6 +88,15 @@ public static class BxSoap
                 {
                     response = webRequest.GetResponse();
                 }
+                catch (WebException ex)
+                {
+                    using (var stream = ex.Response.GetResponseStream())
+                    using (var reader = new StreamReader(stream))
+                    {
+                        result = reader.ReadToEnd();
+                        log.Debug("Web exception happened: " + result);  
+                    }
+                }
                 catch (Exception ex)
                 {
                     throw new Exception("webRequest.GetResponse() error " + ex.Message + " ||| " + ex.InnerException + " ||| " + ex.StackTrace);
@@ -96,16 +105,19 @@ public static class BxSoap
                 //{
                 log.Debug("End getting result ");
 
-                if (response == null)
+                if (result == string.Empty)
                 {
-                    throw new Exception("response is null");
+                    if (response == null)
+                    {
+                        throw new Exception("response is null");
+                    }
+                    log.Debug("Response is " + response.ToString());
+                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
+                    {
+                        result = rd.ReadToEnd();
+                    }
+                    //}
                 }
-                log.Debug("Response is " + response.ToString());
-                using (StreamReader rd = new StreamReader(response.GetResponseStream()))
-                {
-                    result = rd.ReadToEnd();
-                }
-                //}
                 response.Dispose();
 
                 ret = result;
