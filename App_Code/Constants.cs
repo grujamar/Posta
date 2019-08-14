@@ -218,4 +218,11 @@ public class Constants
     public const string TransferServiceFailed = " Transfer Service failed ";
     public const string RrequestIsNotInRequiredState = " Error: the request is not in a required state (tokenIssuing) ";
     /////////////////////////////////////
+
+
+    public const int ITEM_USER_PASS = 30;
+    public const string USERNAME = "Username";
+    public const string PASSWORD = "Password";
+
+    public const string GLOBAL_WSPWrapperService = "WSPWrapperService";
 }

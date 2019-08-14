@@ -131,6 +131,8 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 SetInitialRow();
                 GridView1.Columns[7].Visible = false;
                 //Get Control on all page
+                SetUpWSPWrapperService();
+                log.Debug("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
                 log.Debug("successfully set Validation!");
                 SetUpIsRequiredTextBoxesSecondPart();
@@ -349,6 +351,29 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
+    //-----------------SetUpWSPWrapperService------------------------
+    //---------------------------------------------------------------
+    protected void SetUpWSPWrapperService()
+    {
+        Utility utility = new Utility();
+        string SettingValue = utility.getSettingsValueGlobalSettings(Constants.GLOBAL_WSPWrapperService);
+        TurnOnAjax1Validation = true;
+        TurnOnAjax2Validation = true;
+
+        if (SettingValue == Constants.SETTING_VALUE_TRUE)
+        {
+            ValidateAjax1(TurnOnAjax1Validation);
+            ValidateAjax2(TurnOnAjax2Validation);
+            Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"] = TurnOnAjax1Validation;
+        }
+        else
+        {
+            ValidateAjax1(!TurnOnAjax1Validation);
+            ValidateAjax2(!TurnOnAjax2Validation);
+            Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"] = !TurnOnAjax1Validation;
+        }
+    }
+
 
     //-----------------SetUpValidation-------------------------------
     //---------------------------------------------------------------
@@ -383,8 +408,6 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 else if (control.Id == txtmesto.ClientID)
                 {
                     Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation"] = control.ControlStatus;
-                    TurnOnAjax1Validation = control.ControlStatus;
-                    ValidateAjax1(TurnOnAjax1Validation);
                 }
                 else if (control.Id == txtkontakttel.ClientID)
                 {
@@ -436,8 +459,6 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 else if (control.Id == txtmesto1.ClientID)
                 {
                     Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation1"] = control.ControlStatus;
-                    TurnOnAjax2Validation = control.ControlStatus;
-                    ValidateAjax2(TurnOnAjax2Validation);
                 }
                 else if (control.Id == txtadresaeposte1.ClientID)
                 {
@@ -493,16 +514,12 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnRegistrationNumberValidation"] = TurnOnRegistrationNumberValidation;
             TurnOnPIBValidation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPIBValidation"] = TurnOnPIBValidation;
-            TurnOnAjax1Validation = Constants.VALIDATION_FALSE;
-            ValidateAjax1(TurnOnAjax1Validation);
             TurnOnPhone1Validaiton = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPhone1Validaiton"] = TurnOnPhone1Validaiton;
             TurnOnEmail1Validation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnEmail1Validation"] = TurnOnEmail1Validation;
             TurnOnURLValidation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnURLValidation"] = TurnOnURLValidation;
-            TurnOnAjax2Validation = Constants.VALIDATION_FALSE;
-            ValidateAjax2(TurnOnAjax2Validation);
             TurnOnEmail2Validation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnEmail2Validation"] = TurnOnEmail2Validation;
             TurnOnPhone2Validation = Constants.VALIDATION_FALSE;
@@ -915,7 +932,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
         }
         else if (!InHouseVariable && IsAllowedVariable && IsLegalEntity == 0)
         {
-            ValidateAjax2(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation1"]));
+            ValidateAjax2(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]));
             Colorchange();
             txtulica1.ReadOnly = false;
             txtulica1.Text = StreetVariable;
@@ -1685,7 +1702,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
         Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-rbWriteName"] = true;
         Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlLegalEntityName"] = true;
 
-        ValidateAjax1(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation"]));
+        ValidateAjax1(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]));
 
         txtmaticnibroj.ReadOnly = false;
         txtmaticnibroj.BackColor = ColorTranslator.FromHtml(SetWhite);
@@ -3886,7 +3903,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation"]))
+            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]))
             {
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;
@@ -3911,7 +3928,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation1"]))
+            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]))
             {
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;

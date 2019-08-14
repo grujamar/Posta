@@ -136,6 +136,8 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 SetInitialRow();
                 GridView1.Columns[8].Visible = false;
                 //Get Control on all page
+                SetUpWSPWrapperService();
+                log.Debug("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
                 log.Debug("successfully set Validation!");
                 SetUpIsRequiredTextBoxesSecondPart();
@@ -365,6 +367,29 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
+    //-----------------SetUpWSPWrapperService------------------------
+    //---------------------------------------------------------------
+    protected void SetUpWSPWrapperService()
+    {
+        Utility utility = new Utility();
+        string SettingValue = utility.getSettingsValueGlobalSettings(Constants.GLOBAL_WSPWrapperService);
+        TurnOnAjax1Validation = true;
+        TurnOnAjax2Validation = true;
+
+        if (SettingValue == Constants.SETTING_VALUE_TRUE)
+        {
+            ValidateAjax1(TurnOnAjax1Validation);
+            ValidateAjax2(TurnOnAjax2Validation);
+            Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"] = TurnOnAjax1Validation;
+        }
+        else
+        {
+            ValidateAjax1(!TurnOnAjax1Validation);
+            ValidateAjax2(!TurnOnAjax2Validation);
+            Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"] = !TurnOnAjax1Validation;
+        }
+    }
+
 
     //-----------------SetUpValidation-------------------------------
     //---------------------------------------------------------------
@@ -399,8 +424,6 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 else if (control.Id == txtmesto.ClientID)
                 {
                     Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation"] = control.ControlStatus;
-                    TurnOnAjax1Validation = control.ControlStatus;
-                    ValidateAjax1(TurnOnAjax1Validation);
                 }
                 else if (control.Id == txtkontakttel.ClientID)
                 {
@@ -457,8 +480,6 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 else if (control.Id == txtmesto1.ClientID)
                 {
                     Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation1"] = control.ControlStatus;
-                    TurnOnAjax2Validation = control.ControlStatus;
-                    ValidateAjax2(TurnOnAjax2Validation);
                 }
                 else if (control.Id == txtadresaeposte1.ClientID)
                 {
@@ -518,8 +539,6 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             Session["zahtev-izdavanje-pravno-lice-TurnOnRegistrationNumberValidation"] = TurnOnRegistrationNumberValidation;
             TurnOnPIBValidation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-TurnOnPIBValidation"] = TurnOnPIBValidation;
-            TurnOnAjax1Validation = Constants.VALIDATION_FALSE;
-            ValidateAjax1(TurnOnAjax1Validation);
             TurnOnPhone1Validaiton = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-TurnOnPhone1Validaiton"] = TurnOnPhone1Validaiton;
             TurnOnEmail1Validation = Constants.VALIDATION_FALSE;
@@ -528,8 +547,6 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             Session["zahtev-izdavanje-pravno-lice-TurnOnURLValidation"] = TurnOnURLValidation;
             TurnOnJMBGValidation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-TurnOnJMBGValidation"] = TurnOnJMBGValidation;
-            TurnOnAjax2Validation = Constants.VALIDATION_FALSE;
-            ValidateAjax2(TurnOnAjax2Validation);
             TurnOnEmail2Validation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-TurnOnEmail2Validation"] = TurnOnEmail2Validation;
             TurnOnPhone2Validation = Constants.VALIDATION_FALSE;
@@ -1534,7 +1551,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         }
         else if (!InHouseVariable && IsAllowedVariable && IsLegalEntity == 0)
         {
-            ValidateAjax2(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation1"]));
+            ValidateAjax2(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"]));
             Colorchange();
             txtulica1.ReadOnly = false;
             txtulica1.Text = StreetVariable;
@@ -1960,7 +1977,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         Session["zahtev-izdavanje-pravno-lice-rbWriteName"] = true;
         Session["zahtev-izdavanje-pravno-lice-ddlLegalEntityName"] = true;
 
-        ValidateAjax1(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation"]));
+        ValidateAjax1(Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"]));
 
         myDiv6.Visible = false;
         myDiv8.Visible = false;
@@ -4122,7 +4139,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation"]))
+            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"]))
             { 
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;
@@ -4157,7 +4174,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnCityValidation1"]))
+            if (Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-SetUpWSPWrapperService"]))
             {
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;

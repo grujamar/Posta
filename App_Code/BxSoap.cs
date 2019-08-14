@@ -25,7 +25,7 @@ public static class BxSoap
 
     public static string SOAPManual(XmlDocument envelope)
     {
-        string ret = string.Empty;
+        string result = string.Empty;
         try
         {
             log.Debug("BxSaop(SOAPManual) function starting");
@@ -51,95 +51,83 @@ public static class BxSoap
                 throw new Exception("No certificates found.");
             }
 
-            try
+
+            foreach (X509Certificate2 certificate in certificates)
             {
-                foreach (X509Certificate2 certificate in certificates)
+                if (certificate.SerialNumber.Equals(SerialNumber, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    if (certificate.SerialNumber.Equals(SerialNumber, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        webRequest.ClientCertificates.Add(certificate);
-                        log.Debug("Get certificate from list. Certificate is: " + certificate.SerialNumber);
-                        break;
-                    }
+                    webRequest.ClientCertificates.Add(certificate);
+                    log.Debug("Get certificate from list. Certificate is: " + certificate.SerialNumber);
+                    break;
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Greska u petlji " + ex.Message);
-            }
+
 
             if (webRequest.ClientCertificates.Count == 0)
             {
                 throw new Exception("No certificate with wanted serial number found.");
             }
 
+
+            InsertSoapEnvelopeIntoWebRequest(envelope, webRequest);
+            log.Debug("SOAP message is:  " + envelope.InnerXml);
+            
+            log.Debug("webRequest: " + webRequest.RequestUri.ToString() + " " + webRequest.Host + " " + webRequest.HaveResponse.ToString() + " " + webRequest.Connection + " " + webRequest.Address.ToString() + " webRequest.ClientCertificates.Count: " + webRequest.ClientCertificates.Count);
+
+            log.Debug("Start getting result ");
+            WebResponse response = null;
             try
             {
-                ////////////////////////////////////////////////
-                InsertSoapEnvelopeIntoWebRequest(envelope, webRequest);
-                log.Debug("SOAP message is:  " + envelope.InnerXml);
-                string result = string.Empty;
-
-                log.Debug("webRequest: " + webRequest.RequestUri.ToString() + " " + webRequest.Host + " " + webRequest.HaveResponse.ToString() + " " + webRequest.Connection + " " + webRequest.Address.ToString() + " webRequest.ClientCertificates.Count: " + webRequest.ClientCertificates.Count);
-
-                log.Debug("Start getting result ");
-                WebResponse response = null;
-                try
+                response = webRequest.GetResponse();
+                log.Debug("Response got successfully. " + response.ToString());
+            }
+            catch (WebException ex)
+            {
+                log.Debug("Web exception happened: " + ex.Message);
+                using (var stream = ex.Response.GetResponseStream())
+                using (var reader = new StreamReader(stream))
                 {
-                    response = webRequest.GetResponse();
+                    result = reader.ReadToEnd();
+                    log.Debug("Web exception message: " + result);  
                 }
-                catch (WebException ex)
-                {
-                    using (var stream = ex.Response.GetResponseStream())
-                    using (var reader = new StreamReader(stream))
-                    {
-                        result = reader.ReadToEnd();
-                        log.Debug("Web exception happened: " + result);  
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("webRequest.GetResponse() error " + ex.Message + " ||| " + ex.InnerException + " ||| " + ex.StackTrace);
-                }
-                //using ()
-                //{
-                log.Debug("End getting result ");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting result: " + ex.Message + " ||| " + ex.InnerException + " ||| " + ex.StackTrace);
+            }
 
+            
+            if (response != null)
+            {
+                using (StreamReader rd = new StreamReader(response.GetResponseStream()))
+                {
+                    result = rd.ReadToEnd();
+                    log.Debug("Result from stream: " + result);
+                }
+            }
+            else
+            {
+                log.Debug("response == null. ");
                 if (result == string.Empty)
                 {
-                    if (response == null)
-                    {
-                        throw new Exception("response is null");
-                    }
-                    log.Debug("Response is " + response.ToString());
-                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
-                    {
-                        result = rd.ReadToEnd();
-                    }
-                    //}
+                    throw new Exception("Both success and error codes empty.");
                 }
-                response.Dispose();
+            }
 
-                ret = result;
-            }
-            catch (WebException e)
+            try
             {
-                ret = new StreamReader(e.Response.GetResponseStream()).ReadToEnd().ToString();
-                log.Error("Error while getting response from BlueX. " + ret);
-                throw new Exception("Error while getting response from BlueX. " + ret);
+                response.Dispose();
             }
-            catch (Exception e)
-            {
-                log.Error("Some error " + e);
-                throw new Exception("Some error " + e);
-            }
+            catch (Exception)
+            {}
+
         }
         catch (Exception ex)
         {
             log.Error("Error in function SOAPManual. " + ex.Message);
             throw new Exception("Error in function SOAPManual. " + ex.Message);
         }
-        return ret;
+        return result;
     }
 
     public static bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Posta(3)", ".", "{7CD9CE0B-0C7B-4EF5-A1EA-2953ECC2D820}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -35,6 +35,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A0886D22-AED3-4681-B79A-675F90A176E6}
+		SolutionGuid = {3A0B3D9C-247D-47B2-88C4-929FCD4D1FE5}
 	EndGlobalSection
 EndGlobal

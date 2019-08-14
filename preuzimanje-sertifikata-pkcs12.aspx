@@ -88,35 +88,35 @@
         }
         function errorDownloadingPKCS12() {
             swal({
-                title: 'Greška.',
+                title: 'Greška prilikom podnošenja zahteva.',
                 text: 'Nemate ovlašćenja za snimanje PKCS#12 datoteke sertifikata u izabranom direktorijumu. Izaberite drugi direktorijum.',
                 type: 'OK'
             });
         }
         function errorGettingRequestNumberPKCS12() {
             swal({
-                title: 'Greška.',
+                title: 'Greška prilikom podnošenja zahteva.',
                 text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je broj zahteva neispravan.',
                 type: 'OK'
             });
         }
         function errorGettingAuthorizationCodePKCS12() {
             swal({
-                title: 'Greška.',
+                title: 'Greška prilikom podnošenja zahteva.',
                 text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je autorizacioni kod neispravan.',
                 type: 'OK'
             });
         }
         function errorTransferServiceFailedPKCS12() {
             swal({
-                title: 'Greška.',
+                title: 'Greška prilikom podnošenja zahteva.',
                 text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što postoji problem u komunikaciji sa serverom za izdavanje sertifikata. Pokušajte ponovo kasnije.',
                 type: 'OK'
             });
         }
         function errorRrequestIsNotInRequiredStatePKCS12() {
             swal({
-                title: 'Greška.',
+                title: 'Greška prilikom podnošenja zahteva.',
                 text: 'Nemoguće je kreirati PKCS#12 datoteku sertifikata, zato što je sertifikat već preuzet.',
                 type: 'OK'
             });

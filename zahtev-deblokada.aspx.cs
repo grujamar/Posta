@@ -111,6 +111,8 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 SetFocusOnTextbox();
                 //------------------------------
                 //Get Control on all page
+                SetUpWSPWrapperService();
+                log.Debug("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
                 log.Debug("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
@@ -325,6 +327,30 @@ public partial class zahtev_deblokada : System.Web.UI.Page
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
+    //-----------------SetUpWSPWrapperService------------------------
+    //---------------------------------------------------------------
+    protected void SetUpWSPWrapperService()
+    {
+        Utility utility = new Utility();
+        string SettingValue = utility.getSettingsValueGlobalSettings(Constants.GLOBAL_WSPWrapperService);
+        TurnOnAjaxValidation = true;
+
+        if (SettingValue == Constants.SETTING_VALUE_TRUE)
+        {
+            ValidateAjax(TurnOnAjaxValidation);
+            Session["Zahtev-promena-statusa-SetUpWSPWrapperService"] = TurnOnAjaxValidation;
+        }
+        else
+        {
+            ValidateAjax(!TurnOnAjaxValidation);
+            Session["Zahtev-promena-statusa-SetUpWSPWrapperService"] = !TurnOnAjaxValidation;
+        }
+    }
+
+    //---------------------------------------------------------------
+    //---------------------------------------------------------------
+
+
     //-----------------SetUpValidation-------------------------------
     //---------------------------------------------------------------
     protected void SetUpValidation()
@@ -354,8 +380,6 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 else if (control.Id == txtmesto.ClientID)
                 {
                     Session["Zahtev-promena-statusa-TurnOnCityValidation"] = control.ControlStatus;
-                    TurnOnAjaxValidation = control.ControlStatus;
-                    ValidateAjax(TurnOnAjaxValidation);
                 }
                 else if (control.Id == txtime.ClientID)
                 {
@@ -393,8 +417,6 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             Session["Zahtev-promena-statusa-TurnOnEmailValidation"] = TurnOnEmailValidation;
             TurnOnPhoneValidation = Constants.VALIDATION_FALSE;
             Session["Zahtev-promena-statusa-TurnOnPhoneValidation"] = TurnOnPhoneValidation;
-            TurnOnAjaxValidation = Constants.VALIDATION_FALSE;
-            ValidateAjax(TurnOnAjaxValidation);
             Session["Zahtev-promena-statusa-TurnOnCityValidation"] = Constants.VALIDATION_FALSE;
             //------------------------------------------
             Session["Zahtev-promena-statusa-TurnOnCityValidation"] = Constants.VALIDATION_FALSE;
@@ -1331,7 +1353,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["Zahtev-promena-statusa-TurnOnCityValidation"]))
+            if (Convert.ToBoolean(Session["Zahtev-promena-statusa-SetUpWSPWrapperService"]))
             {
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;
@@ -1377,7 +1399,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
         }
         else if (!InHouseVariable && IsAllowedVariable)
         {
-            ValidateAjax(Convert.ToBoolean(Session["Zahtev-promena-statusa-TurnOnCityValidation"]));
+            ValidateAjax(Convert.ToBoolean(Session["Zahtev-promena-statusa-SetUpWSPWrapperService"]));
             Colorchange();
             txtulica.ReadOnly = false;
             txtulica.Text = StreetVariable;

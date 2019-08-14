@@ -40,10 +40,12 @@ public class WebServiceMesta : System.Web.Services.WebService {
             int servis = 3;
             int idVrstaTransakcije = 3; //GetNaselje = 3 – Spisak naselja koji u sebi sadrže prosleđeni tekst
 
+            Utility utility = new Utility();
+
             // Serializaion  
             Klijent klijent = new Klijent();
-                klijent.Username = "cepp";
-                klijent.Password = "c3pp";
+                klijent.Username = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.USERNAME);
+                klijent.Password = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.PASSWORD);
                 klijent.Jezik = "LAT";
                 klijent.IdTipUredjaja = 1;
                 klijent.ModelUredjaja = "Test";
@@ -126,10 +128,12 @@ public class WebServiceMesta : System.Web.Services.WebService {
             int servis = 3;
             int idVrstaTransakcije = 4; //GetUlica = 4 – Spisak ulica za naselje koje u sebi sadrže prosleđeni tekst
 
+            Utility utility = new Utility();
+
             // Serializaion  
             Klijent klijent = new Klijent();
-            klijent.Username = "cepp";
-            klijent.Password = "c3pp";
+            klijent.Username = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.USERNAME);
+            klijent.Password = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.PASSWORD);
             klijent.Jezik = "LAT";
             klijent.IdTipUredjaja = 1;
             klijent.ModelUredjaja = "Test";

@@ -2856,10 +2856,12 @@ public static class UtilsValidation
             int servis = 3;
             int idVrstaTransakcije = 6; //ProveraAdrese = 6 – Provera ispravnosti adrese
 
+            Utility utility = new Utility();
+
             // Serializaion  
             Klijent klijent = new Klijent();
-            klijent.Username = "cepp";
-            klijent.Password = "c3pp";
+            klijent.Username = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.USERNAME);
+            klijent.Password = utility.pronadjiKorisnickoImeILozinku(Constants.ITEM_USER_PASS, Constants.PASSWORD);
             klijent.Jezik = "LAT";
             klijent.IdTipUredjaja = 1;
             klijent.ModelUredjaja = "Test";

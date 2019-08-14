@@ -122,6 +122,8 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
                 //--------------s---------------
 
                 //Get Control on all page
+                SetUpWSPWrapperService();
+                log.Debug("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
                 log.Debug("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
@@ -321,7 +323,25 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
+    //-----------------SetUpWSPWrapperService------------------------
+    //---------------------------------------------------------------
+    protected void SetUpWSPWrapperService()
+    {
+        Utility utility = new Utility();
+        string SettingValue = utility.getSettingsValueGlobalSettings(Constants.GLOBAL_WSPWrapperService);
+        TurnOnAjaxValidation = true;
 
+        if (SettingValue == Constants.SETTING_VALUE_TRUE)
+        {
+            ValidateAjax(TurnOnAjaxValidation);
+            Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-SetUpWSPWrapperService"] = TurnOnAjaxValidation;
+        }
+        else
+        {
+            ValidateAjax(!TurnOnAjaxValidation);
+            Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-SetUpWSPWrapperService"] = !TurnOnAjaxValidation;
+        }
+    }
 
     //-----------------SetUpValidation-------------------------------
     //---------------------------------------------------------------
@@ -342,8 +362,6 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
                 if (control.Id == txtmesto.ClientID)
                 {
                     Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-TurnOnCityValidation"] = control.ControlStatus;
-                    TurnOnAjaxValidation = control.ControlStatus;
-                    ValidateAjax(TurnOnAjaxValidation);
                 }
                 else if (control.Id == txtadresaeposte.ClientID)
                 {
@@ -395,8 +413,6 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
         }
         else
         {
-            TurnOnAjaxValidation = Constants.VALIDATION_FALSE;
-            ValidateAjax(TurnOnAjaxValidation);
             TurnOnEmailValidation = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-TurnOnEmailValidation"] = TurnOnEmailValidation;
             TurnOnPhoneValidation = Constants.VALIDATION_FALSE;
@@ -584,7 +600,7 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
         }
         else if (!InHouseVariable && IsAllowedVariable)
         {
-            ValidateAjax(Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-TurnOnCityValidation"]));
+            ValidateAjax(Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]));
             Colorchange();
             txtulica.ReadOnly = false;
             txtulica.Text = StreetVariable;
@@ -1698,7 +1714,7 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG : System.Web
 
         if (SettingValue == Constants.SETTING_VALUE_TRUE)
         {
-            if (Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-TurnOnCityValidation"]))
+            if (Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-SetUpWSPWrapperService"]))
             {
                 string PorukaKorisnik = string.Empty;
                 string PostanskiBroj = string.Empty;

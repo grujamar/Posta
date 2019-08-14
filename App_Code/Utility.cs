@@ -1386,4 +1386,42 @@ public class Utility
 
         return pkcs12timeout;
     }
+
+
+
+    public string pronadjiKorisnickoImeILozinku(int IDTypeOfItem, string userParameter)
+    {
+        string response = string.Empty;
+
+        string upit = @"SELECT        dbo.Item.ItemText
+FROM            dbo.Item INNER JOIN
+                         dbo.TypeOfItem ON dbo.Item.IDTypeOfItem = dbo.TypeOfItem.IDTypeOfItem
+WHERE        (dbo.TypeOfItem.IDTypeOfItem = @idtypeofitem) AND (dbo.Item.ItemTextEnglish = @itemtextenglish)";
+
+        using (SqlConnection objConn = new SqlConnection(postaconnectionstring))
+        {
+            using (SqlCommand objCmd = new SqlCommand(upit, objConn))
+            {
+                try
+                {
+                    objCmd.CommandType = System.Data.CommandType.Text;
+                    objCmd.Parameters.Add("@idtypeofitem", System.Data.SqlDbType.Int).Value = IDTypeOfItem;
+                    objCmd.Parameters.AddWithValue("@itemtextenglish", userParameter);
+                    objConn.Open();
+                    SqlDataReader reader = objCmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        response = reader.GetString(0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error while getting StatusVariable. " + ex.Message);
+                    throw new Exception("Error while getting StatusVariable. " + ex.Message);
+                }
+            }
+        }
+
+        return response;
+    }
 }
