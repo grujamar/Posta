@@ -215,7 +215,7 @@
             <asp:UpdatePanel id="UpdatePanel4" runat="server">
               <ContentTemplate>
                  <fieldset>
-                     <div class="row top10">
+                     <div id="hideImeSertifikata" runat="server" class="row top10">
                         <div class="col-sm-2 d-flex-forme" style="background-color:white;">
                             <div class="w-2-forme w-8-forme-md">
                                 <asp:Label id="spanserijskibroj02" runat="server" style="COLOR: red; font-weight:bold; font-size:17px;"></asp:Label>&nbsp;

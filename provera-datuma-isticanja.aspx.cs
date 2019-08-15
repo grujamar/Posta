@@ -84,6 +84,8 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     string jik = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateJIK"].ToString();
                     if (jik != string.Empty)
                     {
+                        FieldToDisplay();
+                        hideImeSertifikata.Visible = true;
                         txtjik.Text = jik;
                         txtjik.BackColor = ColorTranslator.FromHtml(SetLightGray);
                         txtjik.ReadOnly = true;
@@ -92,13 +94,13 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                         txtserijskibroj02.ReadOnly = true;
                         txtime.Text = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateFirstName"].ToString();
                         txtprezime.Text = Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateLastName"].ToString();
-                        FieldToDisplay();
                         ScriptManager.RegisterStartupScript(this, GetType(), "EnableButton", "EnableButton();", true);
                         ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCkeckAutomatik", "RadioButtonCkeckAutomatik();", true);
                     }
                     else
                     {
                         FieldToDisplay();
+                        hideImeSertifikata.Visible = false;
                         if (error != null)
                         { 
                             ScriptManager.RegisterStartupScript(this, GetType(), "ErrorNotification", "ErrorNotification();", true);
@@ -112,6 +114,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 else
                 { 
                     FieldToDisplay();
+                    hideImeSertifikata.Visible = false;
                     ScriptManager.RegisterStartupScript(this, GetType(), "RadioButtonCkeck", "RadioButtonCkeck();", true);
                     ScriptManager.RegisterStartupScript(this, GetType(), "DisableButton", "DisableButton();", true);
                     ScriptManager.RegisterStartupScript(this, GetType(), "EnableSubmitButton", "EnableSubmitButton();", true);
@@ -310,6 +313,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         txtdatumsiteka.Text = string.Empty;
         cvjik.Enabled = false;
         FieldToDisplay();
+        hideImeSertifikata.Visible = true;
         Session["zahtev-provera-datuma-isticanja-sertifikata-event_controle-RadioButton"] = rbAutomatikJik;
         txtjik.TabIndex = -1;
         txtime.TabIndex = -1;
@@ -346,6 +350,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         txtjik.ReadOnly = false;
         cvjik.Enabled = true;
         FieldToDisplay();
+        hideImeSertifikata.Visible = false;
         Session["zahtev-provera-datuma-isticanja-sertifikata-event_controle-RadioButton"] = rbManualJik;
         txtjik.TabIndex = 0;
         txtime.TabIndex = -1;
