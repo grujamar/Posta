@@ -1067,7 +1067,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
         return envelope;
     }
 
-    protected List<PisMessServiceReference.Parameter> getDocumentParametersList(Utility utility, string requestChallengeResponse)
+    protected List<PisMessServiceReference.Parameter> getDocumentParametersList(Utility utility, string requestChallengeResponse, string Mesto, string Ulica, string Broj, string PostanskiBroj, string PAK)
     {
         List<PisMessServiceReference.Parameter> documentParameters = new List<PisMessServiceReference.Parameter>();
 
@@ -1101,6 +1101,36 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             {
                 ParameterName = "challengeResponse",
                 ParameterValue = requestChallengeResponse
+            });
+        documentParameters.Add(
+            new PisMessServiceReference.Parameter
+            {
+                ParameterName = "street",
+                ParameterValue = Ulica
+            });
+        documentParameters.Add(
+            new PisMessServiceReference.Parameter
+            {
+                ParameterName = "streetNo",
+                ParameterValue = Broj
+            });
+        documentParameters.Add(
+            new PisMessServiceReference.Parameter
+            {
+                ParameterName = "postNo",
+                ParameterValue = PostanskiBroj
+            });
+        documentParameters.Add(
+            new PisMessServiceReference.Parameter
+            {
+                ParameterName = "city",
+                ParameterValue = Mesto
+            });
+        documentParameters.Add(
+            new PisMessServiceReference.Parameter
+            {
+                ParameterName = "PAK",
+                ParameterValue = PAK
             });
 
         return documentParameters;
@@ -1202,6 +1232,11 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             }
             else
             {
+                Mesto = string.Empty;
+                Ulica = string.Empty;
+                Broj = string.Empty;
+                PostanskiBroj = string.Empty;
+                PAK = string.Empty;
                 SerialNumber = txtkarticatoken.Text;
                 requestChallengeResponse = Constants.REQUEST_CHALLENGE_RESPONSE_TRUE;
             }
@@ -1223,14 +1258,14 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             {
                 throw new Exception("ResponseStatus is not success!");
             }
-           
+            
             Session["Zahtev-promena-statusa-brojzahteva"] = BrojZahteva;
 
             log.Debug("Successfully send SOAP message! RequestNumber for Unblock Status is: " + BrojZahteva);
-
+            
             log.Debug("Start creating PDF Files.");
 
-            documentParameters = getDocumentParametersList(utility, requestChallengeResponse);
+            documentParameters = getDocumentParametersList(utility, requestChallengeResponse, Mesto, Ulica, Broj, PostanskiBroj, PAK);
             var CreateDocumentUnblockingRequestTask = Task.Run(() => CreateDocumentUnblockingRequest(utility, pisMess, documentParameters));
 
             documentParametersPayment = getDocumentParametersListPaymentOrder(utility);
