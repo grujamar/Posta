@@ -1040,6 +1040,42 @@ public class Utility
         return itemText;
     }
 
+    public string pronadjiNaziveGresakaItemValue(int idtypeofitem, int ItemValue)
+    {
+        string itemText = string.Empty;
+
+        string upit = @"SELECT        TOP (1) ItemText
+FROM            dbo.Item
+WHERE        (IDTypeOfItem = @idtypeofitem) AND (ItemValue = @itemvalue)";
+
+        using (SqlConnection objConn = new SqlConnection(postaconnectionstring))
+        {
+            using (SqlCommand objCmd = new SqlCommand(upit, objConn))
+            {
+                try
+                {
+                    objCmd.CommandType = System.Data.CommandType.Text;
+                    objCmd.Parameters.Add("@itemvalue", System.Data.SqlDbType.Int).Value = ItemValue;
+                    objCmd.Parameters.Add("@idtypeofitem", System.Data.SqlDbType.Int).Value = idtypeofitem;
+                    objConn.Open();
+                    SqlDataReader reader = objCmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        itemText = reader.GetString(0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error while getting itemText in pronadjiNaziveGresakaItemValue for Error message. " + ex.Message);
+                    throw new Exception("Error while getting itemText in pronadjiNaziveGresakaItemValue for Error message. " + ex.Message);
+                }
+            }
+        }
+
+        return itemText;
+    }
+
+
     public string getSettingsValueGlobalSettings(string Validation)
     {
         string SettingsValue = string.Empty;
@@ -1418,6 +1454,39 @@ WHERE        (dbo.TypeOfItem.IDTypeOfItem = @idtypeofitem) AND (dbo.Item.ItemTex
                 {
                     log.Error("Error while getting StatusVariable. " + ex.Message);
                     throw new Exception("Error while getting StatusVariable. " + ex.Message);
+                }
+            }
+        }
+
+        return response;
+    }
+
+
+    public int pronadjiPocetakOpsegaKrovnogZahteva()
+    {
+        int response = 0;
+
+        string upit = @"SELECT RangeStart AS Expr1
+                        FROM   dbo.OrderNumberRange";
+
+        using (SqlConnection objConn = new SqlConnection(postaconnectionstring))
+        {
+            using (SqlCommand objCmd = new SqlCommand(upit, objConn))
+            {
+                try
+                {
+                    objCmd.CommandType = System.Data.CommandType.Text;
+                    objConn.Open();
+                    SqlDataReader reader = objCmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        response = reader.GetInt32(0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error while getting RangeStart. " + ex.Message);
+                    throw new Exception("Error while getting RangeStart. " + ex.Message);
                 }
             }
         }

@@ -21,7 +21,7 @@ public class ServiceCaller
         System.Net.ServicePointManager.DefaultConnectionLimit = 16;
 
         PisMessServiceReference.PisMessServiceClient pisMess = new PisMessServiceReference.PisMessServiceClient();
-        log.Debug("Start calling pisMess.CreateDocument for: "  + documentType.ToString() + " " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff tt"));
+        log.Info("Start calling pisMess.CreateDocument for: "  + documentType.ToString() + " " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff tt"));
         return pisMess.CreateDocument(documentType, parameters);
     }
 
@@ -30,7 +30,7 @@ public class ServiceCaller
         System.Net.ServicePointManager.DefaultConnectionLimit = 16;
 
         PisMessServiceReference.PisMessServiceClient pisMess = new PisMessServiceReference.PisMessServiceClient();
-        log.Debug("Start calling pisMess.CreateDocumentLegalEntityContractAttachment: " + " " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff tt"));
+        log.Info("Start calling pisMess.CreateDocumentLegalEntityContractAttachment: " + " " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff tt"));
         return pisMess.CreateDocumentLegalEntityContractAttachment(documentParameters.ToArray(), certificatesAuthorizedUsers.ToArray());
     }
 }

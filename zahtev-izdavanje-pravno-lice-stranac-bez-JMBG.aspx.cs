@@ -132,13 +132,13 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 GridView1.Columns[7].Visible = false;
                 //Get Control on all page
                 SetUpWSPWrapperService();
-                log.Debug("successfully set WSPWrapperService Validation!");
+                log.Info("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxesSecondPart();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownListsSecondPart();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -223,7 +223,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -239,7 +239,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -261,7 +261,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -276,7 +276,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -291,7 +291,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }            
 
@@ -307,7 +307,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
         }
@@ -330,7 +330,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -1633,30 +1633,30 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                         {
                             GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
                             log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
-                            PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
+                            PisMessServiceReference.IpGeolocationData ipGeolocationData = null;
                             try
                             {
-                                ipGeolocationData = new PisMessServiceReference.PisMessServiceClient().SendIpGeolocationRequest(userAgentIP);
+                                log.Info("Start getting ipGeolocationData. ");
+                                PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
+                                ipGeolocationData = client.SendIpGeolocationRequest(userAgentIP);
+                                log.Info("End getting ipGeolocationData. ");
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP);
+                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP + " - " + ex.Message);
                             }
+                            log.Debug("ipGeolocationData is: Status - " + ipGeolocationData.Status + " ,Country - " + ipGeolocationData.Country + " ,City - " + ipGeolocationData.City + " ,Isp - " + ipGeolocationData.Isp + " ,Continent - " + ipGeolocationData.Continent + " ,CountryCode - " + ipGeolocationData.CountryCode);
                             Utils.CheckIPGeolocationData(ipGeolocationData.Status, userAgentIP, ipGeolocationData.Country, ipGeolocationData.CountryCode, ipGeolocationData.City, ipGeolocationData.Isp, ipGeolocationData.Continent, out userAgentCountry, out userAgentCountryCode, out userAgentCity, out userAgentISP, out userAgentContinent);
                         }
                         catch (Exception ex)
                         {
                             log.Error("Error while getting ipGeolocationData. " + ex.Message);
-                            userAgentContinent = string.Empty;
-                            userAgentCountry = string.Empty;
-                            userAgentCountryCode = string.Empty;
-                            userAgentCity = string.Empty;
-                            userAgentISP = string.Empty;
+                            Utils.userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                         }
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-userAgentBrowser"] = userAgentBrowser;
                     Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -2220,7 +2220,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             if (txtdatumizdavanjapasosa.Text != string.Empty)
             {
                 DateTime datumizdavanja = DateTime.ParseExact(txtdatumizdavanjapasosa.Text, "dd.MM.yyyy", null);
-                log.Debug("datumizdavanjaPasosa je: " + datumizdavanja);
+                log.Info("datumizdavanjaPasosa je: " + datumizdavanja);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateIssuingDate(datumizdavanja, Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumizdavanjapasosaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnIssueDateValidation"]), out ErrorMessage1);
@@ -2270,7 +2270,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             if (txtdatumistekapasosa.Text != string.Empty)
             {
                 DateTime datumisteka = DateTime.ParseExact(txtdatumistekapasosa.Text, "dd.MM.yyyy", null);
-                log.Debug("datumistekaPasosa je: " + datumisteka);
+                log.Info("datumistekaPasosa je: " + datumisteka);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateExpiryDate(datumisteka, Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumistekapasosaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnExpiryDateValidation"]), out ErrorMessage1);
@@ -2320,7 +2320,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             if (txtdatumrodjenja.Text != string.Empty)
             {
                 DateTime datumrodjenja = DateTime.ParseExact(txtdatumrodjenja.Text, "dd.MM.yyyy", null);
-                log.Debug("datumrodjenja je: " + datumrodjenja);
+                log.Info("datumrodjenja je: " + datumrodjenja);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateDateOfBirth(datumrodjenja, Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumrodjenjaIsRequired"]), out ErrorMessage1);
@@ -2922,7 +2922,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
         {
             NewPrice = "0,00";
         }
-        else if (cenasaporezomprepared1.Length == 8)
+        else if (cenasaporezomprepared1.Length == 4)
         {
             NewPrice = cenasaporezomprepared1.Substring(0, 1) + "." + cenasaporezomprepared1.Substring(1, 1) + cenasaporezomprepared1.Substring(2, 1) + cenasaporezomprepared1.Substring(3, 1) + ",00";
         }
@@ -3379,11 +3379,11 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
             try
             {
-                log.Debug("Start getting legal entity Order Number.");
+                log.Info("Start getting legal entity Order Number.");
                 legalEntityOrderNumber = utility1.getOrderNumber(Constants.LEGAL_ENTITY_ID_ORDER_NUMBER);
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-brojzahteva"] = legalEntityOrderNumber;
                 UpdateOrderNumberLastUsed(utility1, legalEntityOrderNumber, Constants.LEGAL_ENTITY_ID_ORDER_NUMBER);
-                log.Debug("Finished getting OrderNumber and editting LastUsed. legalEntityOrderNumber for Legal Entity is " + legalEntityOrderNumber);
+                log.Info("Finished getting OrderNumber and editting LastUsed. legalEntityOrderNumber for Legal Entity is " + legalEntityOrderNumber);
             }
             catch (Exception ex)
             {
@@ -3392,7 +3392,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
             for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
             {
-                log.Debug("Start sending SOAP message for i = " + i + " row.");
+                log.Info("Start sending SOAP message for i = " + i + " row.");
 
                 Utility utility = new Utility();
 
@@ -3409,14 +3409,14 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
                 addRequestNumberToCertificatesAuthorizedUsers(utility, i, certificatesAuthorizedUsers, BrojZahteva);
 
-                log.Debug("Finished sending SOAP message for i = " + i + " row. Response from BlueX: First RequestNumber for IssuingIndividual is: " + BrojZahteva + ". Second RequestNumber for IssuingIndividual is: " + BrojZahtevaPravnoLice);
+                log.Info("Finished sending SOAP message for i = " + i + " row. Response from BlueX: First RequestNumber for IssuingIndividual is: " + BrojZahteva + ". Second RequestNumber for IssuingIndividual is: " + BrojZahtevaPravnoLice);
             }
 
             documentParameters = getDocumentParametersList(utility1, legalEntityName);
 
             pisMess = new PisMessServiceReference.PisMessServiceClient();
             
-            log.Debug("Start creating PDF Files.");
+            log.Info("Start creating PDF Files.");
 
             var CreateDocumentLegalEntityContractTask = Task.Run(() => CreateDocumentLegalEntityContract(utility1, pisMess, documentParameters));
             var CreateDocumentGovernmentContractTask = Task.Run(() => CreateDocumentGovernmentContract(utility1, pisMess, documentParameters));
@@ -3433,9 +3433,9 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             //string filename = CreateDocumentLegalEntityContractAttachment(utility1, pisMess, documentParameters, certificatesAuthorizedUsers);
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-filename"] = CreateDocumentLegalEntityContractAttachmentTask.Result;
 
-            log.Debug("Finished creating PDF files!");
+            log.Info("Finished creating PDF files!");
 
-            log.Debug("Start importing Legal Entity values in database.");
+            log.Info("Start importing Legal Entity values in database.");
 
             if (documentParameters.Count > 0)
             {
@@ -3469,7 +3469,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 throw new Exception("Eror while importing values in database, documentParameters.Count is empty. ");
             }
 
-            log.Debug("Finished importing Legal Entity values in database.");
+            log.Info("Finished importing Legal Entity values in database.");
 
             Response.Redirect("zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-podnet.aspx", false); // this will tell .NET framework not to stop the execution of the current thread and hence the error will be resolved.
         }

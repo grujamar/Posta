@@ -857,7 +857,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-10" style="background-color:white;">
-                                            <asp:TextBox ID="txttelefon" runat="server" class="txtbox" style="font-size:13px;" maxlength="11" ontextchanged="txttelefon_TextChanged" OnClientClick="return CheckIfChannelHasChanged1();" AutoPostBack="true" TabIndex="0"></asp:TextBox>
+                                            <asp:TextBox ID="txttelefon" runat="server" class="txtbox" style="font-size:13px;" maxlength="12" ontextchanged="txttelefon_TextChanged" OnClientClick="return CheckIfChannelHasChanged1();" AutoPostBack="true" TabIndex="0"></asp:TextBox>
                                             <asp:Label id="TelefonPrimer1" runat="server" style="font-weight:bold; font-size:13px;"> </asp:Label>
                                             <asp:Label ID="errLabelNumber" runat="server" style="font-size:13px;" ForeColor="Red"></asp:Label>
                                             <asp:CustomValidator runat="server" id="cvtelefon" controltovalidate="txttelefon" errormessage="" OnServerValidate="cvtelefon_ServerValidate" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>

@@ -22,11 +22,12 @@
         }
     </script>
     <style type="text/css">
-        .submit {
+        .submit1 {
         padding: 15px 30px 15px 43px;
         background: url(Content/Images/pdf_icon.png) left 5px top 10px no-repeat #e5e5e5;
         border-style: solid;
         border-width: 0.5px;
+        cursor: pointer;
     }
     </style>
 </head>
@@ -37,13 +38,13 @@
                <div class="navbar-header pull-left">
                     <asp:Image ID="logo" imageurl="~/Content/Images/Posta.gif" runat="server" style="height:35px; margin-top: 4px;"/>
                </div>
-                        <a class="navbar-brand">
-                            <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue">
-                                    <span style="color:darkblue">                                
+                    <a class="navbar-brand">
+                        <asp:Label id="lblpostanaziv" runat="server" style="font-size:17px; color:darkblue">
+                                <span style="color:darkblue">                                
                                                                     
-                                    </span>
-                            </asp:Label>
-                        </a>            
+                                </span>
+                        </asp:Label>
+                    </a>            
             </div>
         </div>
         <div class="container-fluid">
@@ -57,62 +58,62 @@
                 <br />
             </div>
             <div class="row">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="lblbrojzahteva" runat="server" style="font-size:13px;"></asp:Label>
-                        </div>
-                        <div class="col-sm-10" style="background-color:white;">
-                            <asp:TextBox ID="txtbrojzahteva" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
-                        </div>
+                <div class="col-sm-2" style="background-color:white;">
+                    <asp:Label id="lblbrojzahteva" runat="server" style="font-size:13px;"></asp:Label>
+                </div>
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:TextBox ID="txtbrojzahteva" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
+                </div>
             </div>
             <div class="row top10">
 
             </div>
             <div class="row">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="lbldatumzahteva" runat="server" style="font-size:13px;"></asp:Label>
-                        </div>
-                        <div class="col-sm-10" style="background-color:white;">
-                            <asp:TextBox ID="txtdatumzahteva" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
-                        </div>
+                <div class="col-sm-2" style="background-color:white;">
+                    <asp:Label id="lbldatumzahteva" runat="server" style="font-size:13px;"></asp:Label>
+                </div>
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:TextBox ID="txtdatumzahteva" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
+                </div>
             </div>
             <div class="row top10">
 
             </div>
             <div class="row">                                 
-                        <div class="col-sm-2" style="background-color:white;">
-                            <asp:Label id="lblcenasaporezom" runat="server" style="font-size:13px;"> </asp:Label> 
-                        </div>
-                        <div class="col-sm-10" style="background-color:white;">
-                            <asp:TextBox ID="txtcenasaporezom" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
-                            <asp:Label id="lbldinara" runat="server" style="font-weight:bold;font-size:13px;"><span style="COLOR: white; font-size:17px;">&nbsp;</span> </asp:Label>
-                        </div>
+                <div class="col-sm-2" style="background-color:white;">
+                    <asp:Label id="lblcenasaporezom" runat="server" style="font-size:13px;"> </asp:Label> 
+                </div>
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:TextBox ID="txtcenasaporezom" runat="server" class="txtbox1" style="font-size:13px;" ReadOnly="true" BackColor="#F5F5F5"></asp:TextBox>
+                    <asp:Label id="lbldinara" runat="server" style="font-weight:bold;font-size:13px;"><span style="COLOR: white; font-size:17px;">&nbsp;</span> </asp:Label>
+                </div>
             </div>
         </div>
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div> 
         <div class="container-fluid" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
-                        <div class="col-sm-2">
-                            <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
-                        <div class="col-sm-8">
-                            <asp:HyperLink ID="btnPrintRequest" runat="server" target="_blank" class="btn-lg btn-default submit" onclick="unhook();" style="margin-right: 8px;" Text=""/>
-                            <asp:HyperLink ID="btnPrintPaymentOrder" runat="server" target="_blank" class="btn-lg btn-default submit" onclick="unhook();" style="margin-right: 8px;" Text=""/>                                                 
-                        </div>
-                        <div class="col-sm-2">
-                            <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
-                        </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
+                <div class="col-sm-8">
+                    <asp:HyperLink ID="btnPrintRequest" runat="server" download="" target="_blank" class="btn-lg btn-default submit1" onclick="unhook();" style="margin-right: 8px;" Text=""/>
+                    <asp:HyperLink ID="btnPrintPaymentOrder" runat="server" download="" target="_blank" class="btn-lg btn-default submit1" onclick="unhook();" style="margin-right: 8px;" Text=""/>                                                 
+                </div>
+                <div class="col-sm-2">
+                    <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
+                </div>
             </div>  
         </div>
         <div class="container-fluid" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row">
-                    <br />
+                <br />
             </div>
         </div>
         <div class="row">
-                <br />
+            <br />
         </div>
         <div class="container" style="margin-left: 10px;">
             <div class="row top10">
@@ -146,11 +147,11 @@
             </div>
         </div>
         <div class="row">
-                <br />
-                <br />
+            <br />
+            <br />
         </div> 
         <div class="row">
-                <br />
+            <br />
         </div>
     </form>
 </body>

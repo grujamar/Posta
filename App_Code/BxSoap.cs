@@ -28,7 +28,7 @@ public static class BxSoap
         string result = string.Empty;
         try
         {
-            log.Debug("BxSaop(SOAPManual) function starting");
+            log.Info("BxSaop(SOAPManual) function starting");
             /////Uvedeno zbog greske:the request was aborted could not create ssl/tls secure channel.
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
@@ -44,7 +44,7 @@ public static class BxSoap
             webRequest.PreAuthenticate = true;
 
             List<X509Certificate2> certificates = GetCurrentUserCertificates();
-            log.Debug("List<X509Certificate2> certificates count is " + certificates.Count);
+            log.Info("List<X509Certificate2> certificates count is " + certificates.Count);
 
             if (certificates.Count == 0)
             {
@@ -57,7 +57,7 @@ public static class BxSoap
                 if (certificate.SerialNumber.Equals(SerialNumber, StringComparison.InvariantCultureIgnoreCase))
                 {
                     webRequest.ClientCertificates.Add(certificate);
-                    log.Debug("Get certificate from list. Certificate is: " + certificate.SerialNumber);
+                    log.Info("Get certificate from list. Certificate is: " + certificate.SerialNumber);
                     break;
                 }
             }
@@ -70,25 +70,25 @@ public static class BxSoap
 
 
             InsertSoapEnvelopeIntoWebRequest(envelope, webRequest);
-            log.Debug("SOAP message is:  " + envelope.InnerXml);
+            log.Info("SOAP message is:  " + envelope.InnerXml);
             
-            log.Debug("webRequest: " + webRequest.RequestUri.ToString() + " " + webRequest.Host + " " + webRequest.HaveResponse.ToString() + " " + webRequest.Connection + " " + webRequest.Address.ToString() + " webRequest.ClientCertificates.Count: " + webRequest.ClientCertificates.Count);
+            log.Info("webRequest: " + webRequest.RequestUri.ToString() + " " + webRequest.Host + " " + webRequest.HaveResponse.ToString() + " " + webRequest.Connection + " " + webRequest.Address.ToString() + " webRequest.ClientCertificates.Count: " + webRequest.ClientCertificates.Count);
 
-            log.Debug("Start getting result ");
+            log.Info("Start getting result ");
             WebResponse response = null;
             try
             {
                 response = webRequest.GetResponse();
-                log.Debug("Response got successfully. " + response.ToString());
+                log.Info("Response got successfully. " + response.ToString());
             }
             catch (WebException ex)
             {
-                log.Debug("Web exception happened: " + ex.Message);
+                log.Info("Web exception happened: " + ex.Message);
                 using (var stream = ex.Response.GetResponseStream())
                 using (var reader = new StreamReader(stream))
                 {
                     result = reader.ReadToEnd();
-                    log.Debug("Web exception message: " + result);  
+                    log.Info("Web exception message: " + result);  
                 }
             }
             catch (Exception ex)
@@ -102,12 +102,12 @@ public static class BxSoap
                 using (StreamReader rd = new StreamReader(response.GetResponseStream()))
                 {
                     result = rd.ReadToEnd();
-                    log.Debug("Result from stream: " + result);
+                    log.Info("Result from stream: " + result);
                 }
             }
             else
             {
-                log.Debug("response == null. ");
+                log.Info("response == null. ");
                 if (result == string.Empty)
                 {
                     throw new Exception("Both success and error codes empty.");
@@ -206,7 +206,7 @@ public static class BxSoap
                         {
                             SerialNumber = navigator.Value;
                         }
-                        log.Debug("Get Settings : URL - " + Url + " . Action - " + Action + " . SerialNumber - " + SerialNumber);
+                        log.Info("Get Settings : URL - " + Url + " . Action - " + Action + " . SerialNumber - " + SerialNumber);
                         navigator.MoveToFollowing(XPathNodeType.Element);
                             
                         navigator.MoveToParent();                       
@@ -226,12 +226,12 @@ public static class BxSoap
         List<X509Certificate2> certificates = new List<X509Certificate2>();
         X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
         store.Open(OpenFlags.ReadOnly);
-        log.Debug("store.Name is " + store.Name);
-        log.Debug("store.Certificates.Count is " + store.Certificates.Count);
+        log.Info("store.Name is " + store.Name);
+        log.Info("store.Certificates.Count is " + store.Certificates.Count);
         foreach (X509Certificate2 certificate in store.Certificates)
         {
             certificates.Add(certificate);
-            log.Debug("Certificates from store: " + certificate);
+            log.Info("Certificates from store: " + certificate);
         }
         store.Close();
         return certificates;

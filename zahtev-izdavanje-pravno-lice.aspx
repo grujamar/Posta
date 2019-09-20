@@ -625,7 +625,7 @@
             
                             <div class="row" style="margin-left: 0px; margin-right: 10px;">
                                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" HorizontalAlign="Center" ShowHeaderWhenEmpty="True" 
-                                Width="100%" BackColor="#F4F7F6" BorderColor="#146B93" BorderStyle="None" BorderWidth="10px" CellPadding="3" Font-Size="13px" CssClass="table table-bordered" DataKeyNames="Jmbg,SertJmbg,VrstaDokumenta,BrojIDDokumenta,ImeInstitucije,DatumIzdavanja,DatumIsteka,SertAdresa,Mesto,Ulica,Broj,PostanskiBroj,CenaSaPorezom,PAK" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" TabIndex="0" PageSize="20">
+                                Width="100%" BackColor="#F4F7F6" BorderColor="#146B93" BorderStyle="None" BorderWidth="10px" CellPadding="3" Font-Size="13px" CssClass="table table-bordered" DataKeyNames="Jmbg,DatumRodjenja,SertJmbg,VrstaDokumenta,BrojIDDokumenta,ImeInstitucije,DatumIzdavanja,DatumIsteka,SertAdresa,Mesto,Ulica,Broj,PostanskiBroj,CenaSaPorezom,PAK" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging" TabIndex="0" PageSize="20">
                         <Columns>
                             <asp:TemplateField HeaderText="R. br."><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                                 <HeaderStyle HorizontalAlign="Left" />
@@ -661,6 +661,7 @@
                             </asp:BoundField>
                             <asp:TemplateField>
                                 <ItemTemplate >
+                                    <asp:HiddenField ID="DatumRodjenja" runat="server" Value='<%# Eval("DatumRodjenja") %>' />
                                     <asp:HiddenField ID="SertJmbg" runat="server" Value='<%# Eval("SertJmbg") %>' />
                                     <asp:HiddenField ID="VrstaDokumenta" runat="server" Value='<%# Eval("VrstaDokumenta") %>' />
                                     <asp:HiddenField ID="BrojIDDokumenta" runat="server" Value='<%# Eval("BrojIDDokumenta") %>' />

@@ -1,8 +1,17 @@
 
+.btn-lg {
+    font-size: 13px !important;
+    font-weight: lighter;
+}
 
+.submit {
+    padding: 15px 25px 15px 38px;
+    border-style: solid;
+    border-width: 0.5px;
+    cursor: pointer;
+}
 
 @media(min-width:576px){
-
 
     
 }
@@ -10,10 +19,11 @@
 
 @media(min-width:768px){
 
-
-
-    /*Za col-sm-2 d-flex-forme*/
-    .w-8-forme-md {
+    .submit {
+        padding: 15px 30px 15px 43px;
+    }
+        /*Za col-sm-2 d-flex-forme*/
+        .w-8-forme-md {
         width: 7%;
         max-width: 7%;
         flex-basis: 7%;
@@ -38,6 +48,9 @@
         flex-basis:88%;
     }
 
+    .btn-lg {
+        font-size: 15px !important;
+    }
     
 }
 
@@ -51,7 +64,7 @@
 
 
 
-@media(min-width:1200px){
+@media(min-width:1230px){
 
     /*Za col-sm-2 d-flex-forme*/
     .w-8-forme-md {
@@ -65,7 +78,86 @@
         max-width: 95%;
         flex-basis: 95%;
     }
-    
-    
-    
+
+    .btn-lg {
+        font-size: 16px !important;   
+    }
+
+}
+
+
+@media(min-width:1300px) {
+    .margin-left-middle {
+        margin-left: -20px;
+    }
+
+}
+
+@media(min-width:1350px) {
+    .margin-left-middle {
+        margin-left: -30px;
+    }
+}
+
+@media(min-width:1400px) {
+    .margin-left-middle {
+        margin-left: -40px;
+    }
+}
+
+
+@media(min-width:1450px) {
+    .margin-left-middle {
+        margin-left: -50px;
+    }
+}
+
+@media(min-width:1500px) {
+    .margin-left-middle {
+        margin-left: -60px;
+    }
+}
+
+@media(min-width:1550px) {
+    .margin-left-middle {
+        margin-left: -70px;
+    }
+}
+
+@media(min-width:1600px) {
+    .margin-left-middle {
+        margin-left: -80px;
+    }
+}
+
+@media(min-width:1650px) {
+    .margin-left-middle {
+        margin-left: -90px;
+    }
+}
+
+@media(min-width:1700px) {
+    .margin-left-middle {
+        margin-left: -120px;
+    }
+}
+
+@media(min-width:1750px) {
+
+    .margin-left-middle {
+        margin-left: 0;
+    }
+
+    .margin-left-last {
+        margin-left: -45px;
+    }
+
+    .col-xxxl-4 {
+        width: 33.33% !important;
+        float: left !important;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 }

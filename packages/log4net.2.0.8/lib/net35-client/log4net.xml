@@ -13818,11 +13818,11 @@
             ILog log = LogManager.GetLogger("application-log");
             
             log.Info("Application Start");
-            log.Debug("This is a debug message");
+            log.Info("This is a debug message");
             
             if (log.IsDebugEnabled)
             {
-            	log.Debug("This is another debug message");
+            	log.Info("This is another debug message");
             }
             </code>
             </example>
@@ -13831,7 +13831,7 @@
             <author>Nicko Cadell</author>
             <author>Gert Driesen</author>
         </member>
-        <member name="M:log4net.ILog.Debug(System.Object)">
+        <member name="M:log4net.Ilog.Info(System.Object)">
             <overloads>Log a message object with the <see cref="F:log4net.Core.Level.Debug"/> level.</overloads>
             <summary>
             Log a message object with the <see cref="F:log4net.Core.Level.Debug"/> level.
@@ -13858,7 +13858,7 @@
             <seealso cref="M:Debug(object,Exception)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
-        <member name="M:log4net.ILog.Debug(System.Object,System.Exception)">
+        <member name="M:log4net.Ilog.Info(System.Object,System.Exception)">
             <summary>
             Log a message object with the <see cref="F:log4net.Core.Level.Debug"/> level including
             the stack trace of the <see cref="T:System.Exception"/> passed
@@ -14610,7 +14610,7 @@
             </para>
             <para> For some ILog interface <c>log</c>, when you write:</para>
             <code lang="C#">
-            log.Debug("This is entry number: " + i );
+            log.Info("This is entry number: " + i );
             </code>
             <para>
             You incur the cost constructing the message, string construction and concatenation in
@@ -14622,7 +14622,7 @@
             <code lang="C#">
             if (log.IsDebugEnabled)
             { 
-                log.Debug("This is entry number: " + i );
+                log.Info("This is entry number: " + i );
             }
             </code>
             <para>
@@ -14647,7 +14647,7 @@
             <code lang="C#">
             if (isDebugEnabled)
             { 
-                log.Debug("This is entry number: " + i );
+                log.Info("This is entry number: " + i );
             }
             </code>
             <para>
@@ -15585,7 +15585,7 @@
             For some <c>log</c> Logger object, when you write:
             </para>
             <code lang="C#">
-            log.Debug("This is entry number: " + i );
+            log.Info("This is entry number: " + i );
             </code>
             <para>
             You incur the cost constructing the message, concatenation in
@@ -15597,7 +15597,7 @@
             <code lang="C#">
             if (log.IsDebugEnabled())
             { 
-             log.Debug("This is entry number: " + i );
+             log.Info("This is entry number: " + i );
             }
             </code>
             <para>
@@ -18235,7 +18235,7 @@
             </para>
             <code lang="C#">
             ILog log = LogManager.GetLogger(typeof(TestApp));
-            log.Debug("Message 1");
+            log.Info("Message 1");
             log.Warn("Message 2");   
             </code>
             <para>would yield the output</para>
@@ -26023,7 +26023,7 @@
             <see cref="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Func{System.Object},System.Exception)"/> form instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Func{System.Object},System.Exception)">
@@ -26040,7 +26040,7 @@
             See the <see cref="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Object)"/> form for more detailed information.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Object)">
@@ -26068,7 +26068,7 @@
             <see cref="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Object,System.Exception)"/> form instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Object,System.Exception)">
@@ -26085,7 +26085,7 @@
             See the <see cref="M:log4net.Util.ILogExtensions.DebugExt(log4net.ILog,System.Object)"/> form for more detailed information.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugFormatExt(log4net.ILog,System.String,System.Object)">
@@ -26107,7 +26107,7 @@
             methods instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugFormatExt(log4net.ILog,System.String,System.Object[])">
@@ -26129,7 +26129,7 @@
             methods instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugFormatExt(log4net.ILog,System.IFormatProvider,System.String,System.Object[])">
@@ -26152,7 +26152,7 @@
             methods instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugFormatExt(log4net.ILog,System.String,System.Object,System.Object)">
@@ -26175,7 +26175,7 @@
             methods instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.DebugFormatExt(log4net.ILog,System.String,System.Object,System.Object,System.Object)">
@@ -26199,7 +26199,7 @@
             methods instead.
             </para>
             </remarks>
-            <seealso cref="M:log4net.ILog.Debug(System.Object)"/>
+            <seealso cref="M:log4net.Ilog.Info(System.Object)"/>
             <seealso cref="P:log4net.ILog.IsDebugEnabled"/>
         </member>
         <member name="M:log4net.Util.ILogExtensions.InfoExt(log4net.ILog,System.Func{System.Object})">
@@ -27555,7 +27555,7 @@
             <param name="message"></param>
             <param name="exception"></param>
         </member>
-        <member name="M:log4net.Util.LogLog.Debug(System.Type,System.String)">
+        <member name="M:log4net.Util.Loglog.Info(System.Type,System.String)">
             <summary>
             Writes log4net internal debug messages to the 
             standard output stream.
@@ -27569,7 +27569,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:log4net.Util.LogLog.Debug(System.Type,System.String,System.Exception)">
+        <member name="M:log4net.Util.Loglog.Info(System.Type,System.String,System.Exception)">
             <summary>
             Writes log4net internal debug messages to the 
             standard output stream.
@@ -31192,11 +31192,11 @@
             ILog log = LogManager.GetLogger("application-log");
             
             log.Info("Application Start");
-            log.Debug("This is a debug message");
+            log.Info("This is a debug message");
             
             if (log.IsDebugEnabled)
             {
-            	log.Debug("This is another debug message");
+            	log.Info("This is another debug message");
             }
             </code>
             </example>

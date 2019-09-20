@@ -127,13 +127,13 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                 //------------------------------
                 //Get Control on all page
                 SetUpWSPWrapperService();
-                log.Debug("successfully set WSPWrapperService Validation!");
+                log.Info("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!"); 
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!"); 
             }
         }
         else
@@ -220,7 +220,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -236,7 +236,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -258,7 +258,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -274,7 +274,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -289,7 +289,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }            
         }
@@ -320,7 +320,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");       
+        log.Info("Successfully set all Fields on page!");       
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -1166,7 +1166,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
             if (txtdatumizdavanja.Text != string.Empty)
             {
                 DateTime datumizdavanja = DateTime.ParseExact(txtdatumizdavanja.Text, "dd.MM.yyyy", null);
-                log.Debug("datumizdavanja je: " + datumizdavanja);
+                log.Info("datumizdavanja je: " + datumizdavanja);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateIssuingDate(datumizdavanja, Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-txtdatumizdavanjaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-TurnOnIssueDateValidation"]), out ErrorMessage1);
@@ -1216,7 +1216,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
             if (txtdatumisteka.Text != string.Empty)
             {
                 DateTime datumisteka = DateTime.ParseExact(txtdatumisteka.Text, "dd.MM.yyyy", null);
-                log.Debug("datumisteka je: " + datumisteka);
+                log.Info("datumisteka je: " + datumisteka);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateExpiryDate(datumisteka, Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-txtdatumistekaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-fizicko-lice-TurnOnExpiryDateValidation"]), out ErrorMessage1);
@@ -1525,30 +1525,30 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
                         {
                             GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
                             log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
-                            PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
+                            PisMessServiceReference.IpGeolocationData ipGeolocationData = null;
                             try
                             {
-                                ipGeolocationData = new PisMessServiceReference.PisMessServiceClient().SendIpGeolocationRequest(userAgentIP);
+                                log.Info("Start getting ipGeolocationData. ");
+                                PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
+                                ipGeolocationData = client.SendIpGeolocationRequest(userAgentIP);
+                                log.Info("End getting ipGeolocationData. ");
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP);
+                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP + " - " + ex.Message);
                             }
+                            log.Debug("ipGeolocationData is: Status - " + ipGeolocationData.Status + " ,Country - " + ipGeolocationData.Country + " ,City - " + ipGeolocationData.City + " ,Isp - " + ipGeolocationData.Isp + " ,Continent - " + ipGeolocationData.Continent + " ,CountryCode - " + ipGeolocationData.CountryCode);
                             Utils.CheckIPGeolocationData(ipGeolocationData.Status, userAgentIP, ipGeolocationData.Country, ipGeolocationData.CountryCode, ipGeolocationData.City, ipGeolocationData.Isp, ipGeolocationData.Continent, out userAgentCountry, out userAgentCountryCode, out userAgentCity, out userAgentISP, out userAgentContinent);
                         }
                         catch (Exception ex)
                         {
                             log.Error("Error while getting ipGeolocationData. " + ex.Message);
-                            userAgentContinent = string.Empty;
-                            userAgentCountry = string.Empty;
-                            userAgentCountryCode = string.Empty;
-                            userAgentCity = string.Empty;
-                            userAgentISP = string.Empty;
+                            Utils.userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                         }
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["zahtev-izdavanje-fizicko-lice-userAgentBrowser"] = userAgentBrowser;
                     Session["zahtev-izdavanje-fizicko-lice-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -1762,7 +1762,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
     {        
         try
         {
-            log.Debug("Start sending SOAP message.");
+            log.Info("Start sending SOAP message.");
 
             Utility utility = new Utility();
 
@@ -1778,8 +1778,8 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
 
             Session["zahtev-izdavanje-fizicko-lice-brojzahteva"] = BrojZahteva;
 
-            log.Debug("Finished sending SOAP message! RequestNumber is: " + BrojZahteva);
-            log.Debug("Start creating PDF Files.");
+            log.Info("Finished sending SOAP message! RequestNumber is: " + BrojZahteva);
+            log.Info("Start creating PDF Files.");
 
             pisMess = new PisMessServiceReference.PisMessServiceClient();
 
@@ -1793,7 +1793,7 @@ public partial class zahtev_izdavanje_fizicko_lice : System.Web.UI.Page
             Session["zahtev-izdavanje-fizicko-lice-filename"] = CreateDocumentIssuingIndividualTask.Result;            
             Session["zahtev-izdavanje-fizicko-lice-filenamePaymentOrder"] = CreateDocumentPaymentOrderTask.Result;
             
-            log.Debug("Finished creating PDF files!");
+            log.Info("Finished creating PDF files!");
             
             Response.Redirect("zahtev-izdavanje-fizicko-lice-podnet.aspx", false); // this will tell .NET framework not to stop the execution of the current thread and hence the error will be resolved.
         }

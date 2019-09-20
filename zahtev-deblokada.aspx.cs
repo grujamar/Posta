@@ -112,13 +112,13 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 //------------------------------
                 //Get Control on all page
                 SetUpWSPWrapperService();
-                log.Debug("successfully set WSPWrapperService Validation!");
+                log.Info("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -206,7 +206,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -222,7 +222,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -244,7 +244,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -259,7 +259,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -274,7 +274,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -292,7 +292,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -306,7 +306,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -969,30 +969,30 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                         {
                             GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
                             log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
-                            PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
+                            PisMessServiceReference.IpGeolocationData ipGeolocationData = null;
                             try
                             {
-                                ipGeolocationData = new PisMessServiceReference.PisMessServiceClient().SendIpGeolocationRequest(userAgentIP);
+                                log.Info("Start getting ipGeolocationData. ");
+                                PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
+                                ipGeolocationData = client.SendIpGeolocationRequest(userAgentIP);
+                                log.Info("End getting ipGeolocationData. ");
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP);
+                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP + " - " + ex.Message);
                             }
+                            log.Debug("ipGeolocationData is: Status - " + ipGeolocationData.Status + " ,Country - " + ipGeolocationData.Country + " ,City - " + ipGeolocationData.City + " ,Isp - " + ipGeolocationData.Isp + " ,Continent - " + ipGeolocationData.Continent + " ,CountryCode - " + ipGeolocationData.CountryCode);
                             Utils.CheckIPGeolocationData(ipGeolocationData.Status, userAgentIP, ipGeolocationData.Country, ipGeolocationData.CountryCode, ipGeolocationData.City, ipGeolocationData.Isp, ipGeolocationData.Continent, out userAgentCountry, out userAgentCountryCode, out userAgentCity, out userAgentISP, out userAgentContinent);
                         }
                         catch (Exception ex)
                         {
                             log.Error("Error while getting ipGeolocationData. " + ex.Message);
-                            userAgentContinent = string.Empty;
-                            userAgentCountry = string.Empty;
-                            userAgentCountryCode = string.Empty;
-                            userAgentCity = string.Empty;
-                            userAgentISP = string.Empty;
+                            Utils.userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                         }
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["Zahtev-promena-statusa-userAgentBrowser"] = userAgentBrowser;
                     Session["Zahtev-promena-statusa-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -1219,7 +1219,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
     {
         try
         {
-            log.Debug("Start sending SOAP message.");
+            log.Info("Start sending SOAP message.");
 
             if (rbIsAttached.Checked == true)
             {
@@ -1261,9 +1261,9 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             
             Session["Zahtev-promena-statusa-brojzahteva"] = BrojZahteva;
 
-            log.Debug("Successfully send SOAP message! RequestNumber for Unblock Status is: " + BrojZahteva);
+            log.Info("Successfully send SOAP message! RequestNumber for Unblock Status is: " + BrojZahteva);
             
-            log.Debug("Start creating PDF Files.");
+            log.Info("Start creating PDF Files.");
 
             documentParameters = getDocumentParametersList(utility, requestChallengeResponse, Mesto, Ulica, Broj, PostanskiBroj, PAK);
             var CreateDocumentUnblockingRequestTask = Task.Run(() => CreateDocumentUnblockingRequest(utility, pisMess, documentParameters));
@@ -1278,7 +1278,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             //string fileNamePaymentOrder = CreateDocumentUnblockingRequestPaymentOrder(utility, pisMess, documentParameters);
             Session["Zahtev-promena-statusa-fileNamePaymentOrder"] = CreateDocumentUnblockingRequestPaymentOrderTask.Result;
 
-            log.Debug("Finished creating PDF files!");
+            log.Info("Finished creating PDF files!");
 
             Response.Redirect("zahtev-deblokada-podnet.aspx", false); // this will tell .NET framework not to stop the execution of the current thread and hence the error will be resolved.
         }

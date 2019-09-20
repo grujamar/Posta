@@ -63,11 +63,11 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 //------------------------------
                 //Get Control on all page
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -120,7 +120,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -136,7 +136,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -158,7 +158,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -173,7 +173,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -189,7 +189,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -199,7 +199,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -416,7 +416,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
         {
             try
             {
-                log.Debug("Start sending SOAP message.");
+                log.Info("Start sending SOAP message.");
 
                 BxSoapEnvelope envelope = createSoapEnvelope(utility);
 
@@ -429,14 +429,14 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                     throw new Exception("Time is expired! ");
                 }
                 */
-                log.Debug("Response SOAP message from BlueX for pkcs12 is: " + SOAPresponse);
+                log.Info("Response SOAP message from BlueX for pkcs12 is: " + SOAPresponse);
                 Utils.ParseSoapEnvelopePKCS12(SOAPresponse, out USI, out pkcs12, out errorPKCS12);
 
                 if (errorPKCS12 != string.Empty)
                 {
                     string parseErrorPKCS12 = Utils.Between(errorPKCS12, Constants.rightBrackets, Constants.leftBrackets);
                     Session["Preuzimanje-softverskog-sertifikata-parseErrorPKCS12"] = parseErrorPKCS12;
-                    log.Debug("parseErrorPKCS12: " + parseErrorPKCS12);
+                    log.Info("parseErrorPKCS12: " + parseErrorPKCS12);
                 }
                 
                 if (pkcs12 == string.Empty)
@@ -453,7 +453,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
 
                 ScriptManager.RegisterStartupScript(this, GetType(), "successalert", "successalert();", true);
 
-                log.Debug("Successfully send SOAP message! pkcs12 is: " + pkcs12);
+                log.Info("Successfully send SOAP message! pkcs12 is: " + pkcs12);
             }
             catch (Exception ex)
             {

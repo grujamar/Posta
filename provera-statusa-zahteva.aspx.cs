@@ -58,11 +58,11 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 txtbrojzahteva.Text = string.Empty;
                 //Get Control on all page
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -150,7 +150,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -166,7 +166,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -188,7 +188,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -203,7 +203,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -218,7 +218,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
         }
@@ -227,7 +227,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -472,13 +472,14 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 {
                     txtSertifikat.Text = string.Empty;
                     txtstatus.Text = string.Empty;
+                    txtPostExpressBroj.Text = string.Empty;
                     //-----------------GetUserAgent string---------------------------
                     /*
                     string SettingValue = utility.getSettingsValueGlobalSettings(Constants.GLOBAL_GEOLOCATIONS);
                     if (SettingValue == Constants.SETTING_VALUE_TRUE)
                     {
                         GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
-                        log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
+                        log.Info("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
                         PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
                         try
                         {
@@ -492,7 +493,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     */
                     Session["provera-statusa-zahteva-userAgentBrowser"] = userAgentBrowser;
@@ -505,7 +506,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                     Session["provera-statusa-zahteva-userAgentCity"] = userAgentCity;
                     Session["provera-statusa-zahteva-userAgentISP"] = userAgentISP;
                     
-                    log.Debug("Start sending first SOAP message with requestNumber.");
+                    log.Info("Start sending first SOAP message with requestNumber.");
 
                     BxSoapEnvelope envelope = new BxSoapEnvelopeRequestStatus();
 
@@ -517,7 +518,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                     try
                     {
                         SOAPresponse = BxSoap.SOAPManual(envelope.createBxSoapEnvelope());
-                        log.Debug("Response is: " + SOAPresponse);
+                        log.Info("Response is: " + SOAPresponse);
                     }
                     catch (Exception ex)
                     {
@@ -535,7 +536,7 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                     //Certificates.Add(new CertificateRequestStatus(9, "Production/Qualified Electronic Certificate Foreigner Legal Enitity.xml-dev", "tokenOrderPayed"));
                     Session["provera-statusa-zahteva-Certificates"] = Certificates;
 
-                    log.Debug("Successfully send first SOAP message with requestNumber.");
+                    log.Info("Successfully send first SOAP message with requestNumber.");
 
                     ddlListaSertifikata.Items.Clear();
 
@@ -665,17 +666,23 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                                     break;
                             }
                         }
+                        if (txtSertifikat.Text == string.Empty && txtPostExpressBroj.Text == string.Empty && txtstatus.Text == string.Empty)
+                        {
+                            NoStatusDisplay();
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "successalert", "successalert();", true);
+                        }
                     }
                     else
                     {
-                        log.Debug("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa.");
-                        ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
+                        NoStatusDisplay();
                     }
-                    ScriptManager.RegisterStartupScript(this, GetType(), "successalert", "successalert();", true);
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa. " + ex.Message);
+                    log.Info("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa. " + ex.Message);
                     txtstatus.Text = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3373);
                     txtstatus.ForeColor = System.Drawing.Color.Red;
                     Container000.Visible = false;
@@ -701,6 +708,12 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
             log.Error("Error while sending SOAP message. " + ex.Message);
             ScriptManager.RegisterStartupScript(this, GetType(), "errorSOAPalert", "errorSOAPalert();", true);
         }
+    }
+
+    protected void NoStatusDisplay()
+    {
+        log.Info("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa.");
+        ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
     }
 
     protected void SetUpCertificateStatus(string Item, string Notification, int ItemValue)
@@ -900,6 +913,11 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                         //
                         break;
                 }
+            }
+
+            if (txtSertifikat.Text == string.Empty && txtPostExpressBroj.Text == string.Empty && txtstatus.Text == string.Empty)
+            {
+                NoStatusDisplay();
             }
         }
     }

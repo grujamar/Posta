@@ -63,6 +63,9 @@ public class Constants
     public const int ERROR_3376 = 3376;
     public const int ERROR_3379 = 3379;
     public const int ERROR_3380 = 3380;
+    public const int ERROR_8388 = 34;
+    public const int ERROR_8392 = 35;
+    public const int ERROR_8402 = 36;
 
     public const int KVALIFIKOVANI_ELEKTRONSKI_SERTIFIKAT = 1;
     public const int WEB_ELEKTRONSKI_SERTIFIKAT = 2;
@@ -100,6 +103,7 @@ public class Constants
 
     //todo
     public const int REQUEST_NUMBER = 20000001;
+    public const int REQUEST_NUMBER_END = 59999999;
     public const int USI = 200000001;
     public const int ITEM_VALUE_WAITING = 1;
     public const int ITEM_VALUE_REFUSED = 2;

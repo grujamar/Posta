@@ -137,13 +137,13 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 GridView1.Columns[8].Visible = false;
                 //Get Control on all page
                 SetUpWSPWrapperService();
-                log.Debug("successfully set WSPWrapperService Validation!");
+                log.Info("successfully set WSPWrapperService Validation!");
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxesSecondPart();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownListsSecondPart();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -228,7 +228,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -244,7 +244,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -266,7 +266,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -281,7 +281,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -296,7 +296,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }            
 
@@ -312,7 +312,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
         }
@@ -346,7 +346,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -830,6 +830,8 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         dt.Columns.Add(new DataColumn("Telefon", typeof(string)));
         dt.Columns.Add(new DataColumn("Medij", typeof(string)));
         dt.Columns.Add(new DataColumn("Rok", typeof(string)));
+        //-------------------------------------------------------------
+        dt.Columns.Add(new DataColumn("DatumRodjenja", typeof(string)));
         dt.Columns.Add(new DataColumn("SertJmbg", typeof(string)));
         dt.Columns.Add(new DataColumn("VrstaDokumenta", typeof(string)));
         dt.Columns.Add(new DataColumn("BrojIDDokumenta", typeof(string)));
@@ -872,6 +874,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                     drCurrentRow["Medij"] = ddlmedijsert.SelectedItem.Text;
                     drCurrentRow["Rok"] = ddlrokkoriscenjasert.SelectedItem.Text;
                     //Ove kolone se ne vide, uvedene su zbog templatefield button-a u GridView-u
+                    drCurrentRow["DatumRodjenja"] = txtdatumrodjenja.Text;
                     drCurrentRow["SertJmbg"] = ddlsertjmbg.SelectedItem.Text;
                     drCurrentRow["VrstaDokumenta"] = ddlvrstadokumenta.SelectedItem.Text;
                     drCurrentRow["BrojIDDokumenta"] = txtbrojiddokumenta.Text;
@@ -1907,30 +1910,30 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                         {
                             getUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
                             log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
-                            PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
+                            PisMessServiceReference.IpGeolocationData ipGeolocationData = null;
                             try
                             {
-                                ipGeolocationData = new PisMessServiceReference.PisMessServiceClient().SendIpGeolocationRequest(userAgentIP);
+                                log.Info("Start getting ipGeolocationData. ");
+                                PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
+                                ipGeolocationData = client.SendIpGeolocationRequest(userAgentIP);
+                                log.Info("End getting ipGeolocationData. ");
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP);
+                                log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP + " - " + ex.Message);
                             }
+                            log.Debug("ipGeolocationData is: Status - " + ipGeolocationData.Status + " ,Country - " + ipGeolocationData.Country + " ,City - " + ipGeolocationData.City + " ,Isp - " + ipGeolocationData.Isp + " ,Continent - " + ipGeolocationData.Continent + " ,CountryCode - " + ipGeolocationData.CountryCode);
                             Utils.CheckIPGeolocationData(ipGeolocationData.Status, userAgentIP, ipGeolocationData.Country, ipGeolocationData.CountryCode, ipGeolocationData.City, ipGeolocationData.Isp, ipGeolocationData.Continent, out userAgentCountry, out userAgentCountryCode, out userAgentCity, out userAgentISP, out userAgentContinent);
                         }
                         catch (Exception ex)
                         {
                             log.Error("Error while getting ipGeolocationData. " + ex.Message);
-                            userAgentContinent = string.Empty;
-                            userAgentCountry = string.Empty;
-                            userAgentCountryCode = string.Empty;
-                            userAgentCity = string.Empty;
-                            userAgentISP = string.Empty;
+                            Utils.userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                         }
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["zahtev-izdavanje-pravno-lice-userAgentBrowser"] = userAgentBrowser;
                     Session["zahtev-izdavanje-pravno-lice-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -2124,7 +2127,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             if (txtdatumizdavanja.Text != string.Empty)
             {
                 DateTime datumizdavanja = DateTime.ParseExact(txtdatumizdavanja.Text, "dd.MM.yyyy", null);
-                log.Debug("datumizdavanja je: " + datumizdavanja);
+                log.Info("datumizdavanja je: " + datumizdavanja);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateIssuingDate(datumizdavanja, Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-txtdatumizdavanjaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnIssueDateValidation"]), out ErrorMessage1);
@@ -2174,7 +2177,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             if (txtdatumisteka.Text != string.Empty)
             {
                 DateTime datumisteka = DateTime.ParseExact(txtdatumisteka.Text, "dd.MM.yyyy", null);
-                log.Debug("datumisteka je: " + datumisteka);
+                log.Info("datumisteka je: " + datumisteka);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateExpiryDate(datumisteka, Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-txtdatumistekaIsRequired"]), Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-TurnOnExpiryDateValidation"]), out ErrorMessage1);
@@ -2607,6 +2610,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        string DatumRodjenja = string.Empty;
         string SertJmbg = string.Empty;
         string VrstaDokumenata = string.Empty;
         string BrojIDDokumenta = string.Empty;
@@ -2632,9 +2636,10 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             ClearDropDownLists();
             bool Delete = false;
 
-            GridViewAction(rowno, JMBG, Delete, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
+            GridViewAction(rowno, JMBG, Delete, out DatumRodjenja, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
 
             //Ove kolone se ne vide, nalaze se u HidenField-u u GridView-u
+            txtdatumrodjenja.Text = DatumRodjenja;
             ddlsertjmbg.Items.FindByText(SertJmbg).Selected = true;
             ddlvrstadokumenta.Items.FindByText(VrstaDokumenata).Selected = true;
             txtbrojiddokumenta.Text = BrojIDDokumenta;
@@ -2725,9 +2730,10 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             ClearDropDownLists();
             bool Delete = false;
 
-            GridViewAction(rowno, JMBG, Delete, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
+            GridViewAction(rowno, JMBG, Delete, out DatumRodjenja, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
 
             //Ove kolone se ne vide, nalaze se u HidenField-u u GridView-u
+            txtdatumrodjenja.Text = DatumRodjenja;
             ddlsertjmbg.Items.FindByText(SertJmbg).Selected = true;
             ddlvrstadokumenta.Items.FindByText(VrstaDokumenata).Selected = true;
             txtbrojiddokumenta.Text = BrojIDDokumenta;
@@ -2813,7 +2819,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
             bool Delete = true;
 
-            GridViewAction(rowno, JMBG, Delete, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
+            GridViewAction(rowno, JMBG, Delete, out DatumRodjenja, out SertJmbg, out VrstaDokumenata, out BrojIDDokumenta, out ImeInstitucije, out DatumIzdavanja, out DatumIsteka, out SertAdresa, out Mesto, out Ulica, out Broj, out PostanskiBroj, out PAK, out CenaSaPorezom);
 
             DataTable dtCurrentTable = (DataTable)ViewState["pravno-lice-CurrentTable"];
 
@@ -2847,7 +2853,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         }
     }
 
-    protected void GridViewAction(int RowNumber, string jmbg, bool Delete, out string SertJmbg, out string VrstaDokumenta, out string BrojIDDokumenta, out string ImeInstitucije, out string DatumIzdavanja, out string DatumIsteka, out string SertAdresa, out string Mesto, out string Ulica, out string Broj, out string PostanskiBroj, out string PAK, out string CenaSaPorezom)
+    protected void GridViewAction(int RowNumber, string jmbg, bool Delete, out string DatumRodjenja, out string SertJmbg, out string VrstaDokumenta, out string BrojIDDokumenta, out string ImeInstitucije, out string DatumIzdavanja, out string DatumIsteka, out string SertAdresa, out string Mesto, out string Ulica, out string Broj, out string PostanskiBroj, out string PAK, out string CenaSaPorezom)
     {
         GridViewRow row = GridView1.Rows[RowNumber];
 
@@ -2903,6 +2909,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         HiddenField hd11 = row.FindControl("CenaSaPorezom") as HiddenField;
         CenaSaPorezom = hd11.Value;
         */
+        DatumRodjenja = GridView1.DataKeys[RowNumber]["DatumRodjenja"].ToString();
         SertJmbg = GridView1.DataKeys[RowNumber]["SertJmbg"].ToString();
         VrstaDokumenta = GridView1.DataKeys[RowNumber]["VrstaDokumenta"].ToString();
         BrojIDDokumenta = GridView1.DataKeys[RowNumber]["BrojIDDokumenta"].ToString();
@@ -3117,7 +3124,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         {
             NewPrice = "0,00";
         }
-        else if (cenasaporezomprepared1.Length == 8)
+        else if (cenasaporezomprepared1.Length == 4)
         {
             NewPrice = cenasaporezomprepared1.Substring(0, 1) + "." + cenasaporezomprepared1.Substring(1, 1) + cenasaporezomprepared1.Substring(2, 1) + cenasaporezomprepared1.Substring(3, 1) + ",00";
         }
@@ -3201,6 +3208,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         string Telefon = string.Empty;
         string Medij = string.Empty;
         string Rok = string.Empty;
+        string DatumRodjenja = string.Empty;
         string SertJMBG = string.Empty;
         string VrstaDokumenta = string.Empty;
         string BrojIDDokumenta = string.Empty;
@@ -3265,7 +3273,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         //Broj = ((HiddenField)GridView1.Rows[i].FindControl("Broj")).Value;
         //PostanskiBroj = ((HiddenField)GridView1.Rows[i].FindControl("PostanskiBroj")).Value;
         //CenaSaPorezom = ((HiddenField)GridView1.Rows[i].FindControl("CenaSaPorezom")).Value;
-
+        DatumRodjenja = GridView1.DataKeys[i]["DatumRodjenja"].ToString();
         SertJMBG = GridView1.DataKeys[i]["SertJmbg"].ToString();
         VrstaDokumenta = GridView1.DataKeys[i]["VrstaDokumenta"].ToString();
         BrojIDDokumenta = GridView1.DataKeys[i]["BrojIDDokumenta"].ToString();
@@ -3283,6 +3291,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
         envelope.BxData.setValue(@"givenName", Ime);
         envelope.BxData.setValue(@"lastName", Prezime);
         envelope.BxData.setValue(@"uniqueCitizensNumber", JMBG);
+        envelope.BxData.setValue(@"dateOfBirth", DatumRodjenja);
         envelope.BxData.setValue(@"includeUniqueCitizensNumber", (utility.getEnglishTextInputString(SertJMBG)));
         envelope.BxData.setValue(@"identificationDocumentType", (utility.getEnglishTextInputString(VrstaDokumenta)));
         envelope.BxData.setValue(@"identificationDocumentNumber", BrojIDDokumenta);
@@ -3449,7 +3458,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
     {
         //templateDocumentType: LegalEntityContract
         //-----------------------------------------
-        log.Debug("documentParameters to pismess: " + documentParameters.ToArray());
+        log.Info("documentParameters to pismess: " + documentParameters.ToArray());
         string responseMessage = string.Empty;
         List<string> response1 = new List<string>(ServiceCaller.CallServiceCreateDoc(PisMessServiceReference.TemplateDocumentTypeSerbianPost.LegalEntityContract, documentParameters.ToArray()));
         if (response1[0].Equals("0"))
@@ -3596,11 +3605,11 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
             try
             {
-                log.Debug("Start getting legal entity Order Number.");
+                log.Info("Start getting legal entity Order Number.");
                 legalEntityOrderNumber = utility1.getOrderNumber(Constants.LEGAL_ENTITY_ID_ORDER_NUMBER);
                 Session["zahtev-izdavanje-pravno-lice-brojzahteva"] = legalEntityOrderNumber;
                 UpdateOrderNumberLastUsed(utility1, legalEntityOrderNumber, Constants.LEGAL_ENTITY_ID_ORDER_NUMBER);
-                log.Debug("Finished getting OrderNumber and editting LastUsed. legalEntityOrderNumber for Legal Entity is " + legalEntityOrderNumber);
+                log.Info("Finished getting OrderNumber and editting LastUsed. legalEntityOrderNumber for Legal Entity is " + legalEntityOrderNumber);
             }
             catch (Exception ex)
             {
@@ -3609,7 +3618,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
             for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
             {
-                log.Debug("Start sending SOAP message for i = " + i + " row.");
+                log.Info("Start sending SOAP message for i = " + i + " row.");
 
                 Utility utility = new Utility();
                 
@@ -3626,14 +3635,14 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
 
                 addRequestNumberToCertificatesAuthorizedUsers(utility, i, certificatesAuthorizedUsers, BrojZahteva);
 
-                log.Debug("Finished sending SOAP message for i = " + i + " row. Response from BlueX: First RequestNumber for IssuingIndividual is: " + BrojZahteva + ". Second RequestNumber for IssuingIndividual is: " + BrojZahtevaPravnoLice);                                      
+                log.Info("Finished sending SOAP message for i = " + i + " row. Response from BlueX: First RequestNumber for IssuingIndividual is: " + BrojZahteva + ". Second RequestNumber for IssuingIndividual is: " + BrojZahtevaPravnoLice);                                      
             }
 
             documentParameters = getDocumentParametersList(utility1, legalEntityName);
 
             pisMess = new PisMessServiceReference.PisMessServiceClient();
             
-            log.Debug("Start creating PDF Files.");
+            log.Info("Start creating PDF Files.");
 
             var CreateDocumentLegalEntityContractTask = Task.Run(() => CreateDocumentLegalEntityContract(utility1, pisMess, documentParameters));
             var CreateDocumentGovernmentContractTask = Task.Run(() => CreateDocumentGovernmentContract(utility1, pisMess, documentParameters));
@@ -3650,9 +3659,9 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
             //string filename = CreateDocumentLegalEntityContractAttachment(utility1, pisMess, documentParameters, certificatesAuthorizedUsers);
             Session["zahtev-izdavanje-pravno-lice-filename"] = CreateDocumentLegalEntityContractAttachmentTask.Result;
 
-            log.Debug("Finished creating PDF files!");
+            log.Info("Finished creating PDF files!");
 
-            log.Debug("Start importing Legal Entity values in database.");
+            log.Info("Start importing Legal Entity values in database.");
 
             if (documentParameters.Count > 0)
             {
@@ -3686,7 +3695,7 @@ public partial class zahtev_izdavanje_pravno_lice : System.Web.UI.Page
                 throw new Exception("Eror while importing values in database, documentParameters.Count is empty. ");
             }
 
-            log.Debug("Finished importing Legal Entity values in database.");
+            log.Info("Finished importing Legal Entity values in database.");
 
             Response.Redirect("zahtev-izdavanje-pravno-lice-podnet.aspx", false); // this will tell .NET framework not to stop the execution of the current thread and hence the error will be resolved.
         }

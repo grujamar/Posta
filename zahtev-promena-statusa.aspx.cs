@@ -171,11 +171,11 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 //------------------------------
                 //Get Control on all page
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -312,7 +312,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            log.Debug("Error in function GetCertificateData. " + ex.Message);
+            log.Info("Error in function GetCertificateData. " + ex.Message);
             //string ErrorPage = System.Configuration.ConfigurationManager.AppSettings["ErrorPage"].ToString();
             //Response.Redirect(@ErrorPage);
             ScriptManager.RegisterStartupScript(this, GetType(), "ErrorNotification", "ErrorNotification();", true);
@@ -429,7 +429,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -445,7 +445,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -467,7 +467,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -482,7 +482,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -497,7 +497,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -513,7 +513,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }            
         }
@@ -535,7 +535,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -797,7 +797,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         // znak plus pravi problem kada se posalje u url-u, pa mora da se svuda zameni sa "%252b"
         encodedString = encodedString.Replace("+", "%252b");
         string ClientSslAuthenticationURL = System.Configuration.ConfigurationManager.AppSettings["ClientSslAuthenticationURL"].ToString();
-        log.Debug("URL kojim se poziva aplikacija za očitavanje sertifikata: " + @ClientSslAuthenticationURL + encodedString);
+        log.Info("URL kojim se poziva aplikacija za očitavanje sertifikata: " + @ClientSslAuthenticationURL + encodedString);
         Response.Redirect(@ClientSslAuthenticationURL + encodedString);
     }
 
@@ -934,31 +934,30 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                     {
                         GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
                         log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
-                        PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
+                        PisMessServiceReference.IpGeolocationData ipGeolocationData = null;
                         try
                         {
-                            ipGeolocationData = new PisMessServiceReference.PisMessServiceClient().SendIpGeolocationRequest(userAgentIP);
+                            log.Info("Start getting ipGeolocationData. ");
+                            PisMessServiceReference.PisMessServiceClient client = new PisMessServiceReference.PisMessServiceClient();
+                            ipGeolocationData = client.SendIpGeolocationRequest(userAgentIP);
+                            log.Info("End getting ipGeolocationData. ");
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP);
+                            log.Error("IP address is not in correct format or it is empty. IP is: " + userAgentIP + " - " + ex.Message);
                         }
+                        log.Debug("ipGeolocationData is: Status - " + ipGeolocationData.Status + " ,Country - " + ipGeolocationData.Country + " ,City - " + ipGeolocationData.City + " ,Isp - " + ipGeolocationData.Isp + " ,Continent - " + ipGeolocationData.Continent + " ,CountryCode - " + ipGeolocationData.CountryCode);
                         Utils.CheckIPGeolocationData(ipGeolocationData.Status, userAgentIP, ipGeolocationData.Country, ipGeolocationData.CountryCode, ipGeolocationData.City, ipGeolocationData.Isp, ipGeolocationData.Continent, out userAgentCountry, out userAgentCountryCode, out userAgentCity, out userAgentISP, out userAgentContinent);
-
                     }
                     catch (Exception ex)
                     {
                         log.Error("Error while getting ipGeolocationData. " + ex.Message);
-                        userAgentContinent = string.Empty;
-                        userAgentCountry = string.Empty;
-                        userAgentCountryCode = string.Empty;
-                        userAgentCity = string.Empty;
-                        userAgentISP = string.Empty;
+                        Utils.userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                     }
                 }
                 else
                 {
-                    log.Debug("Geolocation is not active!");
+                    log.Info("Geolocation is not active!");
                 }
                 Session["zahtev-promena-statusa-sertifikata-userAgentBrowser"] = userAgentBrowser;
                 Session["zahtev-promena-statusa-sertifikata-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -1267,7 +1266,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         try
         {
             //Salje se SOAP poruka sa JIK-om, a kao Response se dobija ime i prezime..isto kao u Formi 6 samo bez datuma isticanja i izdavanja 
-            log.Debug("Start sending SOAP message with USI.");
+            log.Info("Start sending SOAP message with USI.");
 
             BxSoapEnvelope envelope = new BxSoapEnvelopeCertificateStatusCheck();
             //todo samo zameni
@@ -1293,7 +1292,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
 
             Session["zahtev-promena-statusa-sertifikata-CertificateStatuses"] = CertificateStatuses;
 
-            log.Debug("Successfully send SOAP message with USI.");
+            log.Info("Successfully send SOAP message with USI.");
 
             if (CertificateStatuses.Count > 0)
             {
@@ -1301,22 +1300,22 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 {
                     GivenName = certificatestatus.GivenName;
                     LastName = certificatestatus.LastName;
-                    log.Debug("givenName is: " + GivenName + ", lastNAme is: " + LastName);
+                    log.Info("givenName is: " + GivenName + ", lastNAme is: " + LastName);
                     ErrorLabel = string.Empty;
                     returnValue = true;
                 }
-                log.Debug("Successfully send first SOAP message with JIK!");
+                log.Info("Successfully send first SOAP message with JIK!");
             }
             else
             {
-                log.Debug("Za navedeni USI(JIK) " + txtjik01.Text + "nema statusa.");
+                log.Info("Za navedeni USI(JIK) " + txtjik01.Text + "nema statusa.");
                 ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
             }
             
         }
         catch (Exception ex)
         {
-            log.Debug("Za navedeni USI(JIK) " + txtjik01.Text + "nema statusa. " + ex.Message);
+            log.Info("Za navedeni USI(JIK) " + txtjik01.Text + "nema statusa. " + ex.Message);
             ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
             ErrorLabel = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3371);
             //ScriptManager.RegisterStartupScript(this, GetType(), "erroralertSendSOAP", "erroralertSendSOAP();", true);
@@ -1860,7 +1859,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             if (txtdatumgubitka.Text != string.Empty)
             {
                 DateTime datumgubitka = DateTime.ParseExact(txtdatumgubitka.Text, "dd.MM.yyyy", null);
-                log.Debug("datumgubitka je: " + datumgubitka);
+                log.Info("datumgubitka je: " + datumgubitka);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateIssuingDate(datumgubitka, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumgubitkaIsRequired"]), true, out ErrorMessage1);
@@ -1902,7 +1901,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             if (txtdatumcompromise.Text != string.Empty)
             {
                 DateTime datumcompromise = DateTime.ParseExact(txtdatumcompromise.Text, "dd.MM.yyyy", null);
-                log.Debug("datumcompromise je: " + datumcompromise);
+                log.Info("datumcompromise je: " + datumcompromise);
                 string ErrorMessage1 = string.Empty;
 
                 args.IsValid = UtilsValidation.ValidateIssuingDate(datumcompromise, Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-txtdatumcompromiseIsRequired"]), true, out ErrorMessage1);
@@ -2199,7 +2198,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
     {
         try
         {
-            log.Debug("Start sending SOAP message.");
+            log.Info("Start sending SOAP message.");
 
             if (rbIndividual.Checked == true)
             {
@@ -2322,9 +2321,9 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
 
             Session["zahtev-promena-statusa-sertifikata-brojzahteva"] = BrojZahteva;
 
-            log.Debug("Successfully send SOAP message! RequestNumber for StatusChange is: " + BrojZahteva);
+            log.Info("Successfully send SOAP message! RequestNumber for StatusChange is: " + BrojZahteva);
 
-            log.Debug("Start creating PDF Files.");
+            log.Info("Start creating PDF Files.");
 
             documentParameters = getDocumentParametersList(utility, legalEntityName, radioButtonStatus, RevokeReason, imeStatus, prezimeStatus, usiStatus);
             var CreateDocumentCertificateStatusChangeTask = Task.Run(() => CreateDocumentCertificateStatusChange(utility, pisMess, documentParameters));
@@ -2333,7 +2332,7 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             //string fileName = CreateDocumentCertificateStatusChange(utility, pisMess, documentParameters);
             Session["zahtev-promena-statusa-sertifikata-filename"] = CreateDocumentCertificateStatusChangeTask.Result;
 
-            log.Debug("Finished creating PDF files!");
+            log.Info("Finished creating PDF files!");
 
             Response.Redirect("zahtev-promena-statusa-podnet.aspx", false); // this will tell .NET framework not to stop the execution of the current thread and hence the error will be resolved.
         }

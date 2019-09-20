@@ -22,11 +22,12 @@
         }
     </script>
     <style type="text/css">
-        .submit {
+        .submit1 {
         padding: 15px 30px 15px 43px;
         background: url(Content/Images/pdf_icon.png) left 5px top 10px no-repeat #e5e5e5;
         border-style: solid;
         border-width: 0.5px;
+        cursor: pointer;
     }
     </style>
 </head>
@@ -89,7 +90,7 @@
                     <label for="lbldugme" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 
                 </div>
                 <div class="col-sm-8">
-                    <asp:HyperLink ID="btnPrintRequest" runat="server" download="" target="_blank" class="btn-lg btn-default submit" onclick="unhook();" style="margin-right: 8px;" Text=""/>                                                                            
+                    <asp:HyperLink ID="btnPrintRequest" runat="server" download="" target="_blank" class="btn-lg btn-default submit1" onclick="unhook();" style="margin-right: 8px;" Text=""/>                                                                            
                 </div>
                 <div class="col-sm-2">
                     <label for="lbldugme1" style="font-size:13px;"><span style="COLOR: white; font-size:17px;"></span> </label> 

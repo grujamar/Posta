@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,15 @@ namespace BlueXSOAP
             xmlContent += BxData.ToString();
             xmlContent += SoapEnvelopeFooter;
 
-            soapEnvelopeXml.LoadXml(xmlContent);
+            try
+            {
+                xmlContent.Replace("'", "&apos;").Replace("\"", "&quot;").Replace(">", "&gt;").Replace("<", "&lt;").Replace("&", "&amp;").Replace(" ", "&nbsp;");
+                soapEnvelopeXml.LoadXml(xmlContent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in createBxSoapEnvelope. " + ex.Message);
+            }
 
             //////////////
             // samo za test

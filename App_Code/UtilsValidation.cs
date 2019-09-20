@@ -953,7 +953,7 @@ public static class UtilsValidation
                 }
                 else if (datumizdavanja > DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null))
                 {
-                    log.Debug("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
+                    log.Info("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
                     ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3357);
                     returnValue = false;
                 }
@@ -979,10 +979,10 @@ public static class UtilsValidation
         {
             if (isValidating)
             {
-                log.Debug("datumizdavanja string je: " + datumizdavanja.ToString("dd.MM.yyy"));
+                log.Info("datumizdavanja string je: " + datumizdavanja.ToString("dd.MM.yyy"));
                 if (datumizdavanja.ToString("dd.MM.yyy") != string.Empty)
                 {
-                    log.Debug("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
+                    log.Info("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
                     if (datumizdavanja > DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null))
                     {
                         ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3357);
@@ -1019,7 +1019,7 @@ public static class UtilsValidation
                 }
                 else if (datumisteka < DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null))
                 {
-                    log.Debug("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
+                    log.Info("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
                     ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2341);
                     returnValue = false;
                 }
@@ -1045,12 +1045,12 @@ public static class UtilsValidation
         {
             if (isValidating)
             {
-                log.Debug("datumisteka string je: " + datumisteka.ToString("dd.MM.yyy"));
+                log.Info("datumisteka string je: " + datumisteka.ToString("dd.MM.yyy"));
                 if (datumisteka.ToString() != string.Empty)
                 {
                     if (datumisteka < DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null))
                     {
-                        log.Debug("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
+                        log.Info("DateTimeNow je: " + DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyy"), "dd.MM.yyyy", null));
                         ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2341);
                         returnValue = false;
                     }
@@ -1746,6 +1746,11 @@ public static class UtilsValidation
                     ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2335);
                     returnValue = false;
                 }
+                else if (!Utils.allowLatinLettersMinusSpaceApostropheAndPlusDotCommaQuotationMarksNumbers(newLegalName))
+                {
+                    ErrorMessage1 = utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8388);
+                    returnValue = false;
+                }
                 else
                 {
                     returnValue = true;
@@ -1768,7 +1773,18 @@ public static class UtilsValidation
         {
             if (isValidating)
             {
-                returnValue = true;
+                if (newLegalName != string.Empty)
+                {
+                    if (!Utils.allowLatinLettersMinusSpaceApostropheAndPlusDotCommaQuotationMarksNumbers(newLegalName))
+                    {
+                        ErrorMessage1 = utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8388);
+                        returnValue = false;
+                    }
+                }
+                else
+                {
+                    returnValue = true;
+                }
             }
             else
             {
@@ -2523,10 +2539,19 @@ public static class UtilsValidation
                     ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2336) + Constants.BROJ_ZAHTEVA + utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2337);
                     returnValue = false;
                 }
-                else if (Convert.ToInt32(brojzahteva) < Constants.REQUEST_NUMBER)
+                else if ((Convert.ToInt32(brojzahteva) < Constants.REQUEST_NUMBER) || (Convert.ToInt32(brojzahteva) > Constants.REQUEST_NUMBER_END))
                 {
-                    ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2351) + Constants.REQUEST_NUMBER + ".";
+                    ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2351) + Constants.REQUEST_NUMBER + utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8402) + Constants.REQUEST_NUMBER_END;
                     returnValue = false;
+                }
+                else if (brojzahteva.Length == Constants.BROJ_ZAHTEVA)
+                {
+                    string OrderNumberRangeStart = (utility.pronadjiPocetakOpsegaKrovnogZahteva()).ToString();
+                    if (brojzahteva.Substring(0, 1) == OrderNumberRangeStart.Substring(0, 1))
+                    {
+                        ErrorMessage1 = utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8392);
+                        returnValue = false;
+                    }
                 }
                 else
                 {
@@ -2556,6 +2581,25 @@ public static class UtilsValidation
                     {
                         ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2331);
                         returnValue = false;
+                    }
+                    else if (brojzahteva.Length < Constants.BROJ_ZAHTEVA)
+                    {
+                        ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2336) + Constants.BROJ_ZAHTEVA + utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2337);
+                        returnValue = false;
+                    }
+                    else if ((Convert.ToInt32(brojzahteva) < Constants.REQUEST_NUMBER) || (Convert.ToInt32(brojzahteva) > Constants.REQUEST_NUMBER_END))
+                    {
+                        ErrorMessage1 = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_2351) + Constants.REQUEST_NUMBER + utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8402) + Constants.REQUEST_NUMBER_END;
+                        returnValue = false;
+                    }
+                    else if (brojzahteva.Length == Constants.BROJ_ZAHTEVA)
+                    {
+                        string OrderNumberRangeStart = (utility.pronadjiPocetakOpsegaKrovnogZahteva()).ToString();
+                        if (brojzahteva.Substring(0, 1) == OrderNumberRangeStart.Substring(0, 1))
+                        {
+                            ErrorMessage1 = utility.pronadjiNaziveGresakaItemValue(Constants.ITEM_ERROR, Constants.ERROR_8392);
+                            returnValue = false;
+                        }
                     }
                 }
                 else

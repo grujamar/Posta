@@ -146,6 +146,29 @@ public static class Utils
         }
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    public static bool allowLatinLettersMinusSpaceApostropheAndPlusDotCommaQuotationMarksNumbers(string InputString)
+    {
+        try
+        {
+            //Serbian Latin letter a  b  c	č	ć	d	dž	đ	e	f	g	h	i	j	k   l	lj	m	n	nj	o	p	r	s	š	t	u	v	z	ž
+            //* means 'match 0 or any number of characters'.
+            Regex regex = new Regex(@"^([a-zA-Z0-9ČĆĐŠŽžšđćč '""+.,-]*)$");
+            Match match = regex.Match(InputString);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
     public static bool allowLatinLettersNumbersDotSpace(string InputString)
     {
         try
@@ -153,6 +176,26 @@ public static class Utils
             //Serbian Latin letter a  b  c	č	ć	d	dž	đ	e	f	g	h	i	j	k   l	lj	m	n	nj	o	p	r	s	š	t	u	v	z	ž
             //* means 'match 0 or any number of characters'.
             Regex regex = new Regex(@"^([a-zA-Z0-9ČĆĐŠŽžšđćč. ]*)$");
+            Match match = regex.Match(InputString);
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    public static bool NotAllowCirilicLetters(string InputString)
+    {
+        try
+        {
+            //Serbian Latin letter a  b  c	č	ć	d	dž	đ	e	f	g	h	i	j	k   l	lj	m	n	nj	o	p	r	s	š	t	u	v	z	ž
+            //* means 'match 0 or any number of characters'.
+            //Regex regex = new Regex(@"^([абвгдђежзијклљмнњопрстћуфхцчџшАБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШ]*)$");
+            Regex regex = new Regex(@"\p{IsCyrillic}+");
             Match match = regex.Match(InputString);
             if (match.Success)
                 return true;
@@ -1181,12 +1224,8 @@ public static class Utils
         {
             if (ipGeolocationDataStatus == null)
             {
-                log.Debug("ipGeolocationData.Status is null. ");
-                userAgentCountry = string.Empty;
-                userAgentCountryCode = string.Empty;
-                userAgentCity = string.Empty;
-                userAgentISP = string.Empty;
-                userAgentContinent = string.Empty;
+                log.Info("ipGeolocationData.Status is null. ");
+                userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
             }
             else
             {
@@ -1194,11 +1233,7 @@ public static class Utils
                 {
                     //throw new Exception("Error from PisMess: ipGeolocationData is null. ");
                     log.Error("Error from PisMess: " + ipGeolocationDataStatus + "IP address is: " + userAgentIP);
-                    userAgentCountry = string.Empty;
-                    userAgentCountryCode = string.Empty;
-                    userAgentCity = string.Empty;
-                    userAgentISP = string.Empty;
-                    userAgentContinent = string.Empty;
+                    userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                 }
                 else
                 {
@@ -1209,15 +1244,11 @@ public static class Utils
                     userAgentContinent = ipGeolocationDataContinent;
                     if (userAgentCountry == null || userAgentCountryCode == null || userAgentCity == null || userAgentISP == null || userAgentContinent == null)
                     {
-                        userAgentCountry = string.Empty;
-                        userAgentCountryCode = string.Empty;
-                        userAgentCity = string.Empty;
-                        userAgentISP = string.Empty;
-                        userAgentContinent = string.Empty;
+                        userDataEmpty(userAgentCountry, userAgentCountryCode, userAgentCity, userAgentISP, userAgentContinent);
                     }                   
                 }
             }
-            log.Debug("IPGeolocationData! userAgentCountry is: " + userAgentCountry + " userAgentCountryCode is: " + userAgentCountryCode + " userAgentCity is: " + userAgentCity + " userAgentISP is: " + userAgentISP + " userAgentContinent is: " + userAgentContinent);
+            log.Info("IPGeolocationData! userAgentCountry is: " + userAgentCountry + " userAgentCountryCode is: " + userAgentCountryCode + " userAgentCity is: " + userAgentCity + " userAgentISP is: " + userAgentISP + " userAgentContinent is: " + userAgentContinent);
         }
         catch (Exception ex)
         {
@@ -1226,6 +1257,14 @@ public static class Utils
         }
     }
 
+    public static void userDataEmpty(string userAgentCountry, string userAgentCountryCode, string userAgentCity, string userAgentISP, string userAgentContinent)
+    {
+        userAgentCountry = string.Empty;
+        userAgentCountryCode = string.Empty;
+        userAgentCity = string.Empty;
+        userAgentISP = string.Empty;
+        userAgentContinent = string.Empty;
+    }
 
     public static List<CertificateRequestStatusPostExpressID> ParseSoapEnvelopeRequestStatusPostExpressID(string soapresponse)
     {

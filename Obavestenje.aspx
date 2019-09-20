@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row">
-                <br />
+                
         </div>
         <div class="container-fluid" style="margin-left: 10px;">
             <div class="row">
@@ -45,12 +45,12 @@
         </div>
         <div class="container-fluid" style="margin-left: 10px">
             <div class="row top10">                                 
-                        <div class="col-sm-10" style="background-color:white;">
-                            <asp:Label id="spanobavestenje" runat="server" style="COLOR: red; font-weight:bold; font-size:20px;"></asp:Label>&nbsp;
-                        </div>
-                        <div class="col-sm-2" style="background-color:white;">
+                <div class="col-sm-10" style="background-color:white;">
+                    <asp:Label id="spanobavestenje" runat="server" style="COLOR: red; font-weight:bold; font-size:20px;"></asp:Label>&nbsp;
+                </div>
+                <div class="col-sm-2" style="background-color:white;">
 
-                        </div>
+                </div>
             </div>
         </div>
         <div class="container-fluid" style="margin-left: 10px;">

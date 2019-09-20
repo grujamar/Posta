@@ -141,11 +141,11 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 //------------------------------
                 //Get Control on all page
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 //SetUpIsRequiredDropDownLists();
-                log.Debug("Application Starting, successfully get all controls!");
+                log.Info("Application Starting, successfully get all controls!");
             }
         }
         else
@@ -385,7 +385,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -401,7 +401,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -423,7 +423,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -438,7 +438,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -453,7 +453,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
 
@@ -469,7 +469,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + "  " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + "  " + ex.Message);
                 }
             }
         }
@@ -478,7 +478,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -715,7 +715,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     if (SettingValue == Constants.SETTING_VALUE_TRUE)
                     {
                         GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
-                        log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
+                        log.Info("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
                         PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
                         try
                         {
@@ -729,7 +729,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["zahtev-provera-datuma-isticanja-sertifikata-userAgentBrowser"] = userAgentBrowser;
                     Session["zahtev-provera-datuma-isticanja-sertifikata-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -742,7 +742,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     Session["zahtev-provera-datuma-isticanja-sertifikata-userAgentISP"] = userAgentISP;
                     //todo Poslati SOAP poruku sa JIK-om i dobiti ime, prezime, datum izdavanja korisnika i datum isteka vaznosti sertifikata
                     */
-                    log.Debug("Start sending SOAP message with USI.");
+                    log.Info("Start sending SOAP message with USI.");
 
                     BxSoapEnvelope envelope = new BxSoapEnvelopeCertificateStatusCheck();
                     //todo samo zameni
@@ -784,7 +784,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
 
                     Session["zahtev-provera-datuma-isticanja-sertifikata-CertificateStatuses"] = CertificateStatuses;
 
-                    log.Debug("Successfully send SOAP message with USI.");
+                    log.Info("Successfully send SOAP message with USI.");
 
                     if (CertificateStatuses.Count > 0)
                     {
@@ -812,13 +812,13 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                     }
                     else
                     {
-                        log.Debug("Za navedeni USI(JIK) " + txtjik.Text + "nema statusa.");
+                        log.Info("Za navedeni USI(JIK) " + txtjik.Text + "nema statusa.");
                         ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Za navedeni USI(JIK) " + txtjik.Text + "nema statusa. " + ex.Message);
+                    log.Info("Za navedeni USI(JIK) " + txtjik.Text + "nema statusa. " + ex.Message);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
                     errLabel.Text = utility.pronadjiNaziveGresaka(Constants.ITEM_ERROR, Constants.ERROR_3371);
                     //log.Error("Error while sending request. " + ex.Message);
@@ -865,7 +865,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         // znak plus pravi problem kada se posalje u url-u, pa mora da se svuda zameni sa "%252b"
         encodedString = encodedString.Replace("+", "%252b");
         string ClientSslAuthenticationURL = System.Configuration.ConfigurationManager.AppSettings["ClientSslAuthenticationURL"].ToString();
-        log.Debug("URL kojim se poziva aplikacija za očitavanje sertifikata: " + @ClientSslAuthenticationURL + encodedString);
+        log.Info("URL kojim se poziva aplikacija za očitavanje sertifikata: " + @ClientSslAuthenticationURL + encodedString);
         Response.Redirect(@ClientSslAuthenticationURL + encodedString);
     }
 

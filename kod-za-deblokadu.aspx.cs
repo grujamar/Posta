@@ -54,11 +54,11 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
 
                 //Get Control on all page
                 SetUpValidation();
-                log.Debug("successfully set Validation!");
+                log.Info("successfully set Validation!");
                 SetUpIsRequiredTextBoxes();
-                log.Debug("successfully set RequiredTextBoxes!");
+                log.Info("successfully set RequiredTextBoxes!");
                 SetUpIsRequiredDropDownLists();
-                log.Debug("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
             }
         }
         else
@@ -159,7 +159,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -175,7 +175,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -197,7 +197,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
             }
             catch (Exception ex)
             {
-                log.Debug("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
+                log.Info("Error while setting control's " + control.Controlid + " visibility: " + ex.Message);
             }
 
             if (Constants.CONTROL_TYPE_TEXTBOX.ToLower() == control.ControlType.ToLower())
@@ -212,7 +212,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
 
@@ -227,7 +227,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Error while setting control's " + control.Controlid + " text: " + ex.Message);
+                    log.Info("Error while setting control's " + control.Controlid + " text: " + ex.Message);
                 }
             }
         }
@@ -236,7 +236,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
-        log.Debug("Successfully set all Fields on page!");
+        log.Info("Successfully set all Fields on page!");
     }
 
     public static Control FindControlRecursive(Control Root, string Id)
@@ -549,7 +549,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                     if (SettingValue == Constants.SETTING_VALUE_TRUE)
                     {
                         GetUserAgentInformation(out userAgentBrowser, out userAgentStringApplicant, out userAgentOS, out userAgentIP);
-                        log.Debug("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
+                        log.Info("GetUserAgentInformation function. userAgentBrowser is " + userAgentBrowser + ". userAgentStringApplicant is " + userAgentStringApplicant + ". userAgentOS is " + userAgentOS + ". userAgentIP is " + userAgentIP);
                         PisMessServiceReference.IpGeolocationData ipGeolocationData = new PisMessServiceReference.IpGeolocationData();
                         try
                         {
@@ -563,7 +563,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                     }
                     else
                     {
-                        log.Debug("Geolocation is not active!");
+                        log.Info("Geolocation is not active!");
                     }
                     Session["zahtev-dobijanje-koda-deblokada-kartice-userAgentBrowser"] = userAgentBrowser;
                     Session["zahtev-dobijanje-koda-deblokada-kartice-userAgentStringApplicant"] = userAgentStringApplicant;
@@ -575,7 +575,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                     Session["zahtev-dobijanje-koda-deblokada-kartice-userAgentCity"] = userAgentCity;
                     Session["zahtev-dobijanje-koda-deblokada-kartice-userAgentISP"] = userAgentISP;
                     */
-                    log.Debug("Start sending first SOAP message with requestNumber.");
+                    log.Info("Start sending first SOAP message with requestNumber.");
 
                     BxSoapEnvelope envelope = new BxSoapEnvelopeRequestStatus();
                     //todo samo zameni
@@ -604,7 +604,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                     //Certificates.Add(new CertificateRequestStatus(4, "Production/Qualified Electronic Certificate Foreigner Legal Enitity.xml-dev", "requestUnblockWaiting"));
                     Session["zahtev-dobijanje-koda-deblokada-kartice-Certificates"] = Certificates;
 
-                    log.Debug("Successfully send first SOAP message with requestNumber.");
+                    log.Info("Successfully send first SOAP message with requestNumber.");
 
                     ddlListaSertifikata.Items.Clear();
 
@@ -676,7 +676,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                             }
                             else
                             {
-                                log.Debug("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa.");
+                                log.Info("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa.");
                                 ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
                             }
                         }
@@ -690,7 +690,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 catch (Exception ex)
                 {
-                    log.Debug("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa. " + ex.Message);
+                    log.Info("Za navedeni broj zahteva " + txtbrojzahteva.Text + "nema statusa. " + ex.Message);
                     ScriptManager.RegisterStartupScript(this, GetType(), "Notification", "Notification();", true);
                     //ScriptManager.RegisterStartupScript(this, GetType(), "erroralertSendSOAP", "erroralertSendSOAP();", true);
                     //log.Error("Error while sending request. " + ex.Message);
@@ -878,7 +878,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
 
             try
             {
-                log.Debug("Start sending second SOAP message with requestNumber and challenge.");
+                log.Info("Start sending second SOAP message with requestNumber and challenge.");
 
                 BxSoapEnvelope envelope = new BxSoapEnvelopeChallengeResponse();
                 //todo samo zameni
@@ -903,7 +903,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                     throw new Exception("Error. ChallengeResponses List is null. " + SOAPresponse);
                 }
 
-                log.Debug("Successfully send second SOAP message with requestNumber and challenge.");
+                log.Info("Successfully send second SOAP message with requestNumber and challenge.");
 
                 if (ChallengeResponses.Count > 0)
                 {
@@ -917,13 +917,13 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 }
                 else
                 {
-                    log.Debug("Za navedeni Challenge " + txtchallenge.Text + "ne postoji Response.");
+                    log.Info("Za navedeni Challenge " + txtchallenge.Text + "ne postoji Response.");
                     ScriptManager.RegisterStartupScript(this, GetType(), "NotificationResponse", "NotificationResponse();", true);
                 }
             }
             catch (Exception ex)
             {
-                log.Debug("Za navedeni Challenge " + txtchallenge.Text + "ne postoji Response. " + ex.Message);
+                log.Info("Za navedeni Challenge " + txtchallenge.Text + "ne postoji Response. " + ex.Message);
                 ScriptManager.RegisterStartupScript(this, GetType(), "NotificationResponse", "NotificationResponse();", true);
                 //ScriptManager.RegisterStartupScript(this, GetType(), "erroralertSendSOAP", "erroralertSendSOAP();", true);
                 //log.Error("Error while sending request. " + ex.Message);
