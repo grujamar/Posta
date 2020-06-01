@@ -56,13 +56,8 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 Container000.Visible = false;
                 Container0.Visible = false;
                 txtbrojzahteva.Text = string.Empty;
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+
+                GetAllControlOnPage();
             }
         }
         else
@@ -82,6 +77,24 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -224,6 +237,11 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
         }
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -274,6 +292,9 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
         {
             Session["provera-statusa-zahteva-TurnOnRequestNumberValidation"] = Constants.VALIDATION_FALSE;
         }
+
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtbrojzahteva " + Session["provera-statusa-zahteva-TurnOnRequestNumberValidation"].ToString().ToLower());
+
     }
 
     protected void SetUpIsRequiredTextBoxes()
@@ -298,6 +319,11 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 Session["provera-statusa-zahteva-txtSertifikatIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtstatus " + Session["provera-statusa-zahteva-txtstatusIsRequired"].ToString().ToLower() +
+                                                            " txtbrojzahteva " + Session["provera-statusa-zahteva-txtbrojzahtevaIsRequired"].ToString().ToLower() +
+                                                            " txtSertifikat " + Session["provera-statusa-zahteva-txtSertifikatIsRequired"].ToString().ToLower());
+
     }
 
     protected void SetUpIsRequiredDropDownLists()
@@ -314,6 +340,9 @@ public partial class provera_statusa_zahteva : System.Web.UI.Page
                 Session["provera-statusa-zahteva-ddlListaSertifikataIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlListaSertifikata " + Session["provera-statusa-zahteva-ddlListaSertifikataIsRequired"].ToString().ToLower());
+
     }
 
     //---------------------------------------------------------------

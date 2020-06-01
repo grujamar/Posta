@@ -144,6 +144,21 @@
                   </tr>
                 </tbody>                 
             </table>
+                <table>
+                    <tbody>
+                      <!-- [Promenjeno odavde 20200414] -->
+				      <tr style="font-size:13px;">
+                        <td><strong>VAŽNO:</strong> Ukoliko u trenutku ponošenja zahteva korisnik poseduje važeći kvalifikovani elektronski sertifikat, Zahtev i prateću dokumentaciju može podneti i elektronski. <br> Korisnik dostavlja Sertifikacionom telu Pošte u elektronskoj formi na e-mail adresu <a href="mailto:ceppfizickalica@posta.rs">ceppfizickalica@posta.rs</a> sledeća dokumenta:                                    
+                            <ul>
+                                <li>Popunjen i potpisan kvalifikovanim elektronskim sertifikatom korisnika Zahtev za izdavanje kvalifikovanog elektronskog sertifikata u .pdf formatu.</li>
+                                <li>Skeniranu ili fotografisanu kvalitetnu fotokopiju identifikacionog dokumenta (strana pasoša na kojoj su lični podaci).</li>
+                                <li>Skeniran ili fotografisan Nalog za uplatu kao potvrdu o izvršenom plaćanju.</li>
+			                </ul>
+			            </td>
+			        </tr>
+			        <!-- [Promenjeno do ovde 20200414] -->
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="row">

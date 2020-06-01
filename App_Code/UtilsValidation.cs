@@ -103,7 +103,7 @@ public static class UtilsValidation
                 k = false;
             else if (b[2] < 0 || b[2] > 999)                // GGG
                 k = false;
-            else if (b[3] < 0 || b[3] > 96)                  // RR
+            else if (b[3] < 0 || b[3] > 99)                  // RR
                 k = false;
             else if (b[3] == 66)                  // RR     //privremeni maticni brojevi za strance 66 - treba da prolaze bez kontrole
                 k = true;                                

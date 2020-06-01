@@ -246,7 +246,7 @@
         </div>
         <div class="row">
         </div>
-            <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
+            <!-------------------------------------------Hidden------------------------------------------------>
         <div class="container-fluid" id="myDiv8" runat="server" style="margin-left: 10px">
             <div class="row top10">
                 <div class="col-sm-2">
@@ -739,7 +739,7 @@
         </div>
         
         <!---------------------------------------------------------------------------------------------------------->
-        <!-------------------------------------------OVO SE NE VIDI------------------------------------------------->
+        <!-------------------------------------------Hidden------------------------------------------------->
         <div class="container-fluid" id="myDiv6" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
                 <div class="col-sm-2">
@@ -913,7 +913,7 @@
                                             <asp:CustomValidator runat="server" id="cvvrstadokumenta" controltovalidate="ddlvrstadokumenta" OnServerValidate="cvvrstadokumenta_ServerValidate" errormessage="" Display="Dynamic" ForeColor="Red" style="font-size:13px;" ValidateEmptyText="true"/>
                                         </div>
                                     </div>
-                                    <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
+                                    <!-------------------------------------------Hidden------------------------------------------------>
                                     <div class="row top10" id="myDiv1" runat="server">
                                         <div class="col-sm-2 d-flex-forme" style="background-color:white;">
                                             <div class="w-2-forme w-8-forme-md">

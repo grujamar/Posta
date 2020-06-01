@@ -110,15 +110,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 txtpak.TabIndex = -1;
                 SetFocusOnTextbox();
                 //------------------------------
-                //Get Control on all page
-                SetUpWSPWrapperService();
-                log.Info("successfully set WSPWrapperService Validation!");
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -138,6 +130,26 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpWSPWrapperService();
+            log.Info("successfully set WSPWrapperService Validation!");
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -303,6 +315,11 @@ public partial class zahtev_deblokada : System.Web.UI.Page
         }
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -345,6 +362,7 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             ValidateAjax(!TurnOnAjaxValidation);
             Session["Zahtev-promena-statusa-SetUpWSPWrapperService"] = !TurnOnAjaxValidation;
         }
+        log.Debug("SetUpWSPWrapperService parameters. SettingValue is " + SettingValue + " . TurnOnAjaxValidation " + Session["Zahtev-promena-statusa-SetUpWSPWrapperService"].ToString().ToLower());
     }
 
     //---------------------------------------------------------------
@@ -428,6 +446,18 @@ public partial class zahtev_deblokada : System.Web.UI.Page
             Session["Zahtev-promena-statusa-TurnOnPAKValidation"] = Constants.VALIDATION_FALSE;
             Session["Zahtev-promena-statusa-TurnOnSecondJIKValidation"] = Constants.VALIDATION_FALSE;
         }
+
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtadresaeposte " + Session["Zahtev-promena-statusa-TurnOnEmailValidation"].ToString().ToLower() +
+                                                                                            " txttelefon " + Session["Zahtev-promena-statusa-TurnOnPhoneValidation"].ToString().ToLower() +
+                                                                                            " txtmesto " + Session["Zahtev-promena-statusa-TurnOnCityValidation"].ToString().ToLower() +
+                                                                                            " txtime " + Session["Zahtev-promena-statusa-TurnOnNameValidation"].ToString().ToLower() +
+                                                                                            " txtprezime " + Session["Zahtev-promena-statusa-TurnOnSurnameValidation"].ToString().ToLower() +
+                                                                                            " txtulica " + Session["Zahtev-promena-statusa-TurnOnStreetValidation"].ToString().ToLower() +
+                                                                                            " txtbroj " + Session["Zahtev-promena-statusa-TurnOnHouseNumberValidation"].ToString().ToLower() +
+                                                                                            " txtpostanskibroj " + Session["Zahtev-promena-statusa-TurnOnPostNumberValidation"].ToString().ToLower() +
+                                                                                            " txtpak " + Session["Zahtev-promena-statusa-TurnOnPAKValidation"].ToString().ToLower() +
+                                                                                            " txtjik " + Session["Zahtev-promena-statusa-TurnOnSecondJIKValidation"].ToString().ToLower());
+
     }
 
     protected void ValidateAjax(bool TurnOnAjaxValidation)
@@ -494,6 +524,19 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 Session["zahtev-promena-statusa-txtjikIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtjmbgibrojpasosa " + Session["zahtev-promena-statusa-txtjmbgibrojpasosaIsRequired"].ToString().ToLower() +
+                                                            " txttelefon " + Session["zahtev-promena-statusa-txttelefonIsRequired"].ToString().ToLower() +
+                                                            " txtadresaeposte " + Session["zahtev-promena-statusa-txtadresaeposteIsRequired"].ToString().ToLower() +
+                                                            " txtmesto " + Session["zahtev-promena-statusa-txtmestoIsRequired"].ToString().ToLower() +
+                                                            " txtulica " + Session["zahtev-promena-statusa-txtulicaIsRequired"].ToString().ToLower() +
+                                                            " txtpostanskibroj " + Session["zahtev-promena-statusa-txtpostanskibrojIsRequired"].ToString().ToLower() +
+                                                            " txtime " + Session["zahtev-promena-statusa-txtimeIsRequired"].ToString().ToLower() +
+                                                            " txtprezime " + Session["zahtev-promena-statusa-txtprezimeIsRequired"].ToString().ToLower() +
+                                                            " txtbroj " + Session["zahtev-promena-statusa-txtbrojIsRequired"].ToString().ToLower() +
+                                                            " txtpak " + Session["zahtev-promena-statusa-txtpakIsRequired"].ToString().ToLower() +
+                                                            " txtkarticatoken " + Session["zahtev-promena-statusa-txtkarticatokenIsRequired"].ToString().ToLower() +
+                                                            " txtjik " + Session["zahtev-promena-statusa-txtjikIsRequired"].ToString().ToLower());
     }
 
     protected void SetUpIsRequiredDropDownLists()
@@ -510,6 +553,8 @@ public partial class zahtev_deblokada : System.Web.UI.Page
                 Session["zahtev-promena-statusa-ddlnacinplacanjaIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlnacinplacanja " + Session["zahtev-promena-statusa-ddlnacinplacanjaIsRequired"].ToString().ToLower());
     }
 
     //---------------------------------------------------------------

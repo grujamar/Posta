@@ -24,6 +24,7 @@ public partial class zahtev_izdavanje_fizicko_lice_podnet : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
+            
             if (Session["zahtev-izdavanje-fizicko-lice-brojzahteva"] != null)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "requestsend();", true);

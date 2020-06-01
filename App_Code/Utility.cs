@@ -788,7 +788,7 @@ public class Utility
             }
         }
         OrderNumber = LastUsed + IDOrderNumber;
-        log.Error("Last used is: " + LastUsed + ". OrderNumber is: " + OrderNumber);
+        log.Info("Last used is: " + LastUsed + ". OrderNumber is: " + OrderNumber);
         return OrderNumber;
     }
 
@@ -1492,5 +1492,39 @@ WHERE        (dbo.TypeOfItem.IDTypeOfItem = @idtypeofitem) AND (dbo.Item.ItemTex
         }
 
         return response;
+    }
+
+    public string getItemTextActivityCode(string itemText, bool active)
+    {
+        string ItemText = string.Empty;
+
+        string upit = @"SELECT        ItemText
+                        FROM            dbo.Item
+                        WHERE        (ItemText = @itemtext) AND (Active = @active)";
+
+        using (SqlConnection objConn = new SqlConnection(postaconnectionstring))
+        {
+            using (SqlCommand objCmd = new SqlCommand(upit, objConn))
+            {
+                try
+                {
+                    objCmd.CommandType = System.Data.CommandType.Text;
+                    objCmd.Parameters.AddWithValue("@itemText", itemText);
+                    objCmd.Parameters.AddWithValue("@active", active);
+                    objConn.Open();
+                    SqlDataReader reader = objCmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        ItemText = reader.GetString(0);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error while getting ItemText Activity Code. " + ex.Message);
+                    throw new Exception("Error while getting ItemText Activity Code. " + ex.Message);
+                }
+            }
+            return ItemText;
+        }
     }
 }

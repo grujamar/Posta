@@ -52,13 +52,7 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
             {
                 ContainerFirstState();
 
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -78,6 +72,24 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -233,6 +245,11 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
         }
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -283,6 +300,8 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
         {
             Session["zahtev-dobijanje-koda-deblokada-kartice-TurnOnRequestNumberValidation"] = Constants.VALIDATION_FALSE;
         }
+
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtbrojzahteva " + Session["zahtev-dobijanje-koda-deblokada-kartice-TurnOnRequestNumberValidation"].ToString().ToLower());
     }
 
     protected void SetUpIsRequiredTextBoxes()
@@ -319,6 +338,13 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 Session["zahtev-dobijanje-koda-deblokada-kartice-txtresponseIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtstatus " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtstatusIsRequired"].ToString().ToLower() +
+                                                            " txtobavestenje " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtobavestenjeIsRequired"].ToString().ToLower() +
+                                                            " txtbrojzahteva " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtbrojzahtevaIsRequired"].ToString().ToLower() +
+                                                            " txtSertifikat " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtSertifikatIsRequired"].ToString().ToLower() +
+                                                            " txtchallenge " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtchallengeIsRequired"].ToString().ToLower() +
+                                                            " txtresponse " + Session["zahtev-dobijanje-koda-deblokada-kartice-txtresponseIsRequired"].ToString().ToLower());
     }
 
     protected void SetUpIsRequiredDropDownLists()
@@ -335,6 +361,8 @@ public partial class kod_za_deblokadu : System.Web.UI.Page
                 Session["zahtev-dobijanje-koda-deblokada-kartice-ddlListaSertifikataIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlListaSertifikata " + Session["zahtev-dobijanje-koda-deblokada-kartice-ddlListaSertifikataIsRequired"].ToString().ToLower());
     }
 
     //---------------------------------------------------------------

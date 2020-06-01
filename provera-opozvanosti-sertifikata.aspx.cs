@@ -148,13 +148,7 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
                 txtjik01.TabIndex = -1;
                 SetFocusOnRadioButton();
                 //------------------------------
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -176,8 +170,25 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
             }
         }
 
-
         SetObjectDataSourceParameterRevocationCheckTypeOne();
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
+        }
     }
 
     protected void SetPageOnBeginning()
@@ -489,6 +500,11 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
         ddlimeizdavaoca.Enabled = Convert.ToBoolean(Session["provera-opozvanosti-sertifikata-ddlimeizdavaoca"]);
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -536,6 +552,7 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
         {
             Session["provera-opozvanosti-sertifikata-TurnOnSerialNumberValidation"] = Constants.VALIDATION_FALSE;
         }
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtserialno " + Session["provera-opozvanosti-sertifikata-TurnOnSerialNumberValidation"].ToString().ToLower());
     }
     //---------------------------------------------------------------
     //---------------------------------------------------------------
@@ -614,6 +631,24 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
                 Session["provera-opozvanosti-sertifikata-txtcheckingurlIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtserialno " + Session["provera-opozvanosti-sertifikata-txtserialnoIsRequired"].ToString().ToLower() +
+                                                            " txtserijskibroj02 " + Session["provera-opozvanosti-sertifikata-txtserijskibroj02IsRequired"].ToString().ToLower() +
+                                                            " txtime02 " + Session["provera-opozvanosti-sertifikata-txtime02IsRequired"].ToString().ToLower() +
+                                                            " txtprezime02 " + Session["provera-opozvanosti-sertifikata-txtprezime02IsRequired"].ToString().ToLower() +
+                                                            " txtjik01 " + Session["provera-opozvanosti-sertifikata-txtjik01IsRequired"].ToString().ToLower() +
+                                                            " txtrevocationaddress " + Session["provera-opozvanosti-sertifikata-txtrevocationaddressIsRequired"].ToString().ToLower() +
+                                                            " txtserijskibrojsert " + Session["provera-opozvanosti-sertifikata-txtserijskibrojsertIsRequired"].ToString().ToLower() +
+                                                            " txtstatussert " + Session["provera-opozvanosti-sertifikata-txtstatussertIsRequired"].ToString().ToLower() +
+                                                            " txtrazlogopozivasert " + Session["provera-opozvanosti-sertifikata-txtrazlogopozivasertIsRequired"].ToString().ToLower() +
+                                                            " txtdatumvremeopozivasert " + Session["provera-opozvanosti-sertifikata-txtdatumvremeopozivasertIsRequired"].ToString().ToLower() +
+                                                            " txtdatumvremekompromitovanjasert " + Session["provera-opozvanosti-sertifikata-txtdatumvremekompromitovanjasertIsRequired"].ToString().ToLower() +
+                                                            " txtimeizdavaoca " + Session["provera-opozvanosti-sertifikata-txtimeizdavaocaIsRequired"].ToString().ToLower() +
+                                                            " txtimeservera " + Session["provera-opozvanosti-sertifikata-txtimeserveraIsRequired"].ToString().ToLower() +
+                                                            " txtnacinprovere " + Session["provera-opozvanosti-sertifikata-txtnacinprovereIsRequired"].ToString().ToLower() +
+                                                            " txtdatumvremesprovedeneprovere " + Session["provera-opozvanosti-sertifikata-txtdatumvremesprovedeneprovereIsRequired"].ToString().ToLower() +
+                                                            " txtcheckingurl " + Session["provera-opozvanosti-sertifikata-txtcheckingurlIsRequired"].ToString().ToLower());
+
     }
 
 
@@ -631,6 +666,8 @@ public partial class provera_opozvanosti_sertifikata : System.Web.UI.Page
                 Session["provera-opozvanosti-sertifikata-ddlimeizdavaocaIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlimeizdavaoca " + Session["provera-opozvanosti-sertifikata-ddlimeizdavaocaIsRequired"].ToString().ToLower());
     }
 
     //---------------------------------------------------------------

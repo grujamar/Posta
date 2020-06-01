@@ -229,4 +229,7 @@ public class Constants
     public const string PASSWORD = "Password";
 
     public const string GLOBAL_WSPWrapperService = "WSPWrapperService";
+
+    ///////////////////////////////////////
+    public const bool ACTIVITY_CODE_TRUE = true;
 }

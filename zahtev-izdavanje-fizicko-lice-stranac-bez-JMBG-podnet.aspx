@@ -141,8 +141,24 @@
                     </asp:Label></td>
                     <td><asp:Label id="lblnotification13" runat="server" style="font-size:13px;">                                    
                     </asp:Label></td>
-                  </tr>
+                  </tr> 
                 </tbody>                 
+            </table>
+            <table>
+                <tbody>
+                    <!-- [Promenjeno odavde 20200414] -->
+				  <tr>
+                    <td style="font-size:13px;">
+                         <strong>VAŽNO:</strong> Ukoliko u trenutku ponošenja zahteva korisnik poseduje važeći kvalifikovani elektronski sertifikat, Zahtev i prateću dokumentaciju može podneti i elektronski. <br> Korisnik dostavlja Sertifikacionom telu Pošte u elektronskoj formi na e-mail adresu <a href="mailto:ceppfizickalica@posta.rs">ceppfizickalica@posta.rs</a> sledeća dokumenta:                                    
+                         <ul>
+                            <li>Popunjen i potpisan kvalifikovanim elektronskim sertifikatom korisnika Zahtev za izdavanje kvalifikovanog elektronskog sertifikata u .pdf formatu.</li>
+                            <li>Skeniranu ili fotografisanu kvalitetnu fotokopiju identifikacionog dokumenta (obe strane lične karte bez čipa ili treće strane pasoša) ili datoteka sa očitanim podacima iz lične karte sa čipom.</li>
+                            <li>Skeniran ili fotografisan Nalog za uplatu kao potvrdu o izvršenom plaćanju.</li>
+			             </ul>
+                    </td>
+			      </tr>
+			      <!-- [Promenjeno do ovde 20200414] -->
+                </tbody>
             </table>
             </div>
         </div>

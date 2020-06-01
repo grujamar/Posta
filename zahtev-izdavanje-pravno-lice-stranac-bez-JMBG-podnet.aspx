@@ -100,10 +100,10 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="row">
-                        <div class="col-xs-12 col-lg-6 col-xxxl-4 margin-top-bottom">
+                        <div runat="server" id="ContractLegalEntity" class="col-xs-12 col-lg-6 col-xxxl-4 margin-top-bottom">
                             <asp:HyperLink ID="btnContractLegalEntity" runat="server" download="" target="_blank" class="btn-lg btn-default submit" onclick="unhook();" style="margin-right: 8px;" Text=""/>
                         </div>
-                        <div class="col-xs-12 col-lg-6 col-xxxl-4 margin-top-bottom margin-left-middle">
+                        <div runat="server" id="ContractState" class="col-xs-12 col-lg-6 col-xxxl-4 margin-top-bottom margin-left-middle">
                             <asp:HyperLink ID="btnContractState" runat="server" download="" target="_blank" class="btn-lg btn-default submit" onclick="unhook();" style="margin-right: 8px;" Text=""/> 
                         </div>
                         <div class="col-xs-12 col-lg-12 col-xxxl-4 margin-top-bottom margin-left-last">

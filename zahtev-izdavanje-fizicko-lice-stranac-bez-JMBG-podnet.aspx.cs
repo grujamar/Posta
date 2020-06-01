@@ -23,6 +23,7 @@ public partial class zahtev_izdavanje_fizicko_lice_stranac_bez_JMBG_podnet : Sys
 
         if (!Page.IsPostBack)
         {
+            
             if (Session["zahtev-izdavanje-fizicko-lice-stranac-bez-JMBG-brojzahteva"] != null)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", "requestsend();", true);

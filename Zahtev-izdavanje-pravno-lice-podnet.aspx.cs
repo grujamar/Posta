@@ -36,6 +36,27 @@ public partial class zahtev_izdavanje_pravno_lice_podnet : System.Web.UI.Page
                 btnContractState.NavigateUrl = @NavigateUrlContractState;
                 string NavigateUrlContractAtachment = Utils.ConvertToTildaPath(Session["zahtev-izdavanje-pravno-lice-filename"].ToString());
                 btnContractAtachment.NavigateUrl = @NavigateUrlContractAtachment;
+
+                try
+                {
+                    string activityCode = utility.getItemTextActivityCode(Session["zahtev-izdavanje-pravno-lice-sifradel"].ToString(), Constants.ACTIVITY_CODE_TRUE);
+                    if (activityCode != string.Empty)
+                    {
+                        //za sifre delatnosti
+                        //Preuzmi ugovor za državni organ i Preuzmi prilog ugovora
+                        ContractLegalEntity.Visible = false;
+                    }
+                    else
+                    {
+                        //za ostale sifre
+                        //Preuzmi ugovor za pravno lice i opštinu i Preuzmi prilog ugovora
+                        ContractState.Visible = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error while checking activity code. " + ex.Message);
+                }
             }
             else
             {

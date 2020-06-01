@@ -61,13 +61,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 Session["Preuzimanje-softverskog-sertifikata-pkcs12-event_controle"] = txtbrojzahteva;
                 SetFocusOnTextbox();
                 //------------------------------
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -87,6 +81,24 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -196,6 +208,11 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
         }
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -243,6 +260,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
         {
             Session["Preuzimanje-softverskog-sertifikata-pkcs12-TurnOnRequestNumberValidation"] = Constants.VALIDATION_FALSE;
         }
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtbrojzahteva " + Session["Preuzimanje-softverskog-sertifikata-pkcs12-TurnOnRequestNumberValidation"].ToString().ToLower());
     }
 
 
@@ -269,9 +287,12 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 Session["Preuzimanje-softverskog-sertifikata-pkcs12-txtdatotekasertIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtbrojzahteva " + Session["Preuzimanje-softverskog-sertifikata-pkcs12-txtbrojzahtevaIsRequired"].ToString().ToLower() +
+                                                    " txtkodovipreuzimanje " + Session["Preuzimanje-softverskog-sertifikata-pkcs12-txtkodovipreuzimanjeIsRequired"].ToString().ToLower() +
+                                                    " txtdatotekasert " + Session["Preuzimanje-softverskog-sertifikata-pkcs12-txtdatotekasertIsRequired"].ToString().ToLower());
     }
 
- 
     protected void SetUpIsRequiredDropDownLists()
     {
         Utility utility1 = new Utility();
@@ -286,6 +307,7 @@ public partial class preuzimanje_sertifikata_pkcs12 : System.Web.UI.Page
                 Session["Preuzimanje-softverskog-sertifikata-pkcs12-ddlnacinslanjaIsRequired"] = control.IsRequired;
             }
         }
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlnacinslanja " + Session["Preuzimanje-softverskog-sertifikata-pkcs12-ddlnacinslanjaIsRequired"].ToString().ToLower());
     }
 
     //---------------------------------------------------------------

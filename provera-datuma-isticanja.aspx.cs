@@ -139,13 +139,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 txtdatumsiteka.TabIndex = -1;
                 SetFocusOnRadioButton();
                 //------------------------------
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                //SetUpIsRequiredDropDownLists();
-                log.Info("Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -165,6 +159,24 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            //SetUpIsRequiredDropDownLists();
+            log.Info("Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -475,6 +487,11 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         }
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -525,6 +542,7 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
         {
             Session["zahtev-provera-datuma-isticanja-sertifikata-TurnOnJIKValidation"] = Constants.VALIDATION_FALSE;
         }
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtjik " + Session["zahtev-provera-datuma-isticanja-sertifikata-TurnOnJIKValidation"].ToString().ToLower());
     }
 
     protected void SetUpIsRequiredTextBoxes()
@@ -561,6 +579,14 @@ public partial class provera_datuma_isticanja : System.Web.UI.Page
                 Session["zahtev-provera-datuma-isticanja-sertifikata-txtdatumsitekaIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtjik " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtjikIsRequired"].ToString().ToLower() +
+                                                    " txtserijskibroj02 " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtserijskibroj02IsRequired"].ToString().ToLower() +
+                                                    " txtime " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtimeIsRequired"].ToString().ToLower() +
+                                                    " txtprezime " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtprezimeIsRequired"].ToString().ToLower() +
+                                                    " txtdatumizdavanja " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtdatumizdavanjaIsRequired"].ToString().ToLower() +
+                                                    " txtdatumsiteka " + Session["zahtev-provera-datuma-isticanja-sertifikata-txtdatumsitekaIsRequired"].ToString().ToLower());
+
     }
 
     /*

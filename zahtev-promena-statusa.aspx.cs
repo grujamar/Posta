@@ -167,15 +167,9 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 txtjik01.TabIndex = 0;
                 txtime02.TabIndex = -1;
                 txtserijskibroj02.TabIndex = -1;
-                txtprezime02.TabIndex = -1;               
+                txtprezime02.TabIndex = -1;
                 //------------------------------
-                //Get Control on all page
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxes();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownLists();
-                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+                GetAllControlOnPage();
             }
         }
         else
@@ -197,6 +191,25 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             }
         }
     }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxes();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownLists();
+            log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
+        }
+    }
+
 
     protected void RadioButtonsDropdownListsTrue()
     {
@@ -532,6 +545,11 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
         rbAutomatikJik.Enabled = Convert.ToBoolean(Session["zahtev-promena-statusa-sertifikata-rbAutomatikJIK"]);
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -659,6 +677,22 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
             Session["zahtev-promena-statusa-sertifikata-TurnOnJIKValidation"] = Constants.VALIDATION_FALSE;
             Session["zahtev-promena-statusa-sertifikata-TurnOnSecondJIKValidation"] = Constants.VALIDATION_FALSE;
         }
+
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtpib " + Session["zahtev-promena-statusa-sertifikata-TurnOnPIBValidation"].ToString().ToLower() +
+                                                                                            " txtjmbg " + Session["zahtev-promena-statusa-sertifikata-TurnOnJMBGValidation"].ToString().ToLower() +
+                                                                                            " txtadresaeposte " + Session["zahtev-promena-statusa-sertifikata-TurnOnEmailValidation"].ToString().ToLower() +
+                                                                                            " txttelefon " + Session["zahtev-promena-statusa-sertifikata-TurnOnPhoneValidation"].ToString().ToLower() +
+                                                                                            " txtmaticnibroj " + Session["zahtev-promena-statusa-sertifikata-TurnOnRegistrationNumberValidation"].ToString().ToLower() +
+                                                                                            " txtime " + Session["zahtev-promena-statusa-sertifikata-TurnOnNameValidation"].ToString().ToLower() +
+                                                                                            " txtprezime " + Session["zahtev-promena-statusa-sertifikata-TurnOnSurnameValidation"].ToString().ToLower() +
+                                                                                            " txtimezz " + Session["zahtev-promena-statusa-sertifikata-TurnOnNameZZValidation"].ToString().ToLower() +
+                                                                                            " txtprezimezz " + Session["zahtev-promena-statusa-sertifikata-TurnOnSurnameZZValidation"].ToString().ToLower() +
+                                                                                            " txtostalo " + Session["zahtev-promena-statusa-sertifikata-TurnOnTheRestValidation"].ToString().ToLower() +
+                                                                                            " txtdrugo " + Session["zahtev-promena-statusa-sertifikata-TurnOnOtherValidation"].ToString().ToLower() +
+                                                                                            " txtnazivpravnoglica " + Session["zahtev-promena-statusa-sertifikata-TurnOnLegalEntityNameValidation"].ToString().ToLower() +
+                                                                                            " txtjik01 " + Session["zahtev-promena-statusa-sertifikata-TurnOnJIKValidation"].ToString().ToLower() +
+                                                                                            " txtjik " + Session["zahtev-promena-statusa-sertifikata-TurnOnSecondJIKValidation"].ToString().ToLower());
+
     }
 
     protected void SetUpIsRequiredTextBoxes()
@@ -747,6 +781,27 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 Session["zahtev-promena-statusa-sertifikata-txtmaticnibrojIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxes parameters. All controls: txtjik01 " + Session["zahtev-promena-statusa-sertifikata-txtjik01IsRequired"].ToString().ToLower() +
+                                                            " txtserijskibroj02 " + Session["zahtev-promena-statusa-sertifikata-txtserijskibroj02IsRequired"].ToString().ToLower() +
+                                                            " txtime02 " + Session["zahtev-promena-statusa-sertifikata-txtime02IsRequired"].ToString().ToLower() +
+                                                            " txtprezime02 " + Session["zahtev-promena-statusa-sertifikata-txtprezime02IsRequired"].ToString().ToLower() +
+                                                            " txtjik " + Session["zahtev-promena-statusa-sertifikata-txtjikIsRequired"].ToString().ToLower() +
+                                                            " txtime " + Session["zahtev-promena-statusa-sertifikata-txtimeIsRequired"].ToString().ToLower() +
+                                                            " txtprezime " + Session["zahtev-promena-statusa-sertifikata-txtprezimeIsRequired"].ToString().ToLower() +
+                                                            " txtnazivpravnoglica " + Session["zahtev-promena-statusa-sertifikata-txtnazivpravnoglicaIsRequired"].ToString().ToLower() +
+                                                            " txtimezz " + Session["zahtev-promena-statusa-sertifikata-txtimezzIsRequired"].ToString().ToLower() +
+                                                            " txtprezimezz " + Session["zahtev-promena-statusa-sertifikata-txtprezimezzIsRequired"].ToString().ToLower() +
+                                                            " txtdatumgubitka " + Session["zahtev-promena-statusa-sertifikata-txtdatumgubitkaIsRequired"].ToString().ToLower() +
+                                                            " txtdatumcompromise " + Session["zahtev-promena-statusa-sertifikata-txtdatumcompromiseIsRequired"].ToString().ToLower() +
+                                                            " txtdrugo " + Session["zahtev-promena-statusa-sertifikata-txtdrugoIsRequired"].ToString().ToLower() +
+                                                            " txtostalo " + Session["zahtev-promena-statusa-sertifikata-txtostaloIsRequired"].ToString().ToLower() +
+                                                            " txtjmbg " + Session["zahtev-promena-statusa-sertifikata-txtjmbgIsRequired"].ToString().ToLower() +
+                                                            " txtadresaeposte " + Session["zahtev-promena-statusa-sertifikata-txtadresaeposteIsRequired"].ToString().ToLower() +
+                                                            " txttelefon " + Session["zahtev-promena-statusa-sertifikata-txttelefonIsRequired"].ToString().ToLower() +
+                                                            " txtpib " + Session["zahtev-promena-statusa-sertifikata-txtpibIsRequired"].ToString().ToLower() +
+                                                            " txtmaticnibroj " + Session["zahtev-promena-statusa-sertifikata-txtmaticnibrojIsRequired"].ToString().ToLower());
+
     }
 
     protected void SetUpIsRequiredDropDownLists()
@@ -767,6 +822,10 @@ public partial class zahtev_promena_statusa : System.Web.UI.Page
                 Session["zahtev-promena-statusa-sertifikata-ddlnacinpromeneIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownLists parameters. All controls: ddlLegalEntityName " + Session["zahtev-promena-statusa-sertifikata-ddlLegalEntityNameIsRequired"].ToString().ToLower() +
+                                                            " ddlnacinpromene " + Session["zahtev-promena-statusa-sertifikata-ddlnacinpromeneIsRequired"].ToString().ToLower());
+
     }
 
     //---------------------------------------------------------------

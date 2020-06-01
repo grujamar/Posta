@@ -85,6 +85,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
             if (!Page.IsPostBack)
             {
+                Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-sifradel"] = string.Empty;
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlobveznikpdv"] = true;
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlimedrzave"] = true;
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-sertadresa"] = true;
@@ -130,15 +131,8 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
                 SetInitialRow();
                 GridView1.Columns[7].Visible = false;
-                //Get Control on all page
-                SetUpWSPWrapperService();
-                log.Info("successfully set WSPWrapperService Validation!");
-                SetUpValidation();
-                log.Info("successfully set Validation!");
-                SetUpIsRequiredTextBoxesSecondPart();
-                log.Info("successfully set RequiredTextBoxes!");
-                SetUpIsRequiredDropDownListsSecondPart();
-                log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+
+                GetAllControlOnPage();
             }
         }
         else
@@ -158,6 +152,26 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 checkedParameters = checkedParameters.Replace("+", "%252b");
                 Response.Redirect(string.Format("~/" + pageName + "?d={0}", checkedParameters), false);
             }
+        }
+    }
+
+    private void GetAllControlOnPage()
+    {
+        try
+        {
+            //Get Control on all page
+            SetUpWSPWrapperService();
+            log.Info("successfully set WSPWrapperService Validation!");
+            SetUpValidation();
+            log.Info("successfully set Validation!");
+            SetUpIsRequiredTextBoxesSecondPart();
+            log.Info("successfully set RequiredTextBoxes!");
+            SetUpIsRequiredDropDownListsSecondPart();
+            log.Info("successfully set RequiredDropDownLists!...Application Starting, successfully get all controls!");
+        }
+        catch (Exception ex)
+        {
+            log.Error("Error in GetAllControlOnPage. " + ex);
         }
     }
 
@@ -327,6 +341,11 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
         rbWriteName.Enabled = Convert.ToBoolean(Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-rbWriteName"]);
     }
 
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        GetAllControlOnPage();
+    }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         SetUpAllFields();
@@ -372,6 +391,7 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             ValidateAjax2(!TurnOnAjax2Validation);
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"] = !TurnOnAjax1Validation;
         }
+        log.Debug("SetUpWSPWrapperService parameters. SettingValue is " + SettingValue + " . TurnOnAjaxValidation " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-SetUpWSPWrapperService"].ToString().ToLower());
     }
 
 
@@ -546,6 +566,36 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnIssueDateValidation"] = Constants.VALIDATION_FALSE;
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnExpiryDateValidation"] = Constants.VALIDATION_FALSE;
         }
+
+        log.Debug("SetUpValidation parameters. GLOBAL_VALIDATION " + SettingValue + " . All controls: txtmaticnibroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnRegistrationNumberValidation"].ToString().ToLower() +
+                                                                                    " txtwritename " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnWriteNameValidation"].ToString().ToLower() +
+                                                                                    " txtpib " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPIBValidation"].ToString().ToLower() +
+                                                                                    " txtmesto " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation"].ToString().ToLower() +
+                                                                                    " txtkontakttel " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPhone1Validaiton"].ToString().ToLower() +
+                                                                                    " txtadresaeposte " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnEmail1Validation"].ToString().ToLower() +
+                                                                                    " txtwebadresa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnURLValidation"].ToString().ToLower() +
+                                                                                    " txtnazivpravnoglica " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnLegalEntityNameValidation"].ToString().ToLower() +
+                                                                                    " txtsifradel " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnActivityCodeValidation"].ToString().ToLower() +
+                                                                                    " txtulica " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnStreetValidation"].ToString().ToLower() +
+                                                                                    " txtbroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnHouseNumberValidation"].ToString().ToLower() +
+                                                                                    " txtpostanskibroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPostNumberValidation"].ToString().ToLower() +
+                                                                                    " txtpak " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPAKValidation"].ToString().ToLower() +
+                                                                                    " txtimezz " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnNameZZValidation"].ToString().ToLower() +
+                                                                                    " txtprezimezz " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnSurnameZZValidation"].ToString().ToLower() +
+                                                                                    " txtmesto1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnCityValidation1"].ToString().ToLower() +
+                                                                                    " txtadresaeposte1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnEmail2Validation"].ToString().ToLower() +
+                                                                                    " txttelefon " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPhone2Validation"].ToString().ToLower() +
+                                                                                    " txtime " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnNameValidation"].ToString().ToLower() +
+                                                                                    " txtprezime " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnSurnameValidation"].ToString().ToLower() +
+                                                                                    " txtbrojpasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPassportNumberValidation"].ToString().ToLower() +
+                                                                                    " txtulica1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnStreetValidation1"].ToString().ToLower() +
+                                                                                    " txtbroj1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnHouseNumberValidation1"].ToString().ToLower() +
+                                                                                    " txtpostanskibroj1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPostNumberValidation1"].ToString().ToLower() +
+                                                                                    " txtpak1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnPAKValidation1"].ToString().ToLower() +
+                                                                                    " txtdatumizdavanjapasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnIssueDateValidation"].ToString().ToLower() +
+                                                                                    " txtdatumistekapasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-TurnOnExpiryDateValidation"].ToString().ToLower());
+
+
     }
 
     protected void ValidateAjax1(bool TurnOnAjax1Validation)
@@ -624,6 +674,20 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             }
         }
 
+        log.Debug("SetUpIsRequiredTextBoxesSecondPart parameters. All controls: txtmesto1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtmesto1IsRequired"].ToString().ToLower() +
+                                                                    " txtime " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtimeIsRequired"].ToString().ToLower() +
+                                                                    " txtprezime " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtprezimeIsRequired"].ToString().ToLower() +
+                                                                    " txtdatumrodjenja " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumrodjenjaIsRequired"].ToString().ToLower() +
+                                                                    " txtbrojpasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtbrojpasosaIsRequired"].ToString().ToLower() +
+                                                                    " txtdatumizdavanjapasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumizdavanjapasosaIsRequired"].ToString().ToLower() +
+                                                                    " txtdatumistekapasosa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtdatumistekapasosaIsRequired"].ToString().ToLower() +
+                                                                    " txtadresaeposte1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtadresaeposte1IsRequired"].ToString().ToLower() +
+                                                                    " txttelefon " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txttelefonIsRequired"].ToString().ToLower() +
+                                                                    " txtulica1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtulica1IsRequired"].ToString().ToLower() +
+                                                                    " txtbroj1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtbroj1IsRequired"].ToString().ToLower() +
+                                                                    " txtpostanskibroj1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtpostanskibroj1IsRequired"].ToString().ToLower() +
+                                                                    " txtpak1 " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtpak1IsRequired"].ToString().ToLower());
+
         SetUpIsRequiredTextBoxesFirstPart(Controls);
     }
 
@@ -692,6 +756,22 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtprezimezzIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredTextBoxesFirstPart parameters. All controls: txtmaticnibroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtmaticnibrojIsRequired"].ToString().ToLower() +
+                                                                    " txtnazivpravnoglica " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtnazivpravnoglicaIsRequired"].ToString().ToLower() +
+                                                                    " txtwritename " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtwritenameIsRequired"].ToString().ToLower() +
+                                                                    " txtpib " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtpibIsRequired"].ToString().ToLower() +
+                                                                    " txtsifradel " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtsifradelIsRequired"].ToString().ToLower() +
+                                                                    " txtmesto " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtmestoIsRequired"].ToString().ToLower() +
+                                                                    " txtulica " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtulicaIsRequired"].ToString().ToLower() +
+                                                                    " txtbroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtbrojIsRequired"].ToString().ToLower() +
+                                                                    " txtpostanskibroj " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtpostanskibrojIsRequired"].ToString().ToLower() +
+                                                                    " txtpak " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtpakIsRequired"].ToString().ToLower() +
+                                                                    " txtkontakttel " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtkontakttelIsRequired"].ToString().ToLower() +
+                                                                    " txtadresaeposte " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtadresaeposteIsRequired"].ToString().ToLower() +
+                                                                    " txtwebadresa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtwebadresaIsRequired"].ToString().ToLower() +
+                                                                    " txtimezz " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtimezzIsRequired"].ToString().ToLower() +
+                                                                    " txtprezimezz " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-txtprezimezzIsRequired"].ToString().ToLower());
     }
 
     protected void SetUpIsRequiredDropDownListsSecondPart()
@@ -721,6 +801,11 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
             }
         }
 
+        log.Debug("SetUpIsRequiredDropDownListsSecondPart parameters. All controls: ddlimedrzave " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlimedrzaveIsRequired"].ToString().ToLower() +
+                                                            " ddlsertadresa " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlsertadresaIsRequired"].ToString().ToLower() +
+                                                            " ddlrokkoriscenjasert " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlrokkoriscenjasertIsRequired"].ToString().ToLower() +
+                                                            " ddlmedijsert " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlmedijsertIsRequired"].ToString().ToLower());
+
         SetUpIsRequiredDropDownListsFirstPart(Controls);
     }
 
@@ -737,6 +822,9 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
                 Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlobveznikpdvIsRequired"] = control.IsRequired;
             }
         }
+
+        log.Debug("SetUpIsRequiredDropDownListsFirstPart parameters. All controls: ddlLegalEntityName " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlLegalEntityNameIsRequired"].ToString().ToLower() +
+                                                                        " ddlobveznikpdv " + Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-ddlobveznikpdvIsRequired"].ToString().ToLower());
     }
     //---------------------------------------------------------------
     //---------------------------------------------------------------
@@ -3432,6 +3520,9 @@ public partial class zahtev_izdavanje_pravno_lice_stranac_bez_JMBG : System.Web.
 
             //string filename = CreateDocumentLegalEntityContractAttachment(utility1, pisMess, documentParameters, certificatesAuthorizedUsers);
             Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-filename"] = CreateDocumentLegalEntityContractAttachmentTask.Result;
+
+            //sifra delatnosti pravno lice stranas bez JMBG
+            Session["zahtev-izdavanje-pravno-lice-stranac-bez-JMBG-sifradel"] = txtsifradel.Text;
 
             log.Info("Finished creating PDF files!");
 

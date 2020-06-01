@@ -230,7 +230,7 @@
             <asp:Image ID="pdfdocument" imageurl="~/Content/Images/pdf_icon.png" runat="server" style="width:20px;" />
             <asp:HyperLink id="pdfhyperlink1" runat="server" NavigateUrl="~/dokumentacija/Uputstvo-promena-statusa.pdf" target="_blank" style="vertical-align:bottom"><asp:Label id="lblkorisniskouputstvo" runat="server" style="font-size:15px;"></asp:Label></asp:HyperLink>
         </div>
-        <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
+        <!-------------------------------------------Hidden------------------------------------------------>
         <div class="container-fluid" id="myDiv1" runat="server" style="margin-left: 10px">
             <div class="row">
                 <br />
@@ -722,7 +722,7 @@
     <div class="row">
         <br />
     </div>
-        <!-------------------------------------------OVO SE NE VIDI------------------------------------------------>
+        <!-------------------------------------------Hidden------------------------------------------------>
         <div class="container-fluid" id="myDiv6" runat="server" style="margin-left: 10px; background-color:#f5f5f5;">
             <div class="row top20">
                 <div class="col-sm-2">
